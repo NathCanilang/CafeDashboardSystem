@@ -110,6 +110,8 @@
             this.GenerateMonthlyReportBtn = new System.Windows.Forms.Button();
             this.WeeklyReportPanel = new System.Windows.Forms.Panel();
             this.ComputedSalesWeeklyTbl = new System.Windows.Forms.DataGridView();
+            this.WeeklyDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WeeklSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MostSalesWeeklyTbl = new System.Windows.Forms.DataGridView();
             this.WeeklyDGV = new System.Windows.Forms.DataGridView();
             this.GenerateWeeklyReportBtn = new System.Windows.Forms.Button();
@@ -127,8 +129,6 @@
             this.DailyLbl = new System.Windows.Forms.Label();
             this.AdminControlsCL = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.SalesControlCL = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
-            this.WeeklyDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WeeklSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.MainPanelsCL)).BeginInit();
             this.LoginPanelContainer.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -179,7 +179,7 @@
             this.MainPanelsCL.SetMinimumSize(this.LoginPanelContainer, new System.Drawing.Size(200, 100));
             this.LoginPanelContainer.Name = "LoginPanelContainer";
             this.MainPanelsCL.SetPreferredSize(this.LoginPanelContainer, new System.Drawing.Size(200, 100));
-            this.LoginPanelContainer.Size = new System.Drawing.Size(1283, 653);
+            this.LoginPanelContainer.Size = new System.Drawing.Size(1284, 661);
             this.LoginPanelContainer.TabIndex = 0;
             // 
             // panel1
@@ -251,7 +251,7 @@
             this.MainPanelsCL.SetMinimumSize(this.AdminPanelContainer, new System.Drawing.Size(200, 100));
             this.AdminPanelContainer.Name = "AdminPanelContainer";
             this.MainPanelsCL.SetPreferredSize(this.AdminPanelContainer, new System.Drawing.Size(200, 100));
-            this.AdminPanelContainer.Size = new System.Drawing.Size(1283, 653);
+            this.AdminPanelContainer.Size = new System.Drawing.Size(1284, 661);
             this.AdminPanelContainer.TabIndex = 1;
             // 
             // AdminControlsPanel
@@ -498,10 +498,14 @@
             // FoodTbl
             // 
             this.FoodTbl.AllowUserToAddRows = false;
+            this.FoodTbl.AllowUserToDeleteRows = false;
             this.FoodTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.FoodTbl.Location = new System.Drawing.Point(31, 68);
+            this.FoodTbl.MultiSelect = false;
             this.FoodTbl.Name = "FoodTbl";
+            this.FoodTbl.ReadOnly = true;
             this.FoodTbl.RowHeadersWidth = 51;
+            this.FoodTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.FoodTbl.Size = new System.Drawing.Size(687, 473);
             this.FoodTbl.TabIndex = 0;
             // 
@@ -584,17 +588,17 @@
             // 
             // label11
             // 
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(21, 426);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(318, 148);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(100, 29);
+            this.label11.Size = new System.Drawing.Size(145, 26);
             this.label11.TabIndex = 21;
-            this.label11.Text = "Image:";
+            this.label11.Text = "Employee Image:";
             // 
             // label10
             // 
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(316, 426);
+            this.label10.Location = new System.Drawing.Point(246, 544);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(132, 29);
             this.label10.TabIndex = 20;
@@ -603,7 +607,7 @@
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(168, 426);
+            this.label9.Location = new System.Drawing.Point(98, 544);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(100, 29);
             this.label9.TabIndex = 19;
@@ -612,7 +616,7 @@
             // label8
             // 
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(316, 346);
+            this.label8.Location = new System.Drawing.Point(317, 473);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(100, 29);
             this.label8.TabIndex = 18;
@@ -621,7 +625,7 @@
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(168, 346);
+            this.label7.Location = new System.Drawing.Point(169, 473);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(100, 29);
             this.label7.TabIndex = 17;
@@ -630,7 +634,7 @@
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(21, 346);
+            this.label6.Location = new System.Drawing.Point(22, 473);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(112, 29);
             this.label6.TabIndex = 16;
@@ -639,7 +643,7 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(21, 203);
+            this.label5.Location = new System.Drawing.Point(22, 330);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 23);
             this.label5.TabIndex = 15;
@@ -648,7 +652,7 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(316, 276);
+            this.label4.Location = new System.Drawing.Point(317, 403);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 23);
             this.label4.TabIndex = 14;
@@ -657,7 +661,7 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(21, 270);
+            this.label3.Location = new System.Drawing.Point(22, 397);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 29);
             this.label3.TabIndex = 13;
@@ -665,8 +669,9 @@
             // 
             // EmployeeIDTxtB_AP
             // 
+            this.EmployeeIDTxtB_AP.Enabled = false;
             this.EmployeeIDTxtB_AP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmployeeIDTxtB_AP.Location = new System.Drawing.Point(320, 458);
+            this.EmployeeIDTxtB_AP.Location = new System.Drawing.Point(250, 576);
             this.EmployeeIDTxtB_AP.Multiline = true;
             this.EmployeeIDTxtB_AP.Name = "EmployeeIDTxtB_AP";
             this.EmployeeIDTxtB_AP.Size = new System.Drawing.Size(142, 24);
@@ -676,7 +681,7 @@
             // 
             this.PositionComB_AP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PositionComB_AP.FormattingEnabled = true;
-            this.PositionComB_AP.Location = new System.Drawing.Point(172, 458);
+            this.PositionComB_AP.Location = new System.Drawing.Point(102, 576);
             this.PositionComB_AP.Name = "PositionComB_AP";
             this.PositionComB_AP.Size = new System.Drawing.Size(142, 24);
             this.PositionComB_AP.TabIndex = 11;
@@ -684,7 +689,7 @@
             // SelectImgBtn
             // 
             this.SelectImgBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectImgBtn.Location = new System.Drawing.Point(24, 579);
+            this.SelectImgBtn.Location = new System.Drawing.Point(321, 298);
             this.SelectImgBtn.Name = "SelectImgBtn";
             this.SelectImgBtn.Size = new System.Drawing.Size(142, 23);
             this.SelectImgBtn.TabIndex = 10;
@@ -695,7 +700,7 @@
             // UserPicB
             // 
             this.UserPicB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.UserPicB.Location = new System.Drawing.Point(24, 458);
+            this.UserPicB.Location = new System.Drawing.Point(321, 177);
             this.UserPicB.Name = "UserPicB";
             this.UserPicB.Size = new System.Drawing.Size(142, 115);
             this.UserPicB.TabIndex = 9;
@@ -704,7 +709,7 @@
             // EmailTxtB_AP
             // 
             this.EmailTxtB_AP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmailTxtB_AP.Location = new System.Drawing.Point(320, 378);
+            this.EmailTxtB_AP.Location = new System.Drawing.Point(321, 505);
             this.EmailTxtB_AP.Multiline = true;
             this.EmailTxtB_AP.Name = "EmailTxtB_AP";
             this.EmailTxtB_AP.Size = new System.Drawing.Size(142, 24);
@@ -713,7 +718,7 @@
             // PasswordTxtB_AP
             // 
             this.PasswordTxtB_AP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordTxtB_AP.Location = new System.Drawing.Point(172, 378);
+            this.PasswordTxtB_AP.Location = new System.Drawing.Point(173, 505);
             this.PasswordTxtB_AP.Multiline = true;
             this.PasswordTxtB_AP.Name = "PasswordTxtB_AP";
             this.PasswordTxtB_AP.Size = new System.Drawing.Size(142, 24);
@@ -722,7 +727,7 @@
             // UsernameTxtB_AP
             // 
             this.UsernameTxtB_AP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameTxtB_AP.Location = new System.Drawing.Point(24, 378);
+            this.UsernameTxtB_AP.Location = new System.Drawing.Point(25, 505);
             this.UsernameTxtB_AP.Multiline = true;
             this.UsernameTxtB_AP.Name = "UsernameTxtB_AP";
             this.UsernameTxtB_AP.Size = new System.Drawing.Size(142, 24);
@@ -730,8 +735,9 @@
             // 
             // AgeTxtB_AP
             // 
+            this.AgeTxtB_AP.Enabled = false;
             this.AgeTxtB_AP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AgeTxtB_AP.Location = new System.Drawing.Point(320, 302);
+            this.AgeTxtB_AP.Location = new System.Drawing.Point(321, 429);
             this.AgeTxtB_AP.Multiline = true;
             this.AgeTxtB_AP.Name = "AgeTxtB_AP";
             this.AgeTxtB_AP.Size = new System.Drawing.Size(142, 24);
@@ -741,7 +747,7 @@
             // 
             this.UserBirthdate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserBirthdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserBirthdate.Location = new System.Drawing.Point(24, 302);
+            this.UserBirthdate.Location = new System.Drawing.Point(25, 429);
             this.UserBirthdate.Name = "UserBirthdate";
             this.UserBirthdate.Size = new System.Drawing.Size(290, 22);
             this.UserBirthdate.TabIndex = 4;
@@ -749,7 +755,7 @@
             // MiddleNTxtB_AP
             // 
             this.MiddleNTxtB_AP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MiddleNTxtB_AP.Location = new System.Drawing.Point(320, 229);
+            this.MiddleNTxtB_AP.Location = new System.Drawing.Point(321, 356);
             this.MiddleNTxtB_AP.Multiline = true;
             this.MiddleNTxtB_AP.Name = "MiddleNTxtB_AP";
             this.MiddleNTxtB_AP.Size = new System.Drawing.Size(142, 24);
@@ -758,7 +764,7 @@
             // FirstNTxtB_AP
             // 
             this.FirstNTxtB_AP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FirstNTxtB_AP.Location = new System.Drawing.Point(172, 229);
+            this.FirstNTxtB_AP.Location = new System.Drawing.Point(173, 356);
             this.FirstNTxtB_AP.Multiline = true;
             this.FirstNTxtB_AP.Name = "FirstNTxtB_AP";
             this.FirstNTxtB_AP.Size = new System.Drawing.Size(142, 24);
@@ -767,7 +773,7 @@
             // LastNTxtB_AP
             // 
             this.LastNTxtB_AP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LastNTxtB_AP.Location = new System.Drawing.Point(24, 229);
+            this.LastNTxtB_AP.Location = new System.Drawing.Point(25, 356);
             this.LastNTxtB_AP.Multiline = true;
             this.LastNTxtB_AP.Name = "LastNTxtB_AP";
             this.LastNTxtB_AP.Size = new System.Drawing.Size(142, 24);
@@ -775,10 +781,15 @@
             // 
             // AccDataTbl
             // 
+            this.AccDataTbl.AllowUserToAddRows = false;
+            this.AccDataTbl.AllowUserToDeleteRows = false;
             this.AccDataTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AccDataTbl.Location = new System.Drawing.Point(491, 122);
+            this.AccDataTbl.MultiSelect = false;
             this.AccDataTbl.Name = "AccDataTbl";
+            this.AccDataTbl.ReadOnly = true;
             this.AccDataTbl.RowHeadersWidth = 51;
+            this.AccDataTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.AccDataTbl.Size = new System.Drawing.Size(589, 407);
             this.AccDataTbl.TabIndex = 0;
             // 
@@ -808,6 +819,7 @@
             // 
             // LogoutLbl
             // 
+            this.LogoutLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.LogoutLbl.Font = new System.Drawing.Font("Handmade", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogoutLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(11)))));
             this.LogoutLbl.Location = new System.Drawing.Point(19, 9);
@@ -820,9 +832,10 @@
             // 
             // AddMenuLbl
             // 
+            this.AddMenuLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.AddMenuLbl.Font = new System.Drawing.Font("Handmade", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddMenuLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(11)))));
-            this.AddMenuLbl.Location = new System.Drawing.Point(3, 302);
+            this.AddMenuLbl.Location = new System.Drawing.Point(3, 304);
             this.AddMenuLbl.Name = "AddMenuLbl";
             this.AddMenuLbl.Size = new System.Drawing.Size(174, 88);
             this.AddMenuLbl.TabIndex = 2;
@@ -832,6 +845,7 @@
             // 
             // SalesRepLbl
             // 
+            this.SalesRepLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.SalesRepLbl.Font = new System.Drawing.Font("Handmade", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SalesRepLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(11)))));
             this.SalesRepLbl.Location = new System.Drawing.Point(3, 420);
@@ -844,6 +858,7 @@
             // 
             // AccManagementLbl
             // 
+            this.AccManagementLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.AccManagementLbl.Font = new System.Drawing.Font("Handmade", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AccManagementLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(11)))));
             this.AccManagementLbl.Location = new System.Drawing.Point(3, 191);
@@ -862,7 +877,7 @@
             this.MainPanelsCL.SetMinimumSize(this.ManagerStaffPanelContainer, new System.Drawing.Size(200, 100));
             this.ManagerStaffPanelContainer.Name = "ManagerStaffPanelContainer";
             this.MainPanelsCL.SetPreferredSize(this.ManagerStaffPanelContainer, new System.Drawing.Size(200, 100));
-            this.ManagerStaffPanelContainer.Size = new System.Drawing.Size(1283, 653);
+            this.ManagerStaffPanelContainer.Size = new System.Drawing.Size(1284, 661);
             this.ManagerStaffPanelContainer.TabIndex = 2;
             // 
             // SalesPanelContainer
@@ -877,25 +892,27 @@
             this.MainPanelsCL.SetMinimumSize(this.SalesPanelContainer, new System.Drawing.Size(200, 100));
             this.SalesPanelContainer.Name = "SalesPanelContainer";
             this.MainPanelsCL.SetPreferredSize(this.SalesPanelContainer, new System.Drawing.Size(200, 100));
-            this.SalesPanelContainer.Size = new System.Drawing.Size(1283, 653);
+            this.SalesPanelContainer.Size = new System.Drawing.Size(1284, 661);
             this.SalesPanelContainer.TabIndex = 3;
             // 
             // StartDatePicker
             // 
-            this.StartDatePicker.Location = new System.Drawing.Point(635, 152);
+            this.StartDatePicker.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartDatePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartDatePicker.Location = new System.Drawing.Point(737, 126);
             this.StartDatePicker.Name = "StartDatePicker";
-            this.StartDatePicker.Size = new System.Drawing.Size(200, 20);
+            this.StartDatePicker.Size = new System.Drawing.Size(296, 28);
             this.StartDatePicker.TabIndex = 4;
             // 
             // SelectDateLbl
             // 
-            this.SelectDateLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectDateLbl.Location = new System.Drawing.Point(581, 117);
+            this.SelectDateLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectDateLbl.Location = new System.Drawing.Point(353, 126);
             this.SelectDateLbl.Name = "SelectDateLbl";
-            this.SelectDateLbl.Size = new System.Drawing.Size(303, 23);
+            this.SelectDateLbl.Size = new System.Drawing.Size(378, 28);
             this.SelectDateLbl.TabIndex = 3;
             this.SelectDateLbl.Text = "test";
-            this.SelectDateLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.SelectDateLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // CategoryReportLbl
             // 
@@ -913,9 +930,9 @@
             this.SalesPanel.Controls.Add(this.MonthlyReportPanel);
             this.SalesPanel.Controls.Add(this.WeeklyReportPanel);
             this.SalesPanel.Controls.Add(this.DailyReportPanel);
-            this.SalesPanel.Location = new System.Drawing.Point(180, 205);
+            this.SalesPanel.Location = new System.Drawing.Point(180, 175);
             this.SalesPanel.Name = "SalesPanel";
-            this.SalesPanel.Size = new System.Drawing.Size(1102, 456);
+            this.SalesPanel.Size = new System.Drawing.Size(1102, 486);
             this.SalesPanel.TabIndex = 1;
             // 
             // MonthlyReportPanel
@@ -930,7 +947,7 @@
             this.SalesControlCL.SetMinimumSize(this.MonthlyReportPanel, new System.Drawing.Size(200, 100));
             this.MonthlyReportPanel.Name = "MonthlyReportPanel";
             this.SalesControlCL.SetPreferredSize(this.MonthlyReportPanel, new System.Drawing.Size(200, 100));
-            this.MonthlyReportPanel.Size = new System.Drawing.Size(1102, 456);
+            this.MonthlyReportPanel.Size = new System.Drawing.Size(1102, 486);
             this.MonthlyReportPanel.TabIndex = 2;
             // 
             // ComputedSalesMonthlyTbl
@@ -1001,7 +1018,7 @@
             this.SalesControlCL.SetMinimumSize(this.WeeklyReportPanel, new System.Drawing.Size(200, 100));
             this.WeeklyReportPanel.Name = "WeeklyReportPanel";
             this.SalesControlCL.SetPreferredSize(this.WeeklyReportPanel, new System.Drawing.Size(200, 100));
-            this.WeeklyReportPanel.Size = new System.Drawing.Size(1102, 456);
+            this.WeeklyReportPanel.Size = new System.Drawing.Size(1102, 486);
             this.WeeklyReportPanel.TabIndex = 1;
             // 
             // ComputedSalesWeeklyTbl
@@ -1015,6 +1032,20 @@
             this.ComputedSalesWeeklyTbl.RowHeadersWidth = 51;
             this.ComputedSalesWeeklyTbl.Size = new System.Drawing.Size(1052, 65);
             this.ComputedSalesWeeklyTbl.TabIndex = 3;
+            // 
+            // WeeklyDate
+            // 
+            this.WeeklyDate.HeaderText = "Date";
+            this.WeeklyDate.MinimumWidth = 6;
+            this.WeeklyDate.Name = "WeeklyDate";
+            this.WeeklyDate.Width = 125;
+            // 
+            // WeeklSale
+            // 
+            this.WeeklSale.HeaderText = "Weekly Total Sale";
+            this.WeeklSale.MinimumWidth = 6;
+            this.WeeklSale.Name = "WeeklSale";
+            this.WeeklSale.Width = 125;
             // 
             // MostSalesWeeklyTbl
             // 
@@ -1057,7 +1088,7 @@
             this.SalesControlCL.SetMinimumSize(this.DailyReportPanel, new System.Drawing.Size(200, 100));
             this.DailyReportPanel.Name = "DailyReportPanel";
             this.SalesControlCL.SetPreferredSize(this.DailyReportPanel, new System.Drawing.Size(200, 100));
-            this.DailyReportPanel.Size = new System.Drawing.Size(1102, 456);
+            this.DailyReportPanel.Size = new System.Drawing.Size(1102, 486);
             this.DailyReportPanel.TabIndex = 0;
             // 
             // ComputedSalesDailyTbl
@@ -1165,6 +1196,7 @@
             // 
             // DailyLbl
             // 
+            this.DailyLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DailyLbl.Font = new System.Drawing.Font("Handmade", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DailyLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(11)))));
             this.DailyLbl.Location = new System.Drawing.Point(3, 237);
@@ -1179,7 +1211,7 @@
             // 
             this.AdminControlsCL.ContainerControl = this.AdminControlsPanel;
             this.AdminControlsCL.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.AdminControlsCL.SelectedCard = "Card2";
+            this.AdminControlsCL.SelectedCard = "Card1";
             // 
             // SalesControlCL
             // 
@@ -1187,27 +1219,17 @@
             this.SalesControlCL.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
             this.SalesControlCL.SelectedCard = "Card2";
             // 
-            // WeeklyDate
-            // 
-            this.WeeklyDate.HeaderText = "Date";
-            this.WeeklyDate.Name = "WeeklyDate";
-            // 
-            // WeeklSale
-            // 
-            this.WeeklSale.HeaderText = "Weekly Total Sale";
-            this.WeeklSale.Name = "WeeklSale";
-            // 
             // CafeDeLunaDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1283, 653);
+            this.ClientSize = new System.Drawing.Size(1284, 661);
             this.Controls.Add(this.SalesPanelContainer);
             this.Controls.Add(this.ManagerStaffPanelContainer);
             this.Controls.Add(this.AdminPanelContainer);
             this.Controls.Add(this.LoginPanelContainer);
-            this.MaximumSize = new System.Drawing.Size(1299, 699);
-            this.MinimumSize = new System.Drawing.Size(1154, 669);
+            this.MaximumSize = new System.Drawing.Size(1300, 700);
+            this.MinimumSize = new System.Drawing.Size(1300, 700);
             this.Name = "CafeDeLunaDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cafe De Luna";

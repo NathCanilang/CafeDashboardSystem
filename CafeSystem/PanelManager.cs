@@ -92,17 +92,17 @@ namespace CafeSystem
             if(panelToShow == DailyReportPanel)
             {
                 CafeDeLunaDashboard.cafeDeLunaInstance.CategoryReportLbl.Text = "Daily Sales Report";
-                CafeDeLunaDashboard.cafeDeLunaInstance.SelectDateLbl.Text = "Select Date to Report";
+                CafeDeLunaDashboard.cafeDeLunaInstance.SelectDateLbl.Text = "Select Date to Report:";
             }
             else if(panelToShow == WeeklyReportPanel)
             {
                 CafeDeLunaDashboard.cafeDeLunaInstance.CategoryReportLbl.Text = "Weekly Sales Report";
-                CafeDeLunaDashboard.cafeDeLunaInstance.SelectDateLbl.Text = "Select Dates Report";
+                CafeDeLunaDashboard.cafeDeLunaInstance.SelectDateLbl.Text = "Select Date Report the Week:";
             }
             else if(panelToShow == MonthlyReportPanel)
             {
                 CafeDeLunaDashboard.cafeDeLunaInstance.CategoryReportLbl.Text = "Monthly Sales Report";
-                CafeDeLunaDashboard.cafeDeLunaInstance.SelectDateLbl.Text = "Select a Date From a Month to Report";
+                CafeDeLunaDashboard.cafeDeLunaInstance.SelectDateLbl.Text = "Select a Date From a Month to Report:";
             }
         }
     }

@@ -12,11 +12,13 @@ namespace CafeSystem
     public partial class CafeDeLunaDashboard : Form
     {
         private readonly MySqlConnection conn;
+        public static CafeDeLunaDashboard cafeDeLunaInstance;
         private readonly AdminMethods adminMethods = new AdminMethods();
+        private KeypressNumbersRestrictions keypressNumbersRestrictions = new KeypressNumbersRestrictions();
+        private KeypressLettersRestrictions keypressLettersRestrictions = new KeypressLettersRestrictions();
         private DailySalesReportMethod dailySalesReportMethod = new DailySalesReportMethod();
         private WeeklySalesReportMethod weeklySalesReportMethod = new WeeklySalesReportMethod();
         private MonthlySalesReportMethod monthlySalesReportMethod = new MonthlySalesReportMethod();
-        public static CafeDeLunaDashboard cafeDeLunaInstance;
         private readonly LoginPanelManager loginPanelManager;
         private readonly AdminPanelManager adminPanelManager;
         private readonly SalesPanelManager salesPanelManager;
@@ -37,7 +39,6 @@ namespace CafeSystem
             cafeDeLunaInstance = this;
             string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
             conn = new MySqlConnection(mysqlcon);
-
             loginPanelManager = new LoginPanelManager(LoginPanelContainer, AdminPanelContainer, SalesPanelContainer, ManagerStaffPanelContainer);
             adminPanelManager = new AdminPanelManager(AdminHomePanel, AccountManagementPanel, AddMenuPanel);
             salesPanelManager = new SalesPanelManager(DailyReportPanel, WeeklyReportPanel, MonthlyReportPanel);
@@ -45,6 +46,15 @@ namespace CafeSystem
             //Startup Panels
             loginPanelManager.ShowPanel(LoginPanelContainer);
             adminPanelManager.ShowPanel(AdminHomePanel);
+
+            //Restrictions
+            LastNTxtB_AP.KeyPress += keypressNumbersRestrictions.KeyPress;
+            FirstNTxtB_AP.KeyPress += keypressNumbersRestrictions.KeyPress;
+            MiddleNTxtB_AP.KeyPress += keypressNumbersRestrictions.KeyPress;
+            MenuNTxtB.KeyPress += keypressNumbersRestrictions.KeyPress;
+            VariationNmTxtB.KeyPress += keypressNumbersRestrictions.KeyPress;
+            VariationDescTxtB.KeyPress += keypressNumbersRestrictions.KeyPress;
+            VariationCostTxtB.KeyPress += keypressLettersRestrictions.KeyPress;
 
             //Admin Panel
             FoodTbl.DataError += new DataGridViewDataErrorEventHandler(adminMethods.FoodTable_DataError);
@@ -368,9 +378,9 @@ namespace CafeSystem
                 CreateAccBtn.Show();
                 EditAccBtn.Show();
 
-                /*TxtPlaceholder.SetPlaceholder(LastNTxtB_AP, "Last name");
-                TxtPlaceholder.SetPlaceholder(FirstNTxtB_AP, "First name");
-                TxtPlaceholder.SetPlaceholder(MiddleNTxtB_AP, "Middle name");*/
+                TextboxPlaceholders.SetPlaceholder(LastNTxtB_AP, "Last name");
+                TextboxPlaceholders.SetPlaceholder(FirstNTxtB_AP, "First name");
+                TextboxPlaceholders.SetPlaceholder(MiddleNTxtB_AP, "Middle name");
 
                 UserBirthdate.Value = DateTime.Today;
                 AgeTxtB_AP.Text = "";
@@ -389,7 +399,6 @@ namespace CafeSystem
             string adminUsername = "Admin";
             DateTime selectedDate = UserBirthdate.Value;
             string employeeFullName = $"{LastNTxtB_AP.Text}, {FirstNTxtB_AP.Text} {MiddleNTxtB_AP.Text}";
-            //string userImagePath = ImgTxtB.Text;
 
             if (UserPicB.Image == null)
             {
@@ -514,9 +523,9 @@ namespace CafeSystem
             CreateAccBtn.Show();
             EditAccBtn.Show();
 
-            /*TxtPlaceholder.SetPlaceholder(LastNTxtB_AP, "Last name");
-            TxtPlaceholder.SetPlaceholder(FirstNTxtB_AP, "First name");
-            TxtPlaceholder.SetPlaceholder(MiddleNTxtB_AP, "Middle name");*/
+            TextboxPlaceholders.SetPlaceholder(LastNTxtB_AP, "Last name");
+            TextboxPlaceholders.SetPlaceholder(FirstNTxtB_AP, "First name");
+            TextboxPlaceholders.SetPlaceholder(MiddleNTxtB_AP, "Middle name");
             UserBirthdate.Value = DateTime.Today;
             AgeTxtB_AP.Text = "";
             UsernameTxtB_AP.Text = "";
@@ -631,7 +640,12 @@ namespace CafeSystem
                         // Load the selected image
                         Image selectedImage = Image.FromFile(openFileDialog.FileName);
 
-                        VariationPicB.Image = selectedImage;
+                        // Resize the selected image
+                        int newWidth = 163; // Set the new width
+                        int newHeight = 128; // Set the new height
+                        Image resizedImage = adminMethods.ResizeImages(selectedImage, newWidth, newHeight);
+
+                        VariationPicB.Image = resizedImage;
                         isNewFoodImageSelected = true; // Set the flag to true
                     }
                     catch (Exception ex)
@@ -690,10 +704,9 @@ namespace CafeSystem
 
                     MessageBox.Show("New variation added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    /*TxtPlaceholder.SetPlaceholder(VariationNmTxtB, "Food Name");
-                    TxtPlaceholder.SetPlaceholder(VariationDescTxtB, "Description");
-                    TxtPlaceholder.SetPlaceholder(VariationCostTxtB, "Price");
-                    VarietyFilePathTxtB.Text = "";*/
+                    TextboxPlaceholders.SetPlaceholder(VariationNmTxtB, "Food Name");
+                    TextboxPlaceholders.SetPlaceholder(VariationDescTxtB, "Description");
+                    TextboxPlaceholders.SetPlaceholder(VariationCostTxtB, "Price");
                     VariationPicB.Image = null;
                 }
                 catch (MySqlException a)
@@ -768,12 +781,11 @@ namespace CafeSystem
                 {
                     MessageBox.Show("Please select a single row for editing.", "Try again", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-
-            }
             UpdateMealBtn.Show();
             CancelMealBtn.Show();
             DeleteFoodlBtn.Hide();
             EditMealBtn.Hide();
+            }
         }
 
         private void DeleteFoodlBtn_Click(object sender, EventArgs e)
@@ -844,7 +856,7 @@ namespace CafeSystem
                 {
                     conn.Open();
                     string updateQuery = "UPDATE mealvariation " +
-                "SET VariationName = @variationName, VariationDescription = @variationDescription, VariationCost = @variationCost, MealID = @mealID";
+                    "SET VariationName = @variationName, VariationDescription = @variationDescription, VariationCost = @variationCost, MealID = @mealID";
 
                     byte[] imageData = null;
 
@@ -903,9 +915,9 @@ namespace CafeSystem
             DeleteFoodlBtn.Show();
             EditMealBtn.Show();
 
-            /*TxtPlaceholder.SetPlaceholder(VariationNmTxtB, "Food Name");
-            TxtPlaceholder.SetPlaceholder(VariationDescTxtB, "Description");
-            TxtPlaceholder.SetPlaceholder(VariationCostTxtB, "Price");*/
+            TextboxPlaceholders.SetPlaceholder(VariationNmTxtB, "Food Name");
+            TextboxPlaceholders.SetPlaceholder(VariationDescTxtB, "Description");
+            TextboxPlaceholders.SetPlaceholder(VariationCostTxtB, "Price");
             VariationPicB.Image = null;
             MenuSelectComB.SelectedIndex = -1;
             VariationIDTxtBox.Clear();
@@ -920,9 +932,9 @@ namespace CafeSystem
             DeleteFoodlBtn.Show();
             EditMealBtn.Show();
 
-            /*TxtPlaceholder.SetPlaceholder(VariationNmTxtB, "Food Name");
-            TxtPlaceholder.SetPlaceholder(VariationDescTxtB, "Description");
-            TxtPlaceholder.SetPlaceholder(VariationCostTxtB, "Price");*/
+            TextboxPlaceholders.SetPlaceholder(VariationNmTxtB, "Food Name");
+            TextboxPlaceholders.SetPlaceholder(VariationDescTxtB, "Description");
+            TextboxPlaceholders.SetPlaceholder(VariationCostTxtB, "Price");
             VariationPicB.Image = null;
             MenuSelectComB.SelectedIndex = -1;
             VariationIDTxtBox.Clear();
@@ -955,7 +967,6 @@ namespace CafeSystem
             DataTable mostSoldItem = weeklySalesReportMethod.GetMostSoldItemForWeek(startDate, endDate);
             MostSalesWeeklyTbl.DataSource = mostSoldItem;
         }
-
         private void GenerateMonthlyReportBtn_Click(object sender, EventArgs e)
         {
             DateTime selectedDate = StartDatePicker.Value;

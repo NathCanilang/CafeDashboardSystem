@@ -171,10 +171,12 @@
       <DependentUpon>CafeDeLunaDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Encryptor.cs" />
+    <Compile Include="KeypressRestrictions.cs" />
     <Compile Include="PanelManager.cs" />
     <Compile Include="PanelMethods.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextboxPlaceholders.cs" />
     <EmbeddedResource Include="CafeDeLunaDashboard.resx">
       <DependentUpon>CafeDeLunaDashboard.cs</DependentUpon>
     </EmbeddedResource>
