@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CafeDeLunaDashboard));
             this.MainPanelsCL = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.LoginPanelContainer = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -79,7 +85,6 @@
             this.EmployeeIDTxtB_AP = new System.Windows.Forms.TextBox();
             this.PositionComB_AP = new System.Windows.Forms.ComboBox();
             this.SelectImgBtn = new System.Windows.Forms.Button();
-            this.UserPicB = new System.Windows.Forms.PictureBox();
             this.EmailTxtB_AP = new System.Windows.Forms.TextBox();
             this.PasswordTxtB_AP = new System.Windows.Forms.TextBox();
             this.UsernameTxtB_AP = new System.Windows.Forms.TextBox();
@@ -89,6 +94,7 @@
             this.FirstNTxtB_AP = new System.Windows.Forms.TextBox();
             this.LastNTxtB_AP = new System.Windows.Forms.TextBox();
             this.AccDataTbl = new System.Windows.Forms.DataGridView();
+            this.UserPicB = new System.Windows.Forms.PictureBox();
             this.NavigationPanel = new System.Windows.Forms.Panel();
             this.LogoutLogo = new System.Windows.Forms.PictureBox();
             this.LogoutLbl = new System.Windows.Forms.Label();
@@ -96,6 +102,32 @@
             this.SalesRepLbl = new System.Windows.Forms.Label();
             this.AccManagementLbl = new System.Windows.Forms.Label();
             this.ManagerStaffPanelContainer = new System.Windows.Forms.Panel();
+            this.PositionTxtBox = new System.Windows.Forms.TextBox();
+            this.SearchTxtbx = new System.Windows.Forms.TextBox();
+            this.cashtxtBx = new System.Windows.Forms.TextBox();
+            this.placeBtn = new System.Windows.Forms.Button();
+            this.voidBtn = new System.Windows.Forms.Button();
+            this.cLbl = new System.Windows.Forms.Label();
+            this.cashLbl = new System.Windows.Forms.Label();
+            this.ttlLbl = new System.Windows.Forms.Label();
+            this.totalLbl = new System.Windows.Forms.Label();
+            this.dscLbl = new System.Windows.Forms.Label();
+            this.discLbl = new System.Windows.Forms.Label();
+            this.sbLbl = new System.Windows.Forms.Label();
+            this.subLbl = new System.Windows.Forms.Label();
+            this.discChckBx = new System.Windows.Forms.CheckBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.logoutBtn = new System.Windows.Forms.PictureBox();
+            this.allBtn = new System.Windows.Forms.PictureBox();
             this.SalesPanelContainer = new System.Windows.Forms.Panel();
             this.StartDatePicker = new System.Windows.Forms.DateTimePicker();
             this.SelectDateLbl = new System.Windows.Forms.Label();
@@ -141,10 +173,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.MenuPicB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FoodTbl)).BeginInit();
             this.AccountManagementPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.UserPicB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AccDataTbl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserPicB)).BeginInit();
             this.NavigationPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoutLogo)).BeginInit();
+            this.ManagerStaffPanelContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoutBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allBtn)).BeginInit();
             this.SalesPanelContainer.SuspendLayout();
             this.SalesPanel.SuspendLayout();
             this.MonthlyReportPanel.SuspendLayout();
@@ -168,7 +205,7 @@
             // 
             this.MainPanelsCL.ContainerControl = this;
             this.MainPanelsCL.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.MainPanelsCL.SelectedCard = "Card1";
+            this.MainPanelsCL.SelectedCard = "Card2";
             // 
             // LoginPanelContainer
             // 
@@ -279,7 +316,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::CafeSystem.Properties.Resources.home_admin_BG;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1104, 661);
@@ -529,7 +566,6 @@
             this.AccountManagementPanel.Controls.Add(this.EmployeeIDTxtB_AP);
             this.AccountManagementPanel.Controls.Add(this.PositionComB_AP);
             this.AccountManagementPanel.Controls.Add(this.SelectImgBtn);
-            this.AccountManagementPanel.Controls.Add(this.UserPicB);
             this.AccountManagementPanel.Controls.Add(this.EmailTxtB_AP);
             this.AccountManagementPanel.Controls.Add(this.PasswordTxtB_AP);
             this.AccountManagementPanel.Controls.Add(this.UsernameTxtB_AP);
@@ -539,6 +575,7 @@
             this.AccountManagementPanel.Controls.Add(this.FirstNTxtB_AP);
             this.AccountManagementPanel.Controls.Add(this.LastNTxtB_AP);
             this.AccountManagementPanel.Controls.Add(this.AccDataTbl);
+            this.AccountManagementPanel.Controls.Add(this.UserPicB);
             this.AccountManagementPanel.Location = new System.Drawing.Point(0, 0);
             this.AdminControlsCL.SetMinimumSize(this.AccountManagementPanel, new System.Drawing.Size(200, 100));
             this.AccountManagementPanel.Name = "AccountManagementPanel";
@@ -697,15 +734,6 @@
             this.SelectImgBtn.UseVisualStyleBackColor = true;
             this.SelectImgBtn.Click += new System.EventHandler(this.SelectImgBtn_Click);
             // 
-            // UserPicB
-            // 
-            this.UserPicB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.UserPicB.Location = new System.Drawing.Point(321, 177);
-            this.UserPicB.Name = "UserPicB";
-            this.UserPicB.Size = new System.Drawing.Size(142, 115);
-            this.UserPicB.TabIndex = 9;
-            this.UserPicB.TabStop = false;
-            // 
             // EmailTxtB_AP
             // 
             this.EmailTxtB_AP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -793,6 +821,15 @@
             this.AccDataTbl.Size = new System.Drawing.Size(589, 407);
             this.AccDataTbl.TabIndex = 0;
             // 
+            // UserPicB
+            // 
+            this.UserPicB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.UserPicB.Location = new System.Drawing.Point(321, 177);
+            this.UserPicB.Name = "UserPicB";
+            this.UserPicB.Size = new System.Drawing.Size(142, 115);
+            this.UserPicB.TabIndex = 9;
+            this.UserPicB.TabStop = false;
+            // 
             // NavigationPanel
             // 
             this.NavigationPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
@@ -808,7 +845,7 @@
             // 
             // LogoutLogo
             // 
-            this.LogoutLogo.Image = global::CafeSystem.Properties.Resources.go_back;
+            this.LogoutLogo.Image = ((System.Drawing.Image)(resources.GetObject("LogoutLogo.Image")));
             this.LogoutLogo.Location = new System.Drawing.Point(26, 12);
             this.LogoutLogo.Name = "LogoutLogo";
             this.LogoutLogo.Size = new System.Drawing.Size(42, 37);
@@ -873,12 +910,314 @@
             // 
             this.ManagerStaffPanelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.MainPanelsCL.SetCardName(this.ManagerStaffPanelContainer, "Card2");
+            this.ManagerStaffPanelContainer.Controls.Add(this.flowLayoutPanel2);
+            this.ManagerStaffPanelContainer.Controls.Add(this.flowLayoutPanel1);
+            this.ManagerStaffPanelContainer.Controls.Add(this.PositionTxtBox);
+            this.ManagerStaffPanelContainer.Controls.Add(this.SearchTxtbx);
+            this.ManagerStaffPanelContainer.Controls.Add(this.cashtxtBx);
+            this.ManagerStaffPanelContainer.Controls.Add(this.placeBtn);
+            this.ManagerStaffPanelContainer.Controls.Add(this.voidBtn);
+            this.ManagerStaffPanelContainer.Controls.Add(this.cLbl);
+            this.ManagerStaffPanelContainer.Controls.Add(this.cashLbl);
+            this.ManagerStaffPanelContainer.Controls.Add(this.ttlLbl);
+            this.ManagerStaffPanelContainer.Controls.Add(this.totalLbl);
+            this.ManagerStaffPanelContainer.Controls.Add(this.dscLbl);
+            this.ManagerStaffPanelContainer.Controls.Add(this.discLbl);
+            this.ManagerStaffPanelContainer.Controls.Add(this.sbLbl);
+            this.ManagerStaffPanelContainer.Controls.Add(this.subLbl);
+            this.ManagerStaffPanelContainer.Controls.Add(this.discChckBx);
+            this.ManagerStaffPanelContainer.Controls.Add(this.dataGridView1);
+            this.ManagerStaffPanelContainer.Controls.Add(this.pictureBox3);
+            this.ManagerStaffPanelContainer.Controls.Add(this.logoutBtn);
+            this.ManagerStaffPanelContainer.Controls.Add(this.allBtn);
             this.ManagerStaffPanelContainer.Location = new System.Drawing.Point(0, 0);
             this.MainPanelsCL.SetMinimumSize(this.ManagerStaffPanelContainer, new System.Drawing.Size(200, 100));
             this.ManagerStaffPanelContainer.Name = "ManagerStaffPanelContainer";
             this.MainPanelsCL.SetPreferredSize(this.ManagerStaffPanelContainer, new System.Drawing.Size(200, 100));
             this.ManagerStaffPanelContainer.Size = new System.Drawing.Size(1284, 661);
             this.ManagerStaffPanelContainer.TabIndex = 2;
+            // 
+            // PositionTxtBox
+            // 
+            this.PositionTxtBox.Location = new System.Drawing.Point(1061, 622);
+            this.PositionTxtBox.Multiline = true;
+            this.PositionTxtBox.Name = "PositionTxtBox";
+            this.PositionTxtBox.Size = new System.Drawing.Size(100, 20);
+            this.PositionTxtBox.TabIndex = 19;
+            // 
+            // SearchTxtbx
+            // 
+            this.SearchTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchTxtbx.Location = new System.Drawing.Point(503, 12);
+            this.SearchTxtbx.Multiline = true;
+            this.SearchTxtbx.Name = "SearchTxtbx";
+            this.SearchTxtbx.Size = new System.Drawing.Size(370, 30);
+            this.SearchTxtbx.TabIndex = 17;
+            // 
+            // cashtxtBx
+            // 
+            this.cashtxtBx.Location = new System.Drawing.Point(1174, 445);
+            this.cashtxtBx.Multiline = true;
+            this.cashtxtBx.Name = "cashtxtBx";
+            this.cashtxtBx.Size = new System.Drawing.Size(71, 33);
+            this.cashtxtBx.TabIndex = 14;
+            // 
+            // placeBtn
+            // 
+            this.placeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.placeBtn.Location = new System.Drawing.Point(1100, 550);
+            this.placeBtn.Name = "placeBtn";
+            this.placeBtn.Size = new System.Drawing.Size(140, 40);
+            this.placeBtn.TabIndex = 13;
+            this.placeBtn.Text = "Place";
+            this.placeBtn.UseVisualStyleBackColor = true;
+            this.placeBtn.Click += new System.EventHandler(this.placeBtn_Click);
+            // 
+            // voidBtn
+            // 
+            this.voidBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.voidBtn.Location = new System.Drawing.Point(953, 550);
+            this.voidBtn.Name = "voidBtn";
+            this.voidBtn.Size = new System.Drawing.Size(140, 40);
+            this.voidBtn.TabIndex = 12;
+            this.voidBtn.Text = "Void";
+            this.voidBtn.UseVisualStyleBackColor = true;
+            this.voidBtn.Click += new System.EventHandler(this.voidBtn_Click);
+            // 
+            // cLbl
+            // 
+            this.cLbl.AutoSize = true;
+            this.cLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cLbl.Location = new System.Drawing.Point(1107, 445);
+            this.cLbl.Name = "cLbl";
+            this.cLbl.Size = new System.Drawing.Size(74, 33);
+            this.cLbl.TabIndex = 11;
+            this.cLbl.Text = "Php.";
+            // 
+            // cashLbl
+            // 
+            this.cashLbl.AutoSize = true;
+            this.cashLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cashLbl.Location = new System.Drawing.Point(972, 445);
+            this.cashLbl.Name = "cashLbl";
+            this.cashLbl.Size = new System.Drawing.Size(83, 33);
+            this.cashLbl.TabIndex = 10;
+            this.cashLbl.Text = "Cash";
+            // 
+            // ttlLbl
+            // 
+            this.ttlLbl.AutoSize = true;
+            this.ttlLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ttlLbl.Location = new System.Drawing.Point(1108, 397);
+            this.ttlLbl.Name = "ttlLbl";
+            this.ttlLbl.Size = new System.Drawing.Size(138, 33);
+            this.ttlLbl.TabIndex = 9;
+            this.ttlLbl.Text = "Php. 0.00";
+            // 
+            // totalLbl
+            // 
+            this.totalLbl.AutoSize = true;
+            this.totalLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalLbl.Location = new System.Drawing.Point(972, 397);
+            this.totalLbl.Name = "totalLbl";
+            this.totalLbl.Size = new System.Drawing.Size(80, 33);
+            this.totalLbl.TabIndex = 8;
+            this.totalLbl.Text = "Total";
+            // 
+            // dscLbl
+            // 
+            this.dscLbl.AutoSize = true;
+            this.dscLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dscLbl.Location = new System.Drawing.Point(1107, 354);
+            this.dscLbl.Name = "dscLbl";
+            this.dscLbl.Size = new System.Drawing.Size(138, 33);
+            this.dscLbl.TabIndex = 7;
+            this.dscLbl.Text = "Php. 0.00";
+            // 
+            // discLbl
+            // 
+            this.discLbl.AutoSize = true;
+            this.discLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.discLbl.Location = new System.Drawing.Point(972, 354);
+            this.discLbl.Name = "discLbl";
+            this.discLbl.Size = new System.Drawing.Size(129, 33);
+            this.discLbl.TabIndex = 6;
+            this.discLbl.Text = "Discount";
+            // 
+            // sbLbl
+            // 
+            this.sbLbl.AutoSize = true;
+            this.sbLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sbLbl.Location = new System.Drawing.Point(1108, 309);
+            this.sbLbl.Name = "sbLbl";
+            this.sbLbl.Size = new System.Drawing.Size(138, 33);
+            this.sbLbl.TabIndex = 5;
+            this.sbLbl.Text = "Php. 0.00";
+            // 
+            // subLbl
+            // 
+            this.subLbl.AutoSize = true;
+            this.subLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subLbl.Location = new System.Drawing.Point(972, 309);
+            this.subLbl.Name = "subLbl";
+            this.subLbl.Size = new System.Drawing.Size(121, 33);
+            this.subLbl.TabIndex = 4;
+            this.subLbl.Text = "Subtotal";
+            // 
+            // discChckBx
+            // 
+            this.discChckBx.AutoSize = true;
+            this.discChckBx.BackColor = System.Drawing.Color.Transparent;
+            this.discChckBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.discChckBx.Location = new System.Drawing.Point(921, 214);
+            this.discChckBx.Name = "discChckBx";
+            this.discChckBx.Size = new System.Drawing.Size(319, 37);
+            this.discChckBx.TabIndex = 3;
+            this.discChckBx.Text = "PWD/Senior (20% off)";
+            this.discChckBx.UseVisualStyleBackColor = false;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6});
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle18;
+            this.dataGridView1.Location = new System.Drawing.Point(921, 48);
+            this.dataGridView1.Name = "dataGridView1";
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            this.dataGridView1.RowHeadersVisible = false;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            this.dataGridView1.Size = new System.Drawing.Size(353, 150);
+            this.dataGridView1.TabIndex = 7;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Food";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "-";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 25;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Quantity";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 50;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "+";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 25;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Price";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 75;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Bin";
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 25;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(213, 48);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(700, 600);
+            this.flowLayoutPanel1.TabIndex = 2;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.AutoScroll = true;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(12, 168);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(190, 481);
+            this.flowLayoutPanel2.TabIndex = 1;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(874, 12);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(40, 30);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 18;
+            this.pictureBox3.TabStop = false;
+            // 
+            // logoutBtn
+            // 
+            this.logoutBtn.Image = ((System.Drawing.Image)(resources.GetObject("logoutBtn.Image")));
+            this.logoutBtn.Location = new System.Drawing.Point(213, 12);
+            this.logoutBtn.Name = "logoutBtn";
+            this.logoutBtn.Size = new System.Drawing.Size(40, 30);
+            this.logoutBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logoutBtn.TabIndex = 15;
+            this.logoutBtn.TabStop = false;
+            this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
+            // 
+            // allBtn
+            // 
+            this.allBtn.Image = ((System.Drawing.Image)(resources.GetObject("allBtn.Image")));
+            this.allBtn.Location = new System.Drawing.Point(12, 12);
+            this.allBtn.Name = "allBtn";
+            this.allBtn.Size = new System.Drawing.Size(190, 150);
+            this.allBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.allBtn.TabIndex = 0;
+            this.allBtn.TabStop = false;
+            this.allBtn.Click += new System.EventHandler(this.allBtn_Click);
             // 
             // SalesPanelContainer
             // 
@@ -1248,10 +1587,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.FoodTbl)).EndInit();
             this.AccountManagementPanel.ResumeLayout(false);
             this.AccountManagementPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.UserPicB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AccDataTbl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserPicB)).EndInit();
             this.NavigationPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.LogoutLogo)).EndInit();
+            this.ManagerStaffPanelContainer.ResumeLayout(false);
+            this.ManagerStaffPanelContainer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoutBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allBtn)).EndInit();
             this.SalesPanelContainer.ResumeLayout(false);
             this.SalesPanel.ResumeLayout(false);
             this.MonthlyReportPanel.ResumeLayout(false);
@@ -1375,6 +1720,32 @@
         private System.Windows.Forms.DataGridView MostSalesWeeklyTbl;
         private System.Windows.Forms.DataGridViewTextBoxColumn WeeklyDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn WeeklSale;
+        private System.Windows.Forms.PictureBox allBtn;
+        private System.Windows.Forms.Label ttlLbl;
+        private System.Windows.Forms.Label totalLbl;
+        private System.Windows.Forms.Label dscLbl;
+        private System.Windows.Forms.Label discLbl;
+        private System.Windows.Forms.Label sbLbl;
+        private System.Windows.Forms.Label subLbl;
+        private System.Windows.Forms.CheckBox discChckBx;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.TextBox cashtxtBx;
+        private System.Windows.Forms.Button placeBtn;
+        private System.Windows.Forms.Button voidBtn;
+        private System.Windows.Forms.Label cLbl;
+        private System.Windows.Forms.Label cashLbl;
+        private System.Windows.Forms.PictureBox logoutBtn;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.TextBox SearchTxtbx;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewButtonColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewButtonColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewButtonColumn Column6;
+        private System.Windows.Forms.TextBox PositionTxtBox;
     }
 }
 
