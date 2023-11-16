@@ -80,6 +80,11 @@ namespace CafeSystem
             MenuSelectComB.DropDownStyle = ComboBoxStyle.DropDownList;
             adminMethods.PopulateMealComboBox();
             UserBirthdate.ValueChanged += CalculateAge;
+
+            //Staff Panel
+            dataGridView1.RowsAdded += dataGridView1_RowsAdded;
+            dataGridView1.RowsRemoved += dataGridView1_RowsRemoved;
+            dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
         }
 
         private void LogoutLbl_Click(object sender, EventArgs e)
@@ -1707,17 +1712,35 @@ namespace CafeSystem
             }
         }
 
-        private void cashtxtBx_TextChanged(object sender, EventArgs e)
+        private void RefreshPlaceButtonState()
         {
-            if (!string.IsNullOrEmpty(cashtxtBx.Text) && cashtxtBx.Text != "0.00")
-            {
-                placeBtn.Enabled = true;
-            }
-            else
+            if (dataGridView1.Rows.Count == 0 || !IsAnyMealSelected() || string.IsNullOrEmpty(cashtxtBx.Text) || cashtxtBx.Text == "0.00")
             {
                 placeBtn.Enabled = false;
             }
+            else
+            {
+                placeBtn.Enabled = true;
+            }
         }
+
+        private void cashtxtBx_TextChanged(object sender, EventArgs e)
+        {
+            RefreshPlaceButtonState();
+        }
+
+        private bool IsAnyMealSelected()
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells[0].Value != null && row.Cells[0].Value.ToString() != "-")
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
 
         private void cashtxtBx_Enter(object sender, EventArgs e)
         {
@@ -1894,6 +1917,19 @@ namespace CafeSystem
             }
         }
 
-        
+        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            RefreshPlaceButtonState();
+        }
+
+        private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            RefreshPlaceButtonState();
+        }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            RefreshPlaceButtonState();
+        }
     }
 }
