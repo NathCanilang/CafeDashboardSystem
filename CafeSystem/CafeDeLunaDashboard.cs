@@ -1162,8 +1162,6 @@ namespace CafeSystem
             conn.Close();
         }
 
-
-
         private void OnFLP2Click(object sender, EventArgs e)
         {
             if (sender is PictureBox clickedPic)
@@ -1287,40 +1285,6 @@ namespace CafeSystem
                 decimal totalPrice = currentQty * unitPrice;
                 dataGridView1.Rows[rowIndex].Cells[4].Value = totalPrice.ToString();
                 UpdateTotalPrice();
-            }
-        }
-
-        private decimal GetUnitPriceForFood(string foodName)
-        {
-            decimal unitPrice = 0;
-
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-                using (MySqlCommand command = new MySqlCommand("SELECT VariationCost FROM mealvariation WHERE VariationName = @foodName", connection))
-                {
-                    command.Parameters.AddWithValue("@foodName", foodName);
-
-                    connection.Open();
-
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            unitPrice = decimal.Parse(reader["VariationCost"].ToString());
-                        }
-                    }
-                }
-            }
-            return unitPrice;
-        }
-
-
-        private byte[] GetBytesFromImage(Image image)
-        {
-            using (MemoryStream ms = new MemoryStream())
-            {
-                image.Save(ms, ImageFormat.Png); // You can specify the image format here
-                return ms.ToArray();
             }
         }
 
@@ -1816,7 +1780,7 @@ namespace CafeSystem
             }
         }
 
-        //Methods for sending place order to database
+        //Methods for sending place order to database and others 
         string connectionString = "server=localhost;user=root;database=dashboarddb;password=";
         private void InsertOrderData(int generatedOrderID, bool isVoided)
         {
@@ -1851,7 +1815,6 @@ namespace CafeSystem
             string voidedStatus = isVoided ? "Voided" : "Placed";
             MessageBox.Show($"{voidedStatus} order successfully. OrderID={generatedOrderID}, UserID={employeeID}, Amount={ttlLbl.Text}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
 
         private void InsertSalesData(int generatedOrderID)
         {
@@ -1967,6 +1930,39 @@ namespace CafeSystem
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             RefreshPlaceButtonState();
+        }
+
+        private decimal GetUnitPriceForFood(string foodName)
+        {
+            decimal unitPrice = 0;
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                using (MySqlCommand command = new MySqlCommand("SELECT VariationCost FROM mealvariation WHERE VariationName = @foodName", connection))
+                {
+                    command.Parameters.AddWithValue("@foodName", foodName);
+
+                    connection.Open();
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            unitPrice = decimal.Parse(reader["VariationCost"].ToString());
+                        }
+                    }
+                }
+            }
+            return unitPrice;
+        }
+
+        private byte[] GetBytesFromImage(Image image)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                image.Save(ms, ImageFormat.Png); // You can specify the image format here
+                return ms.ToArray();
+            }
         }
     }
 }
