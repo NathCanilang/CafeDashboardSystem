@@ -1400,6 +1400,94 @@ namespace CafeSystem
         {
                 GeneratePDFReceipt();         
         }
+        private void GeneratePDFReceipt()
+        {
+            decimal subtotal = decimal.Parse(sbLbl.Text.Replace("Php. ", ""));
+            decimal discount = decimal.Parse(dscLbl.Text.Replace("Php. ", ""));
+            decimal totalAmount = decimal.Parse(ttlLbl.Text.Replace("Php. ", ""));
+            decimal cashEntered;
+
+            int totalQuantity = 0;
+
+            if (!decimal.TryParse(cashtxtBx.Text, out cashEntered))
+            {
+                MessageBox.Show("Please enter a valid amount for payment.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (cashEntered < totalAmount)
+            {
+                MessageBox.Show("Please enter a valid amount for payment.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+            using (SaveFileDialog saveFileDialog1 = new SaveFileDialog())
+            {
+                saveFileDialog1.Filter = "PDF Files|*.pdf";
+                saveFileDialog1.Title = "Save PDF File";
+
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    string pdfFilePath = saveFileDialog1.FileName;
+
+                    using (PdfWriter writer = new PdfWriter(new FileStream(pdfFilePath, FileMode.Create)))
+                    using (PdfDocument pdf = new PdfDocument(writer))
+                    using (Document doc = new Document(pdf))
+                    {
+                        doc.SetProperty(Property.TEXT_ALIGNMENT, TextAlignment.JUSTIFIED_ALL);
+                        ImageData logoImageData = ImageDataFactory.Create(GetBytesFromImage(Properties.Resources.luna));
+                        iText.Layout.Element.Image logo = new iText.Layout.Element.Image(logoImageData);
+                        logo.SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
+                        logo.SetWidth(150);
+                        logo.SetHeight(150);
+                        // Add the logo to the PDF
+                        doc.Add(logo);
+                        doc.Add(new Paragraph($"Served by: {positionDB} {usernameDB}").SetTextAlignment(TextAlignment.LEFT));
+                        doc.Add(new Paragraph("Date: " + DateTime.Now.ToString("MM/dd/yyyy   hh:mm:ss tt")).SetTextAlignment(TextAlignment.LEFT));
+                        doc.Add(new Paragraph("--------------------------------------------------------------------------------------------------"));
+                        doc.Add(new Paragraph($"QUANTITY                           MEAL                    PRICE"));
+
+                        foreach (DataGridViewRow row in dataGridView1.Rows)
+                        {
+                            string food = row.Cells[0].Value.ToString();
+                            string quantity = row.Cells[2].Value.ToString();
+                            string price = row.Cells[4].Value.ToString();
+                            if (int.TryParse(quantity, out int quantityValue))
+                            {
+                                totalQuantity += quantityValue;
+                            }
+                            doc.Add(new Paragraph($"{quantity}                                   {food}                    {price}"));
+                        }
+
+                        doc.Add(new Paragraph($"---------------------------------------{totalQuantity} Item(s)-----------------------------------------"));
+                        doc.Add(new Paragraph($"SUBTOTAL:                         Php. {subtotal.ToString("0.00")}"));
+                        doc.Add(new Paragraph($"DISCOUNT:                         Php. {discount.ToString("0.00")}"));
+                        doc.Add(new Paragraph($"TOTAL:                         Php. {totalAmount.ToString("0.00")}"));
+                        doc.Add(new Paragraph($"CASH:                         Php. {cashEntered.ToString("0.00")}"));
+                        decimal change = cashEntered - totalAmount;
+                        doc.Add(new Paragraph($"CHANGE:                         Php. {change.ToString("0.00")}"));
+
+                        doc.Add(new Paragraph("--------------------------------------------------------------------------------------------------"));
+                        doc.Add(new Paragraph("This Receipt Serves as Your Proof of Purchase").SetTextAlignment(TextAlignment.CENTER));
+                    }
+
+                    MessageBox.Show("Receipt generated successfully and saved to:\n" + pdfFilePath, "Enjoy your meal!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    InsertOrderData(GenerateID, false);
+                    InsertOrderItemsData(GenerateID, dataGridView1, false);
+                    InsertSalesData(GenerateID);
+                    GenerateID = orderIDGenerator();
+                    dataGridView1.Rows.Clear();
+                    sbLbl.Text = "Php. 0.00";
+                    ttlLbl.Text = "Php. 0.00";
+                    dscLbl.Text = "Php. 0.00";
+                    cashtxtBx.Text = "0.00";
+                    discChckBx.Checked = false;
+                    cashtxtBx.ForeColor = Color.LightGray;
+                    System.Diagnostics.Process.Start(pdfFilePath);
+                }
+            }
+        }
 
         private void logoutBtn_Click(object sender, EventArgs e)
         {
@@ -1524,94 +1612,6 @@ namespace CafeSystem
             }
         }
 
-        private void GeneratePDFReceipt()
-        {
-            decimal subtotal = decimal.Parse(sbLbl.Text.Replace("Php. ", ""));
-            decimal discount = decimal.Parse(dscLbl.Text.Replace("Php. ", ""));
-            decimal totalAmount = decimal.Parse(ttlLbl.Text.Replace("Php. ", ""));
-            decimal cashEntered;
-
-            int totalQuantity = 0;
-
-            if (!decimal.TryParse(cashtxtBx.Text, out cashEntered))
-            {
-                MessageBox.Show("Please enter a valid amount for payment.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (cashEntered < totalAmount)
-            {
-                MessageBox.Show("Please enter a valid amount for payment.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-
-            using (SaveFileDialog saveFileDialog1 = new SaveFileDialog())
-            {
-                saveFileDialog1.Filter = "PDF Files|*.pdf";
-                saveFileDialog1.Title = "Save PDF File";
-
-                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-                {
-                    string pdfFilePath = saveFileDialog1.FileName;
-
-                    using (PdfWriter writer = new PdfWriter(new FileStream(pdfFilePath, FileMode.Create)))
-                    using (PdfDocument pdf = new PdfDocument(writer))
-                    using (Document doc = new Document(pdf))
-                    {
-                        doc.SetProperty(Property.TEXT_ALIGNMENT, TextAlignment.JUSTIFIED_ALL);
-                        ImageData logoImageData = ImageDataFactory.Create(GetBytesFromImage(Properties.Resources.luna));
-                        iText.Layout.Element.Image logo = new iText.Layout.Element.Image(logoImageData);
-                        logo.SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
-                        logo.SetWidth(150);
-                        logo.SetHeight(150);
-                        // Add the logo to the PDF
-                        doc.Add(logo);
-                        doc.Add(new Paragraph($"Served by: {positionDB} {usernameDB}").SetTextAlignment(TextAlignment.LEFT));
-                        doc.Add(new Paragraph("Date: " + DateTime.Now.ToString("MM/dd/yyyy   hh:mm:ss tt")).SetTextAlignment(TextAlignment.LEFT));
-                        doc.Add(new Paragraph("--------------------------------------------------------------------------------------------------"));
-                        doc.Add(new Paragraph($"QUANTITY                           MEAL                    PRICE"));
-
-                        foreach (DataGridViewRow row in dataGridView1.Rows)
-                        {
-                            string food = row.Cells[0].Value.ToString();
-                            string quantity = row.Cells[2].Value.ToString();
-                            string price = row.Cells[4].Value.ToString();
-                            if (int.TryParse(quantity, out int quantityValue))
-                            {
-                                totalQuantity += quantityValue;
-                            }
-                            doc.Add(new Paragraph($"{quantity}                                   {food}                    {price}"));
-                        }
-
-                        doc.Add(new Paragraph($"---------------------------------------{totalQuantity} Item(s)-----------------------------------------"));
-                        doc.Add(new Paragraph($"SUBTOTAL:                         Php. {subtotal.ToString("0.00")}"));
-                        doc.Add(new Paragraph($"DISCOUNT:                         Php. {discount.ToString("0.00")}"));
-                        doc.Add(new Paragraph($"TOTAL:                         Php. {totalAmount.ToString("0.00")}"));
-                        doc.Add(new Paragraph($"CASH:                         Php. {cashEntered.ToString("0.00")}"));
-                        decimal change = cashEntered - totalAmount;
-                        doc.Add(new Paragraph($"CHANGE:                         Php. {change.ToString("0.00")}"));
-
-                        doc.Add(new Paragraph("--------------------------------------------------------------------------------------------------"));
-                        doc.Add(new Paragraph("This Receipt Serves as Your Proof of Purchase").SetTextAlignment(TextAlignment.CENTER));
-                    }
-
-                    MessageBox.Show("Receipt generated successfully and saved to:\n" + pdfFilePath, "Enjoy your meal!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    InsertOrderData(GenerateID, false);
-                    InsertOrderItemsData(GenerateID, dataGridView1, false);
-                    InsertSalesData(GenerateID);
-                    GenerateID = orderIDGenerator();
-                    dataGridView1.Rows.Clear();
-                    sbLbl.Text = "Php. 0.00";
-                    ttlLbl.Text = "Php. 0.00";
-                    dscLbl.Text = "Php. 0.00";
-                    cashtxtBx.Text = "0.00";
-                    discChckBx.Checked = false;
-                    cashtxtBx.ForeColor = Color.LightGray;
-                    System.Diagnostics.Process.Start(pdfFilePath);
-                }
-            }
-        }
 
         private void CafeDeLunaDashboard_Load(object sender, EventArgs e)
         {
