@@ -42,13 +42,13 @@ namespace CafeSystem
         private int employeeID;
         private string positionDB;
         private string usernameDB;
-
         private readonly string[] position = { "Manager", "Cashier" };
         public int EmployeeIDBeingEdited = -1;
 
         bool isNewImageSelected = false;
         bool isNewFoodImageSelected = false;
         bool IsEditMode = false;
+
         public CafeDeLunaDashboard()
         {
             InitializeComponent();
@@ -1311,7 +1311,6 @@ namespace CafeSystem
                     }
                 }
             }
-
             return unitPrice;
         }
 
@@ -1404,9 +1403,9 @@ namespace CafeSystem
 
         private void placeBtn_Click(object sender, EventArgs e)
         {
-                GeneratePDFReceipt();         
+                GeneratePDFReceipt(GenerateID);         
         }
-        private void GeneratePDFReceipt()
+        private void GeneratePDFReceipt(int orderid)
         {
             decimal subtotal = decimal.Parse(sbLbl.Text.Replace("Php. ", ""));
             decimal discount = decimal.Parse(dscLbl.Text.Replace("Php. ", ""));
@@ -1449,7 +1448,15 @@ namespace CafeSystem
                         logo.SetHeight(150);
                         // Add the logo to the PDF
                         doc.Add(logo);
+                        doc.Add(new Paragraph("BLOCK 5,  ORANGE STREET, LAKEVIEW, PINAGBUHATAN, PASIG CITY").SetTextAlignment(TextAlignment.CENTER));
+                        doc.Add(new Paragraph(" "));
+                        doc.Add(new Paragraph(" "));
+                        doc.Add(new Paragraph(" "));
+                        doc.Add(new Paragraph("Tel NO : (02) 4568-2996").SetTextAlignment(TextAlignment.LEFT));
+                        doc.Add(new Paragraph("Mobile NO : (0993) 369-4904").SetTextAlignment(TextAlignment.LEFT));
+                        doc.Add(new Paragraph("Email: cafedeluna@gmail.com").SetTextAlignment(TextAlignment.LEFT));
                         doc.Add(new Paragraph($"Served by: {positionDB} {usernameDB}").SetTextAlignment(TextAlignment.LEFT));
+                        doc.Add(new Paragraph($"Order #{orderid} ").SetTextAlignment(TextAlignment.LEFT));
                         doc.Add(new Paragraph("Date: " + DateTime.Now.ToString("MM/dd/yyyy   hh:mm:ss tt")).SetTextAlignment(TextAlignment.LEFT));
                         doc.Add(new Paragraph("--------------------------------------------------------------------------------------------------"));
                         doc.Add(new Paragraph($"QUANTITY                           MEAL                    PRICE"));
@@ -1475,7 +1482,7 @@ namespace CafeSystem
                         doc.Add(new Paragraph($"CHANGE:                         Php. {change.ToString("0.00")}"));
 
                         doc.Add(new Paragraph("--------------------------------------------------------------------------------------------------"));
-                        doc.Add(new Paragraph("This Receipt Serves as Your Proof of Purchase").SetTextAlignment(TextAlignment.CENTER));
+                        doc.Add(new Paragraph("THIS RECEIPT SERVES AS YOUR PROOF OF PURCHASE").SetTextAlignment(TextAlignment.CENTER));
                     }
 
                     MessageBox.Show("Receipt generated successfully and saved to:\n" + pdfFilePath, "Enjoy your meal!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1790,7 +1797,6 @@ namespace CafeSystem
                 cashtxtBx.SelectAll();
             }
         }
-
 
         private void discChckBx_CheckedChanged(object sender, EventArgs e)
         {

@@ -979,7 +979,7 @@
             this.cashtxtBx.Location = new System.Drawing.Point(1160, 450);
             this.cashtxtBx.Multiline = true;
             this.cashtxtBx.Name = "cashtxtBx";
-            this.cashtxtBx.Size = new System.Drawing.Size(71, 33);
+            this.cashtxtBx.Size = new System.Drawing.Size(80, 33);
             this.cashtxtBx.TabIndex = 14;
             this.cashtxtBx.TextChanged += new System.EventHandler(this.cashtxtBx_TextChanged);
             this.cashtxtBx.Enter += new System.EventHandler(this.cashtxtBx_Enter);
