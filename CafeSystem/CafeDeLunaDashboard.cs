@@ -1589,7 +1589,6 @@ namespace CafeSystem
             }
         }
 
-
         private void CafeDeLunaDashboard_Load(object sender, EventArgs e)
         {
             SearchTxtbx.Text = "Type here to search";
@@ -1960,7 +1959,7 @@ namespace CafeSystem
         {
             using (MemoryStream ms = new MemoryStream())
             {
-                image.Save(ms, ImageFormat.Png); // You can specify the image format here
+                image.Save(ms, ImageFormat.Png); 
                 return ms.ToArray();
             }
         }
