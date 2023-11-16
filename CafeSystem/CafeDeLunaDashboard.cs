@@ -85,6 +85,7 @@ namespace CafeSystem
             dataGridView1.RowsAdded += dataGridView1_RowsAdded;
             dataGridView1.RowsRemoved += dataGridView1_RowsRemoved;
             dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
+            cashtxtBx.KeyPress += cashtxtBx_KeyPress;
         }
 
         private void LogoutLbl_Click(object sender, EventArgs e)
@@ -1724,11 +1725,6 @@ namespace CafeSystem
             }
         }
 
-        private void cashtxtBx_TextChanged(object sender, EventArgs e)
-        {
-            RefreshPlaceButtonState();
-        }
-
         private bool IsAnyMealSelected()
         {
             foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -1741,6 +1737,10 @@ namespace CafeSystem
             return false;
         }
 
+        private void cashtxtBx_TextChanged(object sender, EventArgs e)
+        {
+            RefreshPlaceButtonState();
+        }
 
         private void cashtxtBx_Enter(object sender, EventArgs e)
         {
@@ -1757,9 +1757,40 @@ namespace CafeSystem
             {
                 cashtxtBx.Text = "0.00";
                 cashtxtBx.ForeColor = Color.LightGray;
+            }
+            ValidateCashTextbox();
+        }
+
+        private void cashtxtBx_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                ValidateCashTextbox();
 
             }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
+
+        private void ValidateCashTextbox()
+        {
+            decimal cashValue;
+            if (!decimal.TryParse(cashtxtBx.Text, out cashValue) || cashValue < 0)
+            {
+                MessageBox.Show("Please enter a valid positive decimal value (xxx.xx).", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cashtxtBx.Focus();
+                cashtxtBx.SelectAll();
+            }
+        }
+
 
         private void discChckBx_CheckedChanged(object sender, EventArgs e)
         {
