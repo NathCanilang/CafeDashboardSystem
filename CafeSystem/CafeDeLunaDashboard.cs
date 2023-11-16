@@ -1,11 +1,11 @@
-﻿using iText.IO.Image;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
+
 using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
@@ -80,6 +80,12 @@ namespace CafeSystem
             MenuSelectComB.DropDownStyle = ComboBoxStyle.DropDownList;
             adminMethods.PopulateMealComboBox();
             UserBirthdate.ValueChanged += CalculateAge;
+
+            //Staff Panel
+            dataGridView1.RowsAdded += dataGridView1_RowsAdded;
+            dataGridView1.RowsRemoved += dataGridView1_RowsRemoved;
+            dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
+            cashtxtBx.KeyPress += cashtxtBx_KeyPress;
         }
 
         private void LogoutLbl_Click(object sender, EventArgs e)
@@ -1060,7 +1066,6 @@ namespace CafeSystem
 
         public void GetData2()
         {
-            conn.Close();
             flowLayoutPanel2.Controls.Clear();
             conn.Open();
             cm = new MySqlCommand("SELECT MealImage, MealID, MealName FROM meal WHERE MealID>=24", conn);
@@ -1110,6 +1115,7 @@ namespace CafeSystem
             dr.Close();
             conn.Close();
         }
+
         private void OnFLP1Click(object sender, EventArgs e)
         {
             PictureBox clickedPic = (PictureBox)sender;
@@ -1127,34 +1133,36 @@ namespace CafeSystem
 
                 // Check if a variation with the same VariationName already exists in the DataGridView
                 bool exists = false;
+                int rowIndex = -1; // To store the index of the existing row
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
                     if (row.Cells[0].Value != null && row.Cells[0].Value.ToString() == variationName)
                     {
                         exists = true;
+                        rowIndex = row.Index;
                         break;
                     }
                 }
 
                 if (!exists)
                 {
-                    DialogResult result = MessageBox.Show("Do you want to add this variation?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    if (result == DialogResult.Yes)
-                    {
-                        dataGridView1.Rows.Add(variationName, "-", quantity, "+", variationCost, "X");
-                        // Update the total price
-                        UpdateTotalPrice();
-                    }
+                    dataGridView1.Rows.Add(variationName, "-", quantity, "+", variationCost, "X");
+                    UpdateTotalPrice();
                 }
                 else
                 {
-                    MessageBox.Show("This variation is already in the cart.", "Try another one", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Increment the quantity column for the existing meal
+                    int currentQty = int.Parse(dataGridView1.Rows[rowIndex].Cells[2].Value.ToString());
+                    currentQty++;
+                    dataGridView1.Rows[rowIndex].Cells[2].Value = currentQty;
+                    AddTotalPrice(rowIndex);
                 }
             }
             dr.Close();
             conn.Close();
         }
+
+
 
         private void OnFLP2Click(object sender, EventArgs e)
         {
@@ -1164,6 +1172,7 @@ namespace CafeSystem
                 DisplayVariationNamesByMealID(mealID);
             }
         }
+
         private void DisplayVariationNamesByMealID(string mealID)
         {
             flowLayoutPanel1.Controls.Clear();
@@ -1227,74 +1236,7 @@ namespace CafeSystem
         private void allBtn_Click(object sender, EventArgs e)
         {
             GetData();
-        }
-
-        private void SearchTxtbx_TextChanged(object sender, EventArgs e)
-        {
-            string searchQuery = SearchTxtbx.Text;
-            flowLayoutPanel1.Controls.Clear();
-
-            if (!string.IsNullOrWhiteSpace(searchQuery))
-            {
-                conn.Open();
-                cm = new MySqlCommand("SELECT VariationName, VariationCost, MealImage, VariationID FROM mealvariation WHERE VariationName LIKE @searchQuery", conn);
-                cm.Parameters.AddWithValue("@searchQuery", "%" + searchQuery + "%");
-
-                dr = cm.ExecuteReader();
-
-                while (dr.Read())
-                {
-                    if (!dr.IsDBNull(dr.GetOrdinal("MealImage")))
-                    {
-                        byte[] imageBytes = (byte[])dr["MealImage"];
-
-                        using (MemoryStream ms = new MemoryStream(imageBytes))
-                        {
-                            Image mealImage = Image.FromStream(ms);
-                            pic = new PictureBox
-                            {
-                                Width = 150,
-                                Height = 150,
-                                BackgroundImage = mealImage,
-                                BackgroundImageLayout = ImageLayout.Stretch,
-                                Tag = dr["VariationID"].ToString(),
-                            };
-
-                            price = new Label
-                            {
-                                Text = "Php. " + dr["VariationCost"].ToString(),
-                                Width = 25,
-                                Height = 15,
-                                TextAlign = ContentAlignment.TopLeft,
-                                Dock = DockStyle.Top,
-                                BackColor = Color.White,
-                            };
-
-                            mealname = new Label
-                            {
-                                Text = dr["VariationName"].ToString(),
-                                Width = 25,
-                                Height = 15,
-                                TextAlign = ContentAlignment.BottomCenter,
-                                Dock = DockStyle.Bottom,
-                                BackColor = Color.White,
-                            };
-
-                            pic.Controls.Add(mealname);
-                            pic.Controls.Add(price);
-                            flowLayoutPanel1.Controls.Add(pic);
-                            pic.Click += OnFLP1Click;
-                        }
-                    }
-                }
-                dr.Close();
-                conn.Close();
-            }
-            else
-            {
-                GetData();
-            }
-        }
+        }        
 
         private void UpdateTotalPrice()
         {
@@ -1347,222 +1289,32 @@ namespace CafeSystem
                 UpdateTotalPrice();
             }
         }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == 1 && e.RowIndex >= 0)
-            {
-                SubtractTotalPrice(e.RowIndex);
-            }
-
-            if (e.ColumnIndex == 3 && e.RowIndex >= 0)
-            {
-                int currentQty = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString());
-                currentQty++;
-                dataGridView1.Rows[e.RowIndex].Cells[2].Value = currentQty;
-                AddTotalPrice(e.RowIndex);
-            }
-
-            if (e.ColumnIndex == 5 && e.RowIndex >= 0)
-            {
-                string userPosition = PositionTxtBox.Text; // Replace this with the logic to get the user's position
-
-                DialogResult result;
-
-                if (userPosition == "Staff")
-                {
-                    // If the user is a staff member, prompt for manager's password
-                    string enteredPassword = Encryptor.HashPassword(Microsoft.VisualBasic.Interaction.InputBox("Enter manager password:", "Password Required", ""));
-
-                    string connectionString = "server=localhost;user=root;database=dashboarddb;password=";
-
-                    using (MySqlConnection connection = new MySqlConnection(connectionString))
-                    {
-                        connection.Open();
-
-                        string query = "SELECT Position FROM employee_acc WHERE Password = @Password";
-
-                        using (MySqlCommand command = new MySqlCommand(query, connection))
-                        {
-                            command.Parameters.AddWithValue("@Password", enteredPassword);
-
-                            // Execute the query
-                            using (MySqlDataReader reader = command.ExecuteReader())
-                            {
-                                if (reader.Read())
-                                {
-                                    string position = reader["Position"].ToString();
-
-                                    if (position == "Manager")
-                                    {
-                                        result = MessageBox.Show("Do you want to remove this item?", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                                        if (result == DialogResult.Yes)
-                                        {
-                                            if (e.RowIndex < dataGridView1.Rows.Count)
-                                            {
-                                                // Calculate the price of the removed item
-                                                decimal removedItemPrice = decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString());
-
-                                                // Remove the selected row from the DataGridView
-                                                dataGridView1.Rows.RemoveAt(e.RowIndex);
-
-                                                // Update the total price by subtracting the removed item's price
-                                                totalPrice -= removedItemPrice;
-                                                sbLbl.Text = "Php. " + totalPrice.ToString("0.00");
-                                                ttlLbl.Text = sbLbl.Text;
-
-                                                if (discChckBx.Checked)
-                                                {
-                                                    decimal totalPrice = decimal.Parse(sbLbl.Text.Replace("Php. ", ""));
-                                                    decimal discount = totalPrice * 0.20m;
-                                                    decimal discountedTotal = totalPrice - discount;
-
-                                                    dscLbl.Text = "Php. " + discount.ToString("0.00");
-                                                    ttlLbl.Text = "Php. " + discountedTotal.ToString("0.00");
-                                                }
-                                            }
-                                        }
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                    }
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                }
-                            }
-                        }
-                    }
-                }
-                else // For Managers and Admins, no password is required
-                {
-                    result = MessageBox.Show("Do you want to remove this item?", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    if (result == DialogResult.Yes)
-                    {
-                        if (e.RowIndex < dataGridView1.Rows.Count)
-                        {
-                            // Calculate the price of the removed item
-                            decimal removedItemPrice = decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString());
-
-                            // Remove the selected row from the DataGridView
-                            dataGridView1.Rows.RemoveAt(e.RowIndex);
-
-                            // Update the total price by subtracting the removed item's price
-                            totalPrice -= removedItemPrice;
-                            sbLbl.Text = "Php. " + totalPrice.ToString("0.00");
-                            ttlLbl.Text = sbLbl.Text;
-                        }
-                    }
-                }
-            }
-        }
 
         private decimal GetUnitPriceForFood(string foodName)
         {
             decimal unitPrice = 0;
-            conn.Open();
-            cm = new MySqlCommand("SELECT VariationCost FROM mealvariation WHERE VariationName = @foodName", conn);
-            cm.Parameters.AddWithValue("@foodName", foodName);
-            dr = cm.ExecuteReader();
 
-            if (dr.Read())
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                unitPrice = decimal.Parse(dr["VariationCost"].ToString());
+                using (MySqlCommand command = new MySqlCommand("SELECT VariationCost FROM mealvariation WHERE VariationName = @foodName", connection))
+                {
+                    command.Parameters.AddWithValue("@foodName", foodName);
+
+                    connection.Open();
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            unitPrice = decimal.Parse(reader["VariationCost"].ToString());
+                        }
+                    }
+                }
             }
-            dr.Close();
-            conn.Close();
+
             return unitPrice;
         }
 
-        private void discChckBx_CheckedChanged(object sender, EventArgs e)
-        {
-            if (discChckBx.Checked)
-            {
-                decimal totalPrice = decimal.Parse(sbLbl.Text.Replace("Php. ", ""));
-                decimal discount = totalPrice * 0.20m;
-                decimal discountedTotal = totalPrice - discount;
-
-                dscLbl.Text = "Php. " + discount.ToString("0.00");
-                ttlLbl.Text = "Php. " + discountedTotal.ToString("0.00");
-            }
-            else
-            {
-                dscLbl.Text = "Php. 0.00";
-                UpdateTotalPrice();
-            }
-        }
-
-        private void dataGridView1_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-            {
-                if (dataGridView1.SelectedRows.Count > 0)
-                {
-                    dataGridView1.SelectedRows[0].Selected = false;
-                }
-            }
-        }
-
-        private void SearchTxtbx_Enter(object sender, EventArgs e)
-        {
-            if (SearchTxtbx.Text == "Type here to search")
-            {
-                SearchTxtbx.Text = "";
-                SearchTxtbx.ForeColor = Color.Black;
-            }
-        }
-
-        private void SearchTxtbx_Leave(object sender, EventArgs e)
-        {
-            if (SearchTxtbx.Text == "")
-            {
-                SearchTxtbx.Text = "Type here to search";
-                SearchTxtbx.ForeColor = Color.LightGray;
-                GetData();
-            }
-        }
-
-        private void CafeDeLunaDashboard_Load(object sender, EventArgs e)
-        {
-            SearchTxtbx.Text = "Type here to search";
-            SearchTxtbx.ForeColor = Color.LightGray;
-            cashtxtBx.Text = "0.00";
-            cashtxtBx.ForeColor = Color.LightGray;
-        }
-
-        private void cashtxtBx_Enter(object sender, EventArgs e)
-        {
-            if (cashtxtBx.Text == "0.00")
-            {
-                cashtxtBx.Text = "";
-                cashtxtBx.ForeColor = Color.Black;
-            }
-        }
-
-        private void cashtxtBx_Leave(object sender, EventArgs e)
-        {
-            if (cashtxtBx.Text == "")
-            {
-                cashtxtBx.Text = "0.00";
-                cashtxtBx.ForeColor = Color.LightGray;
-
-            }
-        }
-
-        private void cashtxtBx_TextChanged(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(cashtxtBx.Text) && cashtxtBx.Text != "0.00")
-            {
-                placeBtn.Enabled = true;
-            }
-            else
-            {
-                placeBtn.Enabled = false;
-            }
-        }
 
         private byte[] GetBytesFromImage(Image image)
         {
@@ -1573,6 +1325,87 @@ namespace CafeSystem
             }
         }
 
+        private void voidBtn_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count == 0)
+            {
+                MessageBox.Show("There are no items in your cart.", "No Items", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string userPosition = PositionTxtBox.Text; // Replace this with the logic to get the user's position
+
+            DialogResult result;
+
+            if (userPosition == "Staff")
+            {
+                // If the user is a staff member, prompt for manager's password
+                string enteredPassword = Encryptor.HashPassword(Microsoft.VisualBasic.Interaction.InputBox("Enter manager password:", "Password Required", ""));
+
+                string connectionString = "server=localhost;user=root;database=dashboarddb;password=";
+
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT Position FROM employee_acc WHERE Password = @Password";
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Password", enteredPassword);
+
+                        // Execute the query
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                string position = reader["Position"].ToString();
+
+                                if (position == "Manager")
+                                {
+                                    result = MessageBox.Show("Do you want to void these items?", "Void Items", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Invalid password. You need manager permission to void items.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    return;
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid password. You need manager permission to void items.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+                        }
+                    }
+                }
+
+            }
+            else // For Managers and Admins, no password is required
+            {
+                result = MessageBox.Show("Do you want to void these items?", "Void Items", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            }
+
+            if (result == DialogResult.Yes)
+            {
+                GenerateID = orderIDGenerator();
+                InsertOrderData(GenerateID, true);
+                InsertOrderItemsData(GenerateID, dataGridView1, true);
+            }
+            dataGridView1.Rows.Clear();
+            sbLbl.Text = "Php. 0.00";
+            ttlLbl.Text = "Php. 0.00";
+            dscLbl.Text = "Php. 0.00";
+            cashtxtBx.Text = "0.00";
+            cashtxtBx.ForeColor = Color.LightGray;
+            discChckBx.Checked = false;
+            GenerateID = orderIDGenerator();
+        }
+
+        private void placeBtn_Click(object sender, EventArgs e)
+        {
+                GeneratePDFReceipt();         
+        }
         private void GeneratePDFReceipt()
         {
             decimal subtotal = decimal.Parse(sbLbl.Text.Replace("Php. ", ""));
@@ -1662,9 +1495,322 @@ namespace CafeSystem
             }
         }
 
+        private void logoutBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to log-out?", "information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                loginPanelManager.ShowPanel(LoginPanelContainer);
+                dataGridView1.Rows.Clear();
+                sbLbl.Text = "Php. 0.00";
+                ttlLbl.Text = "Php. 0.00";
+                dscLbl.Text = "Php. 0.00";
+                cashtxtBx.Text = "0.00";
+                cashtxtBx.ForeColor = Color.LightGray;
+                discChckBx.Checked = false;
+            }
+        }
+
+        private void dataGridView1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    dataGridView1.SelectedRows[0].Selected = false;
+                }
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 1 && e.RowIndex >= 0)
+            {
+                SubtractTotalPrice(e.RowIndex);
+            }
+
+            if (e.ColumnIndex == 3 && e.RowIndex >= 0)
+            {
+                int currentQty = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString());
+                currentQty++;
+                dataGridView1.Rows[e.RowIndex].Cells[2].Value = currentQty;
+                AddTotalPrice(e.RowIndex);
+            }
+
+            if (e.ColumnIndex == 5 && e.RowIndex >= 0)
+            {
+                string userPosition = PositionTxtBox.Text; // Replace this with the logic to get the user's position
+
+                if (userPosition == "Staff")
+                {
+                    // If the user is a staff member, prompt for manager's password
+                    string enteredPassword = Encryptor.HashPassword(Microsoft.VisualBasic.Interaction.InputBox("Enter manager password:", "Password Required", ""));
+
+                    string connectionString = "server=localhost;user=root;database=dashboarddb;password=";
+
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        connection.Open();
+
+                        string query = "SELECT Position FROM employee_acc WHERE Password = @Password";
+
+                        using (MySqlCommand command = new MySqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@Password", enteredPassword);
+
+                            // Execute the query
+                            using (MySqlDataReader reader = command.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    string position = reader["Position"].ToString();
+
+                                    if (position == "Manager")
+                                    {
+                                            if (e.RowIndex < dataGridView1.Rows.Count)
+                                            {
+                                                // Calculate the price of the removed item
+                                                decimal removedItemPrice = decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString());
+
+                                                // Remove the selected row from the DataGridView
+                                                dataGridView1.Rows.RemoveAt(e.RowIndex);
+
+                                                // Update the total price by subtracting the removed item's price
+                                                totalPrice -= removedItemPrice;
+                                                sbLbl.Text = "Php. " + totalPrice.ToString("0.00");
+                                                ttlLbl.Text = sbLbl.Text;
+
+                                                if (discChckBx.Checked)
+                                                {
+                                                    decimal totalPrice = decimal.Parse(sbLbl.Text.Replace("Php. ", ""));
+                                                    decimal discount = totalPrice * 0.20m;
+                                                    decimal discountedTotal = totalPrice - discount;
+
+                                                    dscLbl.Text = "Php. " + discount.ToString("0.00");
+                                                    ttlLbl.Text = "Php. " + discountedTotal.ToString("0.00");
+                                                }
+                                            }                                       
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Invalid password. You need manager permission to remove an item.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                            }
+                        }
+                    }
+                }
+                else // For Managers and Admins, no password is required
+                {
+                    if (e.RowIndex < dataGridView1.Rows.Count)
+                    {
+                        decimal removedItemPrice = decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString());
+                        dataGridView1.Rows.RemoveAt(e.RowIndex);
+                        totalPrice -= removedItemPrice;
+                        sbLbl.Text = "Php. " + totalPrice.ToString("0.00");
+                        ttlLbl.Text = sbLbl.Text;
+                    }                   
+                }
+            }
+        }
+
+
+        private void CafeDeLunaDashboard_Load(object sender, EventArgs e)
+        {
+            SearchTxtbx.Text = "Type here to search";
+            SearchTxtbx.ForeColor = Color.LightGray;
+            cashtxtBx.Text = "0.00";
+            cashtxtBx.ForeColor = Color.LightGray;
+        }
+
+        private void SearchTxtbx_TextChanged(object sender, EventArgs e)
+        {
+            string searchQuery = SearchTxtbx.Text;
+            flowLayoutPanel1.Controls.Clear();
+
+            if (!string.IsNullOrWhiteSpace(searchQuery))
+            {
+                conn.Open();
+                cm = new MySqlCommand("SELECT VariationName, VariationCost, MealImage, VariationID FROM mealvariation WHERE VariationName LIKE @searchQuery", conn);
+                cm.Parameters.AddWithValue("@searchQuery", "%" + searchQuery + "%");
+
+                dr = cm.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    if (!dr.IsDBNull(dr.GetOrdinal("MealImage")))
+                    {
+                        byte[] imageBytes = (byte[])dr["MealImage"];
+
+                        using (MemoryStream ms = new MemoryStream(imageBytes))
+                        {
+                            Image mealImage = Image.FromStream(ms);
+                            pic = new PictureBox
+                            {
+                                Width = 150,
+                                Height = 150,
+                                BackgroundImage = mealImage,
+                                BackgroundImageLayout = ImageLayout.Stretch,
+                                Tag = dr["VariationID"].ToString(),
+                            };
+
+                            price = new Label
+                            {
+                                Text = "Php. " + dr["VariationCost"].ToString(),
+                                Width = 25,
+                                Height = 15,
+                                TextAlign = ContentAlignment.TopLeft,
+                                Dock = DockStyle.Top,
+                                BackColor = Color.White,
+                            };
+
+                            mealname = new Label
+                            {
+                                Text = dr["VariationName"].ToString(),
+                                Width = 25,
+                                Height = 15,
+                                TextAlign = ContentAlignment.BottomCenter,
+                                Dock = DockStyle.Bottom,
+                                BackColor = Color.White,
+                            };
+
+                            pic.Controls.Add(mealname);
+                            pic.Controls.Add(price);
+                            flowLayoutPanel1.Controls.Add(pic);
+                            pic.Click += OnFLP1Click;
+                        }
+                    }
+                }
+                dr.Close();
+                conn.Close();
+            }
+            else
+            {
+                GetData();
+            }
+        }
+
+        private void SearchTxtbx_Enter(object sender, EventArgs e)
+        {
+            if (SearchTxtbx.Text == "Type here to search")
+            {
+                SearchTxtbx.Text = "";
+                SearchTxtbx.ForeColor = Color.Black;
+            }
+        }
+
+        private void SearchTxtbx_Leave(object sender, EventArgs e)
+        {
+            if (SearchTxtbx.Text == "")
+            {
+                SearchTxtbx.Text = "Type here to search";
+                SearchTxtbx.ForeColor = Color.LightGray;
+                GetData();
+            }
+        }
+
+        private void RefreshPlaceButtonState()
+        {
+            if (dataGridView1.Rows.Count == 0 || !IsAnyMealSelected() || string.IsNullOrEmpty(cashtxtBx.Text) || cashtxtBx.Text == "0.00")
+            {
+                placeBtn.Enabled = false;
+            }
+            else
+            {
+                placeBtn.Enabled = true;
+            }
+        }
+
+        private bool IsAnyMealSelected()
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells[0].Value != null && row.Cells[0].Value.ToString() != "-")
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void cashtxtBx_TextChanged(object sender, EventArgs e)
+        {
+            RefreshPlaceButtonState();
+        }
+
+        private void cashtxtBx_Enter(object sender, EventArgs e)
+        {
+            if (cashtxtBx.Text == "0.00")
+            {
+                cashtxtBx.Text = "";
+                cashtxtBx.ForeColor = Color.Black;
+            }
+        }
+
+        private void cashtxtBx_Leave(object sender, EventArgs e)
+        {
+            if (cashtxtBx.Text == "")
+            {
+                cashtxtBx.Text = "0.00";
+                cashtxtBx.ForeColor = Color.LightGray;
+            }
+            ValidateCashTextbox();
+        }
+
+        private void cashtxtBx_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                ValidateCashTextbox();
+
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void ValidateCashTextbox()
+        {
+            decimal cashValue;
+            if (!decimal.TryParse(cashtxtBx.Text, out cashValue) || cashValue < 0)
+            {
+                MessageBox.Show("Please enter a valid positive decimal value (xxx.xx).", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cashtxtBx.Focus();
+                cashtxtBx.SelectAll();
+            }
+        }
+
+
+        private void discChckBx_CheckedChanged(object sender, EventArgs e)
+        {
+            if (discChckBx.Checked)
+            {
+                decimal totalPrice = decimal.Parse(sbLbl.Text.Replace("Php. ", ""));
+                decimal discount = totalPrice * 0.20m;
+                decimal discountedTotal = totalPrice - discount;
+
+                dscLbl.Text = "Php. " + discount.ToString("0.00");
+                ttlLbl.Text = "Php. " + discountedTotal.ToString("0.00");
+            }
+            else
+            {
+                dscLbl.Text = "Php. 0.00";
+                UpdateTotalPrice();
+            }
+        }
 
         //Methods for sending place order to database
-
         string connectionString = "server=localhost;user=root;database=dashboarddb;password=";
         private void InsertOrderData(int generatedOrderID, bool isVoided)
         {
@@ -1802,107 +1948,19 @@ namespace CafeSystem
             }
         }
 
-        private void voidBtn_Click(object sender, EventArgs e)
+        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            if (dataGridView1.Rows.Count == 0)
-            {
-                MessageBox.Show("There are no items in your cart.", "No Items", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            string userPosition = PositionTxtBox.Text; // Replace this with the logic to get the user's position
-
-            DialogResult result;
-
-            if (userPosition == "Staff")
-            {
-                // If the user is a staff member, prompt for manager's password
-                string enteredPassword = Encryptor.HashPassword(Microsoft.VisualBasic.Interaction.InputBox("Enter manager password:", "Password Required", ""));
-
-                string connectionString = "server=localhost;user=root;database=dashboarddb;password=";
-
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    string query = "SELECT Position FROM employee_acc WHERE Password = @Password";
-
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@Password", enteredPassword);
-
-                        // Execute the query
-                        using (MySqlDataReader reader = command.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                string position = reader["Position"].ToString();
-
-                                if (position == "Manager")
-                                {
-                                    result = MessageBox.Show("Do you want to void these items?", "Void Items", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Invalid password. You need manager permission to void items.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                    return;
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("Invalid password. You need manager permission to void items.", "Permission Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                return;
-                            }
-                        }
-                    }
-                }
-
-            }
-            else // For Managers and Admins, no password is required
-            {
-                result = MessageBox.Show("Do you want to void these items?", "Void Items", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            }
-
-            if (result == DialogResult.Yes)
-            {
-                GenerateID = orderIDGenerator();
-                InsertOrderData(GenerateID, true);
-                InsertOrderItemsData(GenerateID, dataGridView1, true);
-            }
-            dataGridView1.Rows.Clear();
-            sbLbl.Text = "Php. 0.00";
-            ttlLbl.Text = "Php. 0.00";
-            dscLbl.Text = "Php. 0.00";
-            cashtxtBx.Text = "0.00";
-            cashtxtBx.ForeColor = Color.LightGray;
-            discChckBx.Checked = false;
-            GenerateID = orderIDGenerator();
+            RefreshPlaceButtonState();
         }
 
-        private void placeBtn_Click(object sender, EventArgs e)
+        private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to generate the receipt?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                GeneratePDFReceipt();
-            }
+            RefreshPlaceButtonState();
         }
 
-        private void logoutBtn_Click(object sender, EventArgs e)
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to log-out?", "information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                loginPanelManager.ShowPanel(LoginPanelContainer);
-                dataGridView1.Rows.Clear();
-                sbLbl.Text = "Php. 0.00";
-                ttlLbl.Text = "Php. 0.00";
-                dscLbl.Text = "Php. 0.00";
-                cashtxtBx.Text = "0.00";
-                cashtxtBx.ForeColor = Color.LightGray;
-                discChckBx.Checked = false;
-            }
+            RefreshPlaceButtonState();
         }
     }
 }

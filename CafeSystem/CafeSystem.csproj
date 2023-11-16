@@ -42,6 +42,9 @@
     <Reference Include="itext.barcodes, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\itext.8.0.2\lib\net461\itext.barcodes.dll</HintPath>
     </Reference>
+    <Reference Include="itext.bouncy-castle-adapter, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext.bouncy-castle-adapter.8.0.2\lib\net461\itext.bouncy-castle-adapter.dll</HintPath>
+    </Reference>
     <Reference Include="itext.bouncy-castle-connector, Version=8.0.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\itext.8.0.2\lib\net461\itext.bouncy-castle-connector.dll</HintPath>
     </Reference>
