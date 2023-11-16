@@ -9,11 +9,12 @@ namespace Microsoft.VisualBasic
         {
             using (Form inputForm = new Form())
             using (TextBox textBox = new TextBox())
+            using (CheckBox showPasswordCheckBox = new CheckBox())
             using (Button okButton = new Button())
             using (Label label = new Label())
             {
                 inputForm.Text = title;
-                inputForm.Size = new System.Drawing.Size(300, 150);
+                inputForm.Size = new System.Drawing.Size(300, 200);
                 inputForm.FormBorderStyle = FormBorderStyle.FixedSingle;
                 inputForm.StartPosition = FormStartPosition.CenterScreen;
 
@@ -24,14 +25,23 @@ namespace Microsoft.VisualBasic
                 textBox.Size = new System.Drawing.Size(200, 20);
                 textBox.Location = new System.Drawing.Point(50, 30);
                 textBox.Text = defaultResponse;
+                textBox.UseSystemPasswordChar = true; // Set to true to display password characters
+
+                showPasswordCheckBox.Text = "Show Password";
+                showPasswordCheckBox.Size = new System.Drawing.Size(150, 20);
+                showPasswordCheckBox.Location = new System.Drawing.Point(50, 60);
+                showPasswordCheckBox.CheckedChanged += (sender, e) =>
+                {
+                    textBox.UseSystemPasswordChar = !showPasswordCheckBox.Checked;
+                };
 
                 okButton.DialogResult = DialogResult.OK;
                 okButton.Name = "okButton";
                 okButton.Size = new System.Drawing.Size(75, 23);
-                okButton.Location = new System.Drawing.Point(50, 70);
+                okButton.Location = new System.Drawing.Point(50, 100);
                 okButton.Text = "OK";
 
-                inputForm.Controls.AddRange(new Control[] { label, textBox, okButton });
+                inputForm.Controls.AddRange(new Control[] { label, textBox, showPasswordCheckBox, okButton });
 
                 inputForm.AcceptButton = okButton;
 
