@@ -32,7 +32,7 @@ namespace CafeSystem
             ManagerStaffPanelContainer.Hide();
 
             panelToShow.Show();
-            if (panelToShow == ManagerStaffPanelContainer)
+            if (panelToShow == ManagerStaffPanelContainer   )
             {
                 CafeDeLunaDashboard.cafeDeLunaInstance.GetData();
                 CafeDeLunaDashboard.cafeDeLunaInstance.GetData2();
