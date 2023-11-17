@@ -205,7 +205,7 @@
             // 
             this.MainPanelsCL.ContainerControl = this;
             this.MainPanelsCL.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.MainPanelsCL.SelectedCard = "Card2";
+            this.MainPanelsCL.SelectedCard = "Card3";
             // 
             // LoginPanelContainer
             // 
@@ -955,11 +955,13 @@
             // 
             // PositionTxtBox
             // 
+            this.PositionTxtBox.Enabled = false;
             this.PositionTxtBox.Location = new System.Drawing.Point(1061, 622);
             this.PositionTxtBox.Multiline = true;
             this.PositionTxtBox.Name = "PositionTxtBox";
             this.PositionTxtBox.Size = new System.Drawing.Size(100, 20);
             this.PositionTxtBox.TabIndex = 19;
+            this.PositionTxtBox.Visible = false;
             // 
             // SearchTxtbx
             // 
