@@ -73,6 +73,16 @@ namespace CafeSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap coffee_BG_login {
+            get {
+                object obj = ResourceManager.GetObject("coffee BG login", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap find {
             get {
                 object obj = ResourceManager.GetObject("find", resourceCulture);
@@ -116,6 +126,26 @@ namespace CafeSystem.Properties {
         internal static System.Drawing.Bitmap luna {
             get {
                 object obj = ResourceManager.GetObject("luna", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap passicon {
+            get {
+                object obj = ResourceManager.GetObject("passicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap usericon {
+            get {
+                object obj = ResourceManager.GetObject("usericon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

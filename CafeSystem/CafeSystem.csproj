@@ -227,5 +227,14 @@
   <ItemGroup>
     <None Include="Resources\luna.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coffee BG login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usericon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\passicon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
