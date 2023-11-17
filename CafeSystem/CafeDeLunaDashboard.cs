@@ -43,7 +43,6 @@ namespace CafeSystem
         private int employeeID;
         private string positionDB;
         private string usernameDB;
-
         private readonly string[] position = { "Manager", "Cashier" };
         public int EmployeeIDBeingEdited = -1;
 
@@ -108,6 +107,12 @@ namespace CafeSystem
             dataGridView1.RowsRemoved += dataGridView1_RowsRemoved;
             dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
             cashtxtBx.KeyPress += cashtxtBx_KeyPress;
+
+            //Parenting design
+            logoutBtn.Parent = pictureBox8;
+            lgoutLbl.Parent = pictureBox8;
+            searchpicBox.Parent = pictureBox8;
+
         }
 
         private void LogoutLbl_Click(object sender, EventArgs e)
@@ -1186,8 +1191,6 @@ namespace CafeSystem
             conn.Close();
         }
 
-
-
         private void OnFLP2Click(object sender, EventArgs e)
         {
             if (sender is PictureBox clickedPic)
@@ -1314,41 +1317,6 @@ namespace CafeSystem
             }
         }
 
-        private decimal GetUnitPriceForFood(string foodName)
-        {
-            decimal unitPrice = 0;
-
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-                using (MySqlCommand command = new MySqlCommand("SELECT VariationCost FROM mealvariation WHERE VariationName = @foodName", connection))
-                {
-                    command.Parameters.AddWithValue("@foodName", foodName);
-
-                    connection.Open();
-
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            unitPrice = decimal.Parse(reader["VariationCost"].ToString());
-                        }
-                    }
-                }
-            }
-
-            return unitPrice;
-        }
-
-
-        private byte[] GetBytesFromImage(Image image)
-        {
-            using (MemoryStream ms = new MemoryStream())
-            {
-                image.Save(ms, ImageFormat.Png); // You can specify the image format here
-                return ms.ToArray();
-            }
-        }
-
         private void voidBtn_Click(object sender, EventArgs e)
         {
             string userPosition = PositionTxtBox.Text;
@@ -1431,9 +1399,9 @@ namespace CafeSystem
 
         private void placeBtn_Click(object sender, EventArgs e)
         {
-                GeneratePDFReceipt();         
+                GeneratePDFReceipt(GenerateID);         
         }
-        private void GeneratePDFReceipt()
+        private void GeneratePDFReceipt(int orderid)
         {
             decimal subtotal = decimal.Parse(sbLbl.Text.Replace("Php. ", ""));
             decimal discount = decimal.Parse(dscLbl.Text.Replace("Php. ", ""));
@@ -1476,7 +1444,15 @@ namespace CafeSystem
                         logo.SetHeight(150);
                         // Add the logo to the PDF
                         doc.Add(logo);
+                        doc.Add(new Paragraph("BLOCK 5,  ORANGE STREET, LAKEVIEW, PINAGBUHATAN, PASIG CITY").SetTextAlignment(TextAlignment.CENTER));
+                        doc.Add(new Paragraph(" "));
+                        doc.Add(new Paragraph(" "));
+                        doc.Add(new Paragraph(" "));
+                        doc.Add(new Paragraph("Tel NO : (02) 4568-2996").SetTextAlignment(TextAlignment.LEFT));
+                        doc.Add(new Paragraph("Mobile NO : (0993) 369-4904").SetTextAlignment(TextAlignment.LEFT));
+                        doc.Add(new Paragraph("Email: cafedeluna@gmail.com").SetTextAlignment(TextAlignment.LEFT));
                         doc.Add(new Paragraph($"Served by: {positionDB} {usernameDB}").SetTextAlignment(TextAlignment.LEFT));
+                        doc.Add(new Paragraph($"Order #{orderid} ").SetTextAlignment(TextAlignment.LEFT));
                         doc.Add(new Paragraph("Date: " + DateTime.Now.ToString("MM/dd/yyyy   hh:mm:ss tt")).SetTextAlignment(TextAlignment.LEFT));
                         doc.Add(new Paragraph("--------------------------------------------------------------------------------------------------"));
                         doc.Add(new Paragraph($"QUANTITY                           MEAL                    PRICE"));
@@ -1502,7 +1478,7 @@ namespace CafeSystem
                         doc.Add(new Paragraph($"CHANGE:                         Php. {change.ToString("0.00")}"));
 
                         doc.Add(new Paragraph("--------------------------------------------------------------------------------------------------"));
-                        doc.Add(new Paragraph("This Receipt Serves as Your Proof of Purchase").SetTextAlignment(TextAlignment.CENTER));
+                        doc.Add(new Paragraph("THIS RECEIPT SERVES AS YOUR PROOF OF PURCHASE").SetTextAlignment(TextAlignment.CENTER));
                     }
 
                     MessageBox.Show("Receipt generated successfully and saved to:\n" + pdfFilePath, "Enjoy your meal!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1644,7 +1620,6 @@ namespace CafeSystem
                 }
             }
         }
-
 
         private void CafeDeLunaDashboard_Load(object sender, EventArgs e)
         {
@@ -1818,7 +1793,6 @@ namespace CafeSystem
             }
         }
 
-
         private void discChckBx_CheckedChanged(object sender, EventArgs e)
         {
             if (discChckBx.Checked)
@@ -1837,7 +1811,7 @@ namespace CafeSystem
             }
         }
 
-        //Methods for sending place order to database
+        //Methods for sending place order to database and others 
         string connectionString = "server=localhost;user=root;database=dashboarddb;password=";
         private void InsertOrderData(int generatedOrderID, bool isVoided)
         {
@@ -1872,7 +1846,6 @@ namespace CafeSystem
             string voidedStatus = isVoided ? "Voided" : "Placed";
             MessageBox.Show($"{voidedStatus} order successfully. OrderID={generatedOrderID}, UserID={employeeID}, Amount={ttlLbl.Text}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
 
         private void InsertSalesData(int generatedOrderID)
         {
@@ -1988,6 +1961,84 @@ namespace CafeSystem
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             RefreshPlaceButtonState();
+        }
+
+        private decimal GetUnitPriceForFood(string foodName)
+        {
+            decimal unitPrice = 0;
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                using (MySqlCommand command = new MySqlCommand("SELECT VariationCost FROM mealvariation WHERE VariationName = @foodName", connection))
+                {
+                    command.Parameters.AddWithValue("@foodName", foodName);
+
+                    connection.Open();
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            unitPrice = decimal.Parse(reader["VariationCost"].ToString());
+                        }
+                    }
+                }
+            }
+            return unitPrice;
+        }
+
+        private byte[] GetBytesFromImage(Image image)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                image.Save(ms, ImageFormat.Png); 
+                return ms.ToArray();
+            }
+        }
+
+        private void cashLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void totalLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void discLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void subLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sbLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dscLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ttlLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchpicBox_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
