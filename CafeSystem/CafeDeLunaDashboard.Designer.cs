@@ -255,7 +255,8 @@
             // LoginBtn
             // 
             this.LoginBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
-            this.LoginBtn.FlatAppearance.BorderSize = 0;
+            this.LoginBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.LoginBtn.FlatAppearance.BorderSize = 2;
             this.LoginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LoginBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoginBtn.ForeColor = System.Drawing.Color.White;
@@ -967,24 +968,34 @@
             // 
             // placeBtn
             // 
+            this.placeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
+            this.placeBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.placeBtn.FlatAppearance.BorderSize = 2;
+            this.placeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.placeBtn.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.placeBtn.ForeColor = System.Drawing.Color.White;
             this.placeBtn.Location = new System.Drawing.Point(1100, 550);
             this.placeBtn.Name = "placeBtn";
             this.placeBtn.Size = new System.Drawing.Size(140, 40);
             this.placeBtn.TabIndex = 13;
             this.placeBtn.Text = "Place";
-            this.placeBtn.UseVisualStyleBackColor = true;
+            this.placeBtn.UseVisualStyleBackColor = false;
             this.placeBtn.Click += new System.EventHandler(this.placeBtn_Click);
             // 
             // voidBtn
             // 
+            this.voidBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
+            this.voidBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.voidBtn.FlatAppearance.BorderSize = 2;
+            this.voidBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.voidBtn.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.voidBtn.ForeColor = System.Drawing.Color.White;
             this.voidBtn.Location = new System.Drawing.Point(953, 550);
             this.voidBtn.Name = "voidBtn";
             this.voidBtn.Size = new System.Drawing.Size(140, 40);
             this.voidBtn.TabIndex = 12;
             this.voidBtn.Text = "Void";
-            this.voidBtn.UseVisualStyleBackColor = true;
+            this.voidBtn.UseVisualStyleBackColor = false;
             this.voidBtn.Click += new System.EventHandler(this.voidBtn_Click);
             // 
             // cLbl
