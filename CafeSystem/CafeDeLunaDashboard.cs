@@ -11,7 +11,7 @@ using iText.Layout;
 using iText.Layout.Element;
 using iText.Layout.Properties;
 using iText.IO.Image;
-using Image = System.Drawing.Image;
+using Image = System.Drawing.Image; 
 using TextAlignment = iText.Layout.Properties.TextAlignment;
 
 namespace CafeSystem
@@ -180,11 +180,13 @@ namespace CafeSystem
                                     {
                                         MessageBox.Show("Login Successful", "Welcome, Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         loginPanelManager.ShowPanel(ManagerStaffPanelContainer);
+                                        PositionTxtBox.Text = "Manager";
                                     }
                                     else if (userRole == "Cashier")
                                     {
                                         MessageBox.Show("Login Successful", "Welcome, Staff", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         loginPanelManager.ShowPanel(ManagerStaffPanelContainer);
+                                        PositionTxtBox.Text = "Staff";
                                     }
                                     GetData();
                                 }
@@ -1303,7 +1305,7 @@ namespace CafeSystem
             if (userPosition == "Staff")
             {
                 // If the user is a staff member, prompt for manager's password
-                string enteredPassword = Encryptor.HashPassword(Microsoft.VisualBasic.Interaction.InputBox("Enter manager password:", "Password Required", ""));
+                string enteredPassword = Encryptor.HashPassword(password: Microsoft.VisualBasic.Interaction.InputBox("Enter manager password:", "Password Required", ""));
 
                 string connectionString = "server=localhost;user=root;database=dashboarddb;password=";
 
@@ -1354,14 +1356,15 @@ namespace CafeSystem
                 GenerateID = orderIDGenerator();
                 InsertOrderData(GenerateID, true);
                 InsertOrderItemsData(GenerateID, dataGridView1, true);
+
+                // Clear all rows from the DataGridView
+                dataGridView1.Rows.Clear();
+                sbLbl.Text = "Php. 0.00";
+                ttlLbl.Text = "Php. 0.00";
+                dscLbl.Text = "Php. 0.00";
+                cashtxtBx.Text = "0.00";
+                cashtxtBx.ForeColor = Color.LightGray;
             }
-            dataGridView1.Rows.Clear();
-            sbLbl.Text = "Php. 0.00";
-            ttlLbl.Text = "Php. 0.00";
-            dscLbl.Text = "Php. 0.00";
-            cashtxtBx.Text = "0.00";
-            cashtxtBx.ForeColor = Color.LightGray;
-            discChckBx.Checked = false;
             GenerateID = orderIDGenerator();
         }
 
