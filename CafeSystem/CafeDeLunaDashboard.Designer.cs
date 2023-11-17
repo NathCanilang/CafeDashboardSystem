@@ -932,7 +932,6 @@
             // 
             // LogoutLbl
             // 
-            this.LogoutLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.LogoutLbl.Font = new System.Drawing.Font("Handmade", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogoutLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(11)))));
             this.LogoutLbl.Location = new System.Drawing.Point(19, 9);
@@ -945,7 +944,6 @@
             // 
             // AddMenuLbl
             // 
-            this.AddMenuLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.AddMenuLbl.Font = new System.Drawing.Font("Handmade", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddMenuLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(11)))));
             this.AddMenuLbl.Location = new System.Drawing.Point(3, 304);
@@ -958,7 +956,6 @@
             // 
             // SalesRepLbl
             // 
-            this.SalesRepLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.SalesRepLbl.Font = new System.Drawing.Font("Handmade", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SalesRepLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(11)))));
             this.SalesRepLbl.Location = new System.Drawing.Point(3, 420);
@@ -971,7 +968,6 @@
             // 
             // AccManagementLbl
             // 
-            this.AccManagementLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.AccManagementLbl.Font = new System.Drawing.Font("Handmade", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AccManagementLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(11)))));
             this.AccManagementLbl.Location = new System.Drawing.Point(3, 191);
@@ -1615,7 +1611,7 @@
             // 
             this.MonthlyLbl.Font = new System.Drawing.Font("Handmade", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MonthlyLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(11)))));
-            this.MonthlyLbl.Location = new System.Drawing.Point(3, 374);
+            this.MonthlyLbl.Location = new System.Drawing.Point(3, 390);
             this.MonthlyLbl.Name = "MonthlyLbl";
             this.MonthlyLbl.Size = new System.Drawing.Size(174, 50);
             this.MonthlyLbl.TabIndex = 3;
@@ -1649,10 +1645,9 @@
             // 
             // DailyLbl
             // 
-            this.DailyLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DailyLbl.Font = new System.Drawing.Font("Handmade", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DailyLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(11)))));
-            this.DailyLbl.Location = new System.Drawing.Point(3, 237);
+            this.DailyLbl.Location = new System.Drawing.Point(3, 221);
             this.DailyLbl.Name = "DailyLbl";
             this.DailyLbl.Size = new System.Drawing.Size(174, 50);
             this.DailyLbl.TabIndex = 0;
@@ -1736,6 +1731,7 @@
             this.Controls.Add(this.SalesPanelContainer);
             this.Controls.Add(this.AdminPanelContainer);
             this.Controls.Add(this.LoginPanelContainer);
+            this.DoubleBuffered = true;
             this.MaximumSize = new System.Drawing.Size(1300, 700);
             this.MinimumSize = new System.Drawing.Size(1300, 700);
             this.Name = "CafeDeLunaDashboard";
