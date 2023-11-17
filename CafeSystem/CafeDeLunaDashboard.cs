@@ -86,6 +86,12 @@ namespace CafeSystem
             dataGridView1.RowsRemoved += dataGridView1_RowsRemoved;
             dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
             cashtxtBx.KeyPress += cashtxtBx_KeyPress;
+
+            //Parenting design
+            logoutBtn.Parent = pictureBox8;
+            lgoutLbl.Parent = pictureBox8;
+            searchpicBox.Parent = pictureBox8;
+
         }
 
         private void LogoutLbl_Click(object sender, EventArgs e)
@@ -1965,6 +1971,51 @@ namespace CafeSystem
                 image.Save(ms, ImageFormat.Png); 
                 return ms.ToArray();
             }
+        }
+
+        private void cashLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void totalLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void discLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void subLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sbLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dscLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ttlLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchpicBox_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
