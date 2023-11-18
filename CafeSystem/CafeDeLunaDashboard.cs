@@ -160,6 +160,13 @@ namespace CafeSystem
             loginPanelManager.ShowPanel(AdminPanelContainer);
             adminPanelManager.ShowPanel(AdminHomePanel);
         }
+
+        private void BackpicBx_Click(object sender, EventArgs e)
+        {
+            loginPanelManager.ShowPanel(AdminPanelContainer);
+            adminPanelManager.ShowPanel(AdminHomePanel);
+        }
+
         private void CalculateAge(object sender, EventArgs e)
         {
             DateTime selectedDate = UserBirthdate.Value;
@@ -1450,7 +1457,6 @@ namespace CafeSystem
                         doc.Add(new Paragraph(" "));
                         doc.Add(new Paragraph("Tel NO : (02) 4568-2996").SetTextAlignment(TextAlignment.LEFT));
                         doc.Add(new Paragraph("Mobile NO : (0993) 369-4904").SetTextAlignment(TextAlignment.LEFT));
-                        doc.Add(new Paragraph("Email: cafedeluna@gmail.com").SetTextAlignment(TextAlignment.LEFT));
                         doc.Add(new Paragraph($"Served by: {positionDB} {usernameDB}").SetTextAlignment(TextAlignment.LEFT));
                         doc.Add(new Paragraph($"Order #{orderid} ").SetTextAlignment(TextAlignment.LEFT));
                         doc.Add(new Paragraph("Date: " + DateTime.Now.ToString("MM/dd/yyyy   hh:mm:ss tt")).SetTextAlignment(TextAlignment.LEFT));
@@ -2040,5 +2046,7 @@ namespace CafeSystem
         {
 
         }
+
+
     }
 }
