@@ -29,24 +29,31 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CafeDeLunaDashboard));
             this.MainPanelsCL = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.LoginPanelContainer = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.showpasschckBx = new System.Windows.Forms.CheckBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.LoginBtn = new System.Windows.Forms.Button();
             this.LoginPasswordTxtB = new System.Windows.Forms.TextBox();
             this.LoginUsernameTxtB = new System.Windows.Forms.TextBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.AdminPanelContainer = new System.Windows.Forms.Panel();
             this.AdminControlsPanel = new System.Windows.Forms.Panel();
             this.AdminHomePanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.AddMenuPanel = new System.Windows.Forms.Panel();
             this.VariationIDTxtBox = new System.Windows.Forms.TextBox();
             this.AddVarietyBtn = new System.Windows.Forms.Button();
@@ -63,6 +70,8 @@
             this.VariationCostTxtB = new System.Windows.Forms.TextBox();
             this.VariationDescTxtB = new System.Windows.Forms.TextBox();
             this.VariationNmTxtB = new System.Windows.Forms.TextBox();
+            this.VariationPicB = new System.Windows.Forms.PictureBox();
+            this.MenuPicB = new System.Windows.Forms.PictureBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.FoodTbl = new System.Windows.Forms.DataGridView();
@@ -92,7 +101,9 @@
             this.FirstNTxtB_AP = new System.Windows.Forms.TextBox();
             this.LastNTxtB_AP = new System.Windows.Forms.TextBox();
             this.AccDataTbl = new System.Windows.Forms.DataGridView();
+            this.UserPicB = new System.Windows.Forms.PictureBox();
             this.NavigationPanel = new System.Windows.Forms.Panel();
+            this.LogoutLogo = new System.Windows.Forms.PictureBox();
             this.LogoutLbl = new System.Windows.Forms.Label();
             this.AddMenuLbl = new System.Windows.Forms.Label();
             this.SalesRepLbl = new System.Windows.Forms.Label();
@@ -122,6 +133,11 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.lgoutLbl = new System.Windows.Forms.Label();
+            this.searchpicBox = new System.Windows.Forms.PictureBox();
+            this.logoutBtn = new System.Windows.Forms.PictureBox();
+            this.allBtn = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.SalesPanelContainer = new System.Windows.Forms.Panel();
             this.StartDatePicker = new System.Windows.Forms.DateTimePicker();
             this.SelectDateLbl = new System.Windows.Forms.Label();
@@ -149,42 +165,42 @@
             this.DailyDGV = new System.Windows.Forms.DataGridView();
             this.GenerateDailyReportBtn = new System.Windows.Forms.Button();
             this.SalesNavigationBar = new System.Windows.Forms.Panel();
+            this.BackpicBx = new System.Windows.Forms.PictureBox();
             this.MonthlyLbl = new System.Windows.Forms.Label();
             this.BackLbl = new System.Windows.Forms.Label();
             this.WeeklyLbl = new System.Windows.Forms.Label();
             this.DailyLbl = new System.Windows.Forms.Label();
             this.AdminControlsCL = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.SalesControlCL = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
-            this.searchpicBox = new System.Windows.Forms.PictureBox();
-            this.logoutBtn = new System.Windows.Forms.PictureBox();
-            this.allBtn = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.BackpicBx = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.VariationPicB = new System.Windows.Forms.PictureBox();
-            this.MenuPicB = new System.Windows.Forms.PictureBox();
-            this.UserPicB = new System.Windows.Forms.PictureBox();
-            this.LogoutLogo = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.MainPanelsCL)).BeginInit();
             this.LoginPanelContainer.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.AdminPanelContainer.SuspendLayout();
             this.AdminControlsPanel.SuspendLayout();
             this.AdminHomePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.AddMenuPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.VariationPicB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MenuPicB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FoodTbl)).BeginInit();
             this.AccountManagementPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AccDataTbl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserPicB)).BeginInit();
             this.NavigationPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoutLogo)).BeginInit();
             this.ManagerStaffPanelContainer.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchpicBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoutBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SalesPanelContainer.SuspendLayout();
             this.SalesPanel.SuspendLayout();
             this.MonthlyReportPanel.SuspendLayout();
@@ -200,31 +216,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.MostSalesDailyTbl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DailyDGV)).BeginInit();
             this.SalesNavigationBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BackpicBx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AdminControlsCL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SalesControlCL)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchpicBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logoutBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BackpicBx)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.VariationPicB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MenuPicB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UserPicB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LogoutLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // MainPanelsCL
             // 
             this.MainPanelsCL.ContainerControl = this;
             this.MainPanelsCL.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.MainPanelsCL.SelectedCard = "Card4";
+            this.MainPanelsCL.SelectedCard = "Card2";
             // 
             // LoginPanelContainer
             // 
@@ -245,6 +246,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.showpasschckBx);
             this.panel1.Controls.Add(this.pictureBox7);
             this.panel1.Controls.Add(this.pictureBox6);
             this.panel1.Controls.Add(this.LoginBtn);
@@ -256,10 +258,43 @@
             this.panel1.Size = new System.Drawing.Size(700, 500);
             this.panel1.TabIndex = 0;
             // 
+            // showpasschckBx
+            // 
+            this.showpasschckBx.AutoSize = true;
+            this.showpasschckBx.Font = new System.Drawing.Font("Handmade", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showpasschckBx.Location = new System.Drawing.Point(246, 397);
+            this.showpasschckBx.Name = "showpasschckBx";
+            this.showpasschckBx.Size = new System.Drawing.Size(116, 26);
+            this.showpasschckBx.TabIndex = 8;
+            this.showpasschckBx.Text = "Show Password";
+            this.showpasschckBx.UseVisualStyleBackColor = true;
+            this.showpasschckBx.CheckedChanged += new System.EventHandler(this.showpasschckBx_CheckedChanged);
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::CafeSystem.Properties.Resources.usericon;
+            this.pictureBox7.Location = new System.Drawing.Point(200, 283);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 7;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::CafeSystem.Properties.Resources.passicon;
+            this.pictureBox6.Location = new System.Drawing.Point(200, 353);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 6;
+            this.pictureBox6.TabStop = false;
+            // 
             // LoginBtn
             // 
             this.LoginBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
             this.LoginBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LoginBtn.Enabled = false;
             this.LoginBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.LoginBtn.FlatAppearance.BorderSize = 2;
             this.LoginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -276,20 +311,33 @@
             // LoginPasswordTxtB
             // 
             this.LoginPasswordTxtB.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginPasswordTxtB.Location = new System.Drawing.Point(246, 375);
-            this.LoginPasswordTxtB.Multiline = true;
+            this.LoginPasswordTxtB.Location = new System.Drawing.Point(246, 360);
             this.LoginPasswordTxtB.Name = "LoginPasswordTxtB";
-            this.LoginPasswordTxtB.Size = new System.Drawing.Size(254, 33);
+            this.LoginPasswordTxtB.PasswordChar = '*';
+            this.LoginPasswordTxtB.Size = new System.Drawing.Size(254, 32);
             this.LoginPasswordTxtB.TabIndex = 1;
+            this.LoginPasswordTxtB.TextChanged += new System.EventHandler(this.LoginPasswordTxtB_TextChanged);
+            this.LoginPasswordTxtB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LoginPasswordTxtB_KeyDown);
             // 
             // LoginUsernameTxtB
             // 
             this.LoginUsernameTxtB.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginUsernameTxtB.Location = new System.Drawing.Point(246, 300);
+            this.LoginUsernameTxtB.Location = new System.Drawing.Point(246, 290);
             this.LoginUsernameTxtB.Multiline = true;
             this.LoginUsernameTxtB.Name = "LoginUsernameTxtB";
             this.LoginUsernameTxtB.Size = new System.Drawing.Size(254, 33);
             this.LoginUsernameTxtB.TabIndex = 0;
+            this.LoginUsernameTxtB.TextChanged += new System.EventHandler(this.LoginUsernameTxtB_TextChanged);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::CafeSystem.Properties.Resources.luna;
+            this.pictureBox5.Location = new System.Drawing.Point(150, -67);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(400, 400);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 5;
+            this.pictureBox5.TabStop = false;
             // 
             // panel2
             // 
@@ -306,6 +354,26 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(80, 450);
             this.panel3.TabIndex = 6;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::CafeSystem.Properties.Resources.coffee_BG_login;
+            this.pictureBox2.InitialImage = null;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(500, 500);
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::CafeSystem.Properties.Resources.coffee_BG_login;
+            this.pictureBox4.InitialImage = null;
+            this.pictureBox4.Location = new System.Drawing.Point(784, 161);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(500, 500);
+            this.pictureBox4.TabIndex = 7;
+            this.pictureBox4.TabStop = false;
             // 
             // AdminPanelContainer
             // 
@@ -342,6 +410,16 @@
             this.AdminControlsCL.SetPreferredSize(this.AdminHomePanel, new System.Drawing.Size(200, 100));
             this.AdminHomePanel.Size = new System.Drawing.Size(1104, 661);
             this.AdminHomePanel.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1104, 661);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // AddMenuPanel
             // 
@@ -520,6 +598,24 @@
             this.VariationNmTxtB.Name = "VariationNmTxtB";
             this.VariationNmTxtB.Size = new System.Drawing.Size(145, 20);
             this.VariationNmTxtB.TabIndex = 5;
+            // 
+            // VariationPicB
+            // 
+            this.VariationPicB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.VariationPicB.Location = new System.Drawing.Point(831, 329);
+            this.VariationPicB.Name = "VariationPicB";
+            this.VariationPicB.Size = new System.Drawing.Size(163, 128);
+            this.VariationPicB.TabIndex = 4;
+            this.VariationPicB.TabStop = false;
+            // 
+            // MenuPicB
+            // 
+            this.MenuPicB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MenuPicB.Location = new System.Drawing.Point(745, 110);
+            this.MenuPicB.Name = "MenuPicB";
+            this.MenuPicB.Size = new System.Drawing.Size(163, 128);
+            this.MenuPicB.TabIndex = 3;
+            this.MenuPicB.TabStop = false;
             // 
             // label13
             // 
@@ -835,6 +931,15 @@
             this.AccDataTbl.Size = new System.Drawing.Size(589, 407);
             this.AccDataTbl.TabIndex = 0;
             // 
+            // UserPicB
+            // 
+            this.UserPicB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.UserPicB.Location = new System.Drawing.Point(321, 177);
+            this.UserPicB.Name = "UserPicB";
+            this.UserPicB.Size = new System.Drawing.Size(142, 115);
+            this.UserPicB.TabIndex = 9;
+            this.UserPicB.TabStop = false;
+            // 
             // NavigationPanel
             // 
             this.NavigationPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
@@ -847,6 +952,18 @@
             this.NavigationPanel.Name = "NavigationPanel";
             this.NavigationPanel.Size = new System.Drawing.Size(180, 661);
             this.NavigationPanel.TabIndex = 0;
+            // 
+            // LogoutLogo
+            // 
+            this.LogoutLogo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LogoutLogo.Image = ((System.Drawing.Image)(resources.GetObject("LogoutLogo.Image")));
+            this.LogoutLogo.Location = new System.Drawing.Point(26, 12);
+            this.LogoutLogo.Name = "LogoutLogo";
+            this.LogoutLogo.Size = new System.Drawing.Size(42, 37);
+            this.LogoutLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.LogoutLogo.TabIndex = 4;
+            this.LogoutLogo.TabStop = false;
+            this.LogoutLogo.Click += new System.EventHandler(this.LogoutLogo_Click);
             // 
             // LogoutLbl
             // 
@@ -939,7 +1056,7 @@
             this.flowLayoutPanel2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(12, 168);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(190, 481);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(177, 481);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
             // flowLayoutPanel1
@@ -947,7 +1064,7 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Controls.Add(this.PositionTxtBox);
             this.flowLayoutPanel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(213, 48);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(213, 51);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(660, 600);
             this.flowLayoutPanel1.TabIndex = 2;
@@ -965,7 +1082,7 @@
             // SearchTxtbx
             // 
             this.SearchTxtbx.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchTxtbx.Location = new System.Drawing.Point(463, 12);
+            this.SearchTxtbx.Location = new System.Drawing.Point(473, 12);
             this.SearchTxtbx.Multiline = true;
             this.SearchTxtbx.Name = "SearchTxtbx";
             this.SearchTxtbx.Size = new System.Drawing.Size(370, 30);
@@ -976,7 +1093,6 @@
             // 
             // cashtxtBx
             // 
-            this.cashtxtBx.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cashtxtBx.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cashtxtBx.Location = new System.Drawing.Point(1141, 512);
             this.cashtxtBx.Multiline = true;
@@ -1031,7 +1147,6 @@
             this.cLbl.Size = new System.Drawing.Size(52, 34);
             this.cLbl.TabIndex = 11;
             this.cLbl.Text = "Php.";
-            this.cLbl.Click += new System.EventHandler(this.cLbl_Click);
             // 
             // cashLbl
             // 
@@ -1043,7 +1158,6 @@
             this.cashLbl.Size = new System.Drawing.Size(56, 34);
             this.cashLbl.TabIndex = 10;
             this.cashLbl.Text = "Cash";
-            this.cashLbl.Click += new System.EventHandler(this.cashLbl_Click);
             // 
             // ttlLbl
             // 
@@ -1055,7 +1169,6 @@
             this.ttlLbl.Size = new System.Drawing.Size(97, 34);
             this.ttlLbl.TabIndex = 9;
             this.ttlLbl.Text = "Php. 0.00";
-            this.ttlLbl.Click += new System.EventHandler(this.ttlLbl_Click);
             // 
             // totalLbl
             // 
@@ -1067,7 +1180,6 @@
             this.totalLbl.Size = new System.Drawing.Size(55, 34);
             this.totalLbl.TabIndex = 8;
             this.totalLbl.Text = "Total";
-            this.totalLbl.Click += new System.EventHandler(this.totalLbl_Click);
             // 
             // dscLbl
             // 
@@ -1079,7 +1191,6 @@
             this.dscLbl.Size = new System.Drawing.Size(97, 34);
             this.dscLbl.TabIndex = 7;
             this.dscLbl.Text = "Php. 0.00";
-            this.dscLbl.Click += new System.EventHandler(this.dscLbl_Click);
             // 
             // discLbl
             // 
@@ -1091,7 +1202,6 @@
             this.discLbl.Size = new System.Drawing.Size(86, 34);
             this.discLbl.TabIndex = 6;
             this.discLbl.Text = "Discount";
-            this.discLbl.Click += new System.EventHandler(this.discLbl_Click);
             // 
             // sbLbl
             // 
@@ -1103,7 +1213,6 @@
             this.sbLbl.Size = new System.Drawing.Size(97, 34);
             this.sbLbl.TabIndex = 5;
             this.sbLbl.Text = "Php. 0.00";
-            this.sbLbl.Click += new System.EventHandler(this.sbLbl_Click);
             // 
             // subLbl
             // 
@@ -1115,7 +1224,6 @@
             this.subLbl.Size = new System.Drawing.Size(81, 34);
             this.subLbl.TabIndex = 4;
             this.subLbl.Text = "Subtotal";
-            this.subLbl.Click += new System.EventHandler(this.subLbl_Click);
             // 
             // discChckBx
             // 
@@ -1137,23 +1245,23 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle31.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle32;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -1162,35 +1270,35 @@
             this.Column4,
             this.Column5,
             this.Column6});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle34;
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
             this.dataGridView1.Location = new System.Drawing.Point(895, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Handmade", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Handmade", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle35;
             this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle36.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle36;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.RowTemplate.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(382, 291);
@@ -1225,9 +1333,9 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Handmade", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Handmade", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle33;
             this.Column4.HeaderText = "+";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -1253,12 +1361,66 @@
             this.lgoutLbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lgoutLbl.Font = new System.Drawing.Font("Handmade", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lgoutLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(11)))));
-            this.lgoutLbl.Location = new System.Drawing.Point(263, 12);
+            this.lgoutLbl.Location = new System.Drawing.Point(249, 12);
             this.lgoutLbl.Name = "lgoutLbl";
             this.lgoutLbl.Size = new System.Drawing.Size(66, 28);
             this.lgoutLbl.TabIndex = 3;
             this.lgoutLbl.Text = "Log Out";
             this.lgoutLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lgoutLbl.Click += new System.EventHandler(this.lgoutLbl_Click);
+            // 
+            // searchpicBox
+            // 
+            this.searchpicBox.Image = global::CafeSystem.Properties.Resources.find1;
+            this.searchpicBox.Location = new System.Drawing.Point(843, 12);
+            this.searchpicBox.Name = "searchpicBox";
+            this.searchpicBox.Size = new System.Drawing.Size(30, 30);
+            this.searchpicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.searchpicBox.TabIndex = 18;
+            this.searchpicBox.TabStop = false;
+            // 
+            // logoutBtn
+            // 
+            this.logoutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logoutBtn.Image = ((System.Drawing.Image)(resources.GetObject("logoutBtn.Image")));
+            this.logoutBtn.Location = new System.Drawing.Point(213, 12);
+            this.logoutBtn.Name = "logoutBtn";
+            this.logoutBtn.Size = new System.Drawing.Size(30, 30);
+            this.logoutBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logoutBtn.TabIndex = 15;
+            this.logoutBtn.TabStop = false;
+            this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
+            // 
+            // allBtn
+            // 
+            this.allBtn.BackColor = System.Drawing.Color.White;
+            this.allBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.allBtn.Image = ((System.Drawing.Image)(resources.GetObject("allBtn.Image")));
+            this.allBtn.Location = new System.Drawing.Point(12, 10);
+            this.allBtn.Name = "allBtn";
+            this.allBtn.Size = new System.Drawing.Size(177, 159);
+            this.allBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.allBtn.TabIndex = 0;
+            this.allBtn.TabStop = false;
+            this.allBtn.Click += new System.EventHandler(this.allBtn_Click);
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
+            this.pictureBox8.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(889, 661);
+            this.pictureBox8.TabIndex = 20;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(218)))), ((int)(((byte)(206)))));
+            this.pictureBox3.Location = new System.Drawing.Point(887, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(394, 687);
+            this.pictureBox3.TabIndex = 21;
+            this.pictureBox3.TabStop = false;
             // 
             // SalesPanelContainer
             // 
@@ -1544,6 +1706,18 @@
             this.SalesNavigationBar.Size = new System.Drawing.Size(180, 661);
             this.SalesNavigationBar.TabIndex = 0;
             // 
+            // BackpicBx
+            // 
+            this.BackpicBx.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BackpicBx.Image = global::CafeSystem.Properties.Resources.back_icon;
+            this.BackpicBx.Location = new System.Drawing.Point(86, 16);
+            this.BackpicBx.Name = "BackpicBx";
+            this.BackpicBx.Size = new System.Drawing.Size(30, 25);
+            this.BackpicBx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BackpicBx.TabIndex = 5;
+            this.BackpicBx.TabStop = false;
+            this.BackpicBx.Click += new System.EventHandler(this.BackpicBx_Click);
+            // 
             // MonthlyLbl
             // 
             this.MonthlyLbl.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -1608,169 +1782,6 @@
             this.SalesControlCL.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
             this.SalesControlCL.SelectedCard = "Card3";
             // 
-            // searchpicBox
-            // 
-            this.searchpicBox.Image = global::CafeSystem.Properties.Resources.find1;
-            this.searchpicBox.Location = new System.Drawing.Point(833, 12);
-            this.searchpicBox.Name = "searchpicBox";
-            this.searchpicBox.Size = new System.Drawing.Size(40, 30);
-            this.searchpicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.searchpicBox.TabIndex = 18;
-            this.searchpicBox.TabStop = false;
-            this.searchpicBox.Click += new System.EventHandler(this.searchpicBox_Click);
-            // 
-            // logoutBtn
-            // 
-            this.logoutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.logoutBtn.Image = ((System.Drawing.Image)(resources.GetObject("logoutBtn.Image")));
-            this.logoutBtn.Location = new System.Drawing.Point(213, 12);
-            this.logoutBtn.Name = "logoutBtn";
-            this.logoutBtn.Size = new System.Drawing.Size(40, 30);
-            this.logoutBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.logoutBtn.TabIndex = 15;
-            this.logoutBtn.TabStop = false;
-            this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
-            // 
-            // allBtn
-            // 
-            this.allBtn.BackColor = System.Drawing.Color.White;
-            this.allBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.allBtn.Image = ((System.Drawing.Image)(resources.GetObject("allBtn.Image")));
-            this.allBtn.Location = new System.Drawing.Point(12, 12);
-            this.allBtn.Name = "allBtn";
-            this.allBtn.Size = new System.Drawing.Size(190, 150);
-            this.allBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.allBtn.TabIndex = 0;
-            this.allBtn.TabStop = false;
-            this.allBtn.Click += new System.EventHandler(this.allBtn_Click);
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
-            this.pictureBox8.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(889, 661);
-            this.pictureBox8.TabIndex = 20;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(218)))), ((int)(((byte)(206)))));
-            this.pictureBox3.Location = new System.Drawing.Point(887, 0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(394, 687);
-            this.pictureBox3.TabIndex = 21;
-            this.pictureBox3.TabStop = false;
-            // 
-            // BackpicBx
-            // 
-            this.BackpicBx.Image = global::CafeSystem.Properties.Resources.back_icon;
-            this.BackpicBx.Location = new System.Drawing.Point(86, 16);
-            this.BackpicBx.Name = "BackpicBx";
-            this.BackpicBx.Size = new System.Drawing.Size(30, 25);
-            this.BackpicBx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.BackpicBx.TabIndex = 5;
-            this.BackpicBx.TabStop = false;
-            this.BackpicBx.Click += new System.EventHandler(this.BackpicBx_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1104, 661);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // VariationPicB
-            // 
-            this.VariationPicB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.VariationPicB.Location = new System.Drawing.Point(831, 329);
-            this.VariationPicB.Name = "VariationPicB";
-            this.VariationPicB.Size = new System.Drawing.Size(163, 128);
-            this.VariationPicB.TabIndex = 4;
-            this.VariationPicB.TabStop = false;
-            // 
-            // MenuPicB
-            // 
-            this.MenuPicB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.MenuPicB.Location = new System.Drawing.Point(745, 110);
-            this.MenuPicB.Name = "MenuPicB";
-            this.MenuPicB.Size = new System.Drawing.Size(163, 128);
-            this.MenuPicB.TabIndex = 3;
-            this.MenuPicB.TabStop = false;
-            // 
-            // UserPicB
-            // 
-            this.UserPicB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.UserPicB.Location = new System.Drawing.Point(321, 177);
-            this.UserPicB.Name = "UserPicB";
-            this.UserPicB.Size = new System.Drawing.Size(142, 115);
-            this.UserPicB.TabIndex = 9;
-            this.UserPicB.TabStop = false;
-            // 
-            // LogoutLogo
-            // 
-            this.LogoutLogo.Image = ((System.Drawing.Image)(resources.GetObject("LogoutLogo.Image")));
-            this.LogoutLogo.Location = new System.Drawing.Point(26, 12);
-            this.LogoutLogo.Name = "LogoutLogo";
-            this.LogoutLogo.Size = new System.Drawing.Size(42, 37);
-            this.LogoutLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.LogoutLogo.TabIndex = 4;
-            this.LogoutLogo.TabStop = false;
-            this.LogoutLogo.Click += new System.EventHandler(this.LogoutLogo_Click);
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::CafeSystem.Properties.Resources.usericon;
-            this.pictureBox7.Location = new System.Drawing.Point(200, 293);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 7;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::CafeSystem.Properties.Resources.passicon;
-            this.pictureBox6.Location = new System.Drawing.Point(200, 368);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 6;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::CafeSystem.Properties.Resources.luna;
-            this.pictureBox5.Location = new System.Drawing.Point(150, -67);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(400, 400);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 5;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::CafeSystem.Properties.Resources.coffee_BG_login;
-            this.pictureBox2.InitialImage = null;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(500, 500);
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::CafeSystem.Properties.Resources.coffee_BG_login;
-            this.pictureBox4.InitialImage = null;
-            this.pictureBox4.Location = new System.Drawing.Point(784, 161);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(500, 500);
-            this.pictureBox4.TabIndex = 7;
-            this.pictureBox4.TabStop = false;
-            // 
             // CafeDeLunaDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1791,21 +1802,36 @@
             this.LoginPanelContainer.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.AdminPanelContainer.ResumeLayout(false);
             this.AdminControlsPanel.ResumeLayout(false);
             this.AdminHomePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.AddMenuPanel.ResumeLayout(false);
             this.AddMenuPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.VariationPicB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MenuPicB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FoodTbl)).EndInit();
             this.AccountManagementPanel.ResumeLayout(false);
             this.AccountManagementPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AccDataTbl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserPicB)).EndInit();
             this.NavigationPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.LogoutLogo)).EndInit();
             this.ManagerStaffPanelContainer.ResumeLayout(false);
             this.ManagerStaffPanelContainer.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchpicBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoutBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.SalesPanelContainer.ResumeLayout(false);
             this.SalesPanel.ResumeLayout(false);
             this.MonthlyReportPanel.ResumeLayout(false);
@@ -1821,24 +1847,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.MostSalesDailyTbl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DailyDGV)).EndInit();
             this.SalesNavigationBar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.BackpicBx)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AdminControlsCL)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SalesControlCL)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchpicBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logoutBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BackpicBx)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.VariationPicB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MenuPicB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UserPicB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LogoutLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1980,6 +1991,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewButtonColumn Column6;
         private System.Windows.Forms.PictureBox BackpicBx;
+        private System.Windows.Forms.CheckBox showpasschckBx;
     }
 }
 
