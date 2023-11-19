@@ -118,8 +118,58 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="MainPanelsCL.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>16, 14</value>
+    <value>27, 17</value>
   </metadata>
+  <metadata name="AdminControlsCL.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>139, 17</value>
+  </metadata>
+  <metadata name="AdminControlsCL.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>139, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="LogoutLogo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAADt0RVh0Q29tbWVudAB4cjpkOkRBRnpGM3lJbmc4Ojksajo4MjA0ODQwOTU1Mzg1
+        MjY5MzM5LHQ6MjMxMTA2MDiltQs4AAAIZUlEQVR4Xu2dW2wUVRjHP1oQQQjIxQrGB3kihKi1oVIerMrF
+        IOEFEYmCoFYgtAW5CiJMwBg1JsZbCNEYaYtB3yASYnhgfcDLg75ut7uCRuKDSBQolAKF8f+dOUt3Omdn
+        Z7dTevZw/sk/26Z7Zr7v+805Z+4lKysrKysrKyurwVT9jJufdzqNNA1+Cl6omefB0xHjcBFrrQjZLDEI
+        JFkBz3fb6Rs3Rf/i8zJ8HXY1M8fEsf0Df4WYH69/tHdjKmvx1sXJOE00C8n9CF8DDFURdPYV+DhyqIbL
+        V7JX3OH+TjuQ0KWcBMvVXYkW2iJ6C1xWkjBGIYlW9IgbfRIrZ/ck9tMnZQWFhymnmYYi+I/dDmVS5e7r
+        6CkflM2cwoG6GWpCz9Bxwo7LPYCyHBue3pJD1VQ3TWcVSZjms8i3SuueInpHir40dKhSeZ+2cwkHht4x
+        DcPVeUXg+Z2GM/BvGphjUcWY312YMyfIEugnBLg1clIdAJehvW6SFuP3GfAjg+4kLUVcn8EX8bs6br9v
+        YC5Zq+WwhaAqsJUdVwStcibRStN03H1ELx+CIj+MDeuUIm6Vj8qmegmJjI6URJo6E21ULWBoOiEiF8IG
+        U4d4o+wpntMyDyQxERP6OUXAvebTJh10gBPQdjKU4vgQ83eBHILuRu5Vspk+QlCTEVz4UTlP3u20TjbR
+        WnyAi16yK5BD0FeR+4OymT5CUPcpgvWb92TaabFsor0Q68u++NW+htzrZBN9ZCiQlb741bZAbpUQqwWi
+        kxCrBaKTEKsFopMQqwWikxCrBaKTEKsFopMQqwWikxBrVCCzZJOCyp42ctbTBLSrcZrogQE5r2cokBd8
+        8at9BUWdJJuECjVi8ymmr90UdcKXYT7V/1PiINXx32OTkUBSIqdrvhyCTka5u1GeG5uMZaZh1XIuJlro
+        pdigmAiEi+h20Pt5CsjuSbTRQvn1UKEXVWJZX4Qsi8+GXwKUlbFAMREI36mIsX0YCvkh3HOzmHzPQJou
+        4OcGZ6s3JxQS6jMGbfgWWn9N+tqDsqLfUEwEwhJQaqkCw81DbpJ2uifpI3yuQc+Y5KwTwApKTOJNVOWe
+        6lOPfPagvNgvKKYCYal6QJR5IysBpJHGu5mC81GvPSjLS4ZiMpA45GzC0JeJdAWy19gDA5RlJUGxQMLF
+        vQTFfQxQugJ1CbMH5fmioVgg4eK5xsHxPCb2BrGDoKpPPpcCxQIpLBydU/1MGgIoq0qA0gkoSyNDsUCi
+        KQfK6hKhPBcJigUSXTlQ1gBKcU8JeFCWFIRigRSnHChrS4TybCiUgQJSzP5+uYn3vBgKirsaRb4aqFeY
+        U3QB7RbnhRI3EHEwtUwstxpb0Htodwz+xVD/Cke9wbvXHpRFSigDAQQr24zvX8SKg8uy9uxB4Wfr/YoT
+        CO+zYyULsDJ+Xjy4HGu/U3Qa9b9fls9TrEDQO7CSqI82WPMzOUnaIMvnKU4gThONxUpOB9pbh7lNls9T
+        zEDGYyL/K9DeOsz7Zfk8xQmEBSC89xFchnXQfMEsSTtl6TzFPYdgUl+BFUW/fnA7O0P/of7TZfk8xQqE
+        b5WZSRWY2D8FFJNezRG/03QVG+/qwJXLuIcsPrXg1AFKOy1Cu0MAkwGgM4b6b7j4XfwOHN1naJO89u9X
+        3EBYoqfUYtmvUSWWPxIebaIBYxHq0u2rVSHzcJ6izfx6jwAMFhYcOxCTJc5j8VzZSvNQWL6DJVivfPbm
+        1i3KnpGVBRJdOTDmlgjj9VAYLAskmnJgzCkRxjbUOhwGywIprBwYs0uEsT0SDJYFUlgSxpMlwOBLvW9E
+        hsGyQMLFxUzsp+mAwW87DdYmnz0YO4qCwbJAwoViDkVxjwRqEmYPxs6iYbAskPzioQp7RRNwVM2vnA3W
+        RWUPxq6SYLBMBcLFEAXdQuOQI1/DboZnwyOKud6PvGtk/oXtwXCwjtJgsNDYOCACBpxooXWImx8lyD6S
+        wFt6JtFGc/h4IIrwvUnoIYXPy6UEjN39gsEyEQgXGzCaETMXKZhPO513mqmGe1CYRA9rpOHI/wTa5Ifi
+        vcl1T79hsAwFMhbxFtpFPRFl6JI9rd7NUKdiGVkYb8UCg2UiEI7VF7/alwFunGySV1xkNr4/H0NXRtSC
+        LyzxO8T4tbopakANh8QCg2UokKiPRRcYtDxloeD7owDgCTdJr+BzAX6/29mAv8V5U+BtDqSoFwf0LXxs
+        vSJXFohmskA0kwWimSwQzWSBaCYLRDNZIJqpCCDPyCbaC7Gu8MWvtqZAmiIA4dMEKVolm2gtPnhLtNB2
+        ZR5+86vGa2QzfYSg7kGx1SfOsvZuCt43IEemMYvP0CKfg8o8/L7Co4Nspo8QFL9+6E9FwH530Bl8d4rO
+        /1BLnG/aSFOw8US5vfOSlhsYgqp0T9IPioD99i7wfI/vj+dECl1LuNUSMBrpXsT4sy/u/D4hm+onbFHv
+        opeoglb5JMbo9Ui+Gq6CJw6y+aWUMxDTRsT2R59Y8/lGopXelOnrJyRUAyDR7+L2/gtoFz4vaGD+Z2Yc
+        ezGPP3Rj6J0S62nzuMRDD7p7BYB8i+RUwZvow7oNuT7x+IsuPxNQin8IvvzMVwqncs7aSkzSMIJ9R+zi
+        qhMxxdu07h1ZCSi1dBd6ySHYzMfRUnQY82WF1r0jV3z7DIIdg15yxCgoPDem6Cg2uBH8HpayErYgcrbS
+        aED53IhJnnfnU7RXwFgvkyw3yZ7CD24uAZi0SEqVrM7muZBjb6enkU9lWcwbYRJzCoweMwpJNbgZSsA9
+        cotTF2EwzTFxbGnqRpzHcLDL72Mfmc3DGImEsHVhKxuGXeMqJL8AXoMC7Mbn25p4DwC8is+5HCNADDMO
+        hJWVlZWVlZWVVUki+h/RdMHhZWf3DwAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -138,7 +188,48 @@
   <metadata name="Column6.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <metadata name="SalesControlCL.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>295, 17</value>
+  </metadata>
+  <metadata name="MonthlyDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="MonthlyTotal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="MonthlyDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="MonthlyTotal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="WeeklyDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="WeeklSale.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="WeeklyDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="WeeklSale.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="DailyDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="DailyTotal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="DailyDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="DailyTotal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="SalesControlCL.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>295, 17</value>
+  </metadata>
   <data name="logoutBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -6259,9 +6350,6 @@
         7nsboKSSSloj+l//6/8H1P5qJOsuCvsAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="AdminControlsCL.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>139, 17</value>
-  </metadata>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABFMAAAKxCAYAAACfeOMiAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -22273,92 +22361,4 @@
         cdPOvIC/y/GYnDCUMpkwdqebDt0HZZ1yw/FXLNufluz8759exf8PdfoJ96PUdncAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="LogoutLogo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vAAADrwBlbxySQAAADt0RVh0Q29tbWVudAB4cjpkOkRBRnpGM3lJbmc4Ojksajo4MjA0ODQwOTU1Mzg1
-        MjY5MzM5LHQ6MjMxMTA2MDiltQs4AAAIZUlEQVR4Xu2dW2wUVRjHP1oQQQjIxQrGB3kihKi1oVIerMrF
-        IOEFEYmCoFYgtAW5CiJMwBg1JsZbCNEYaYtB3yASYnhgfcDLg75ut7uCRuKDSBQolAKF8f+dOUt3Omdn
-        Z7dTevZw/sk/26Z7Zr7v+805Z+4lKysrKysrKyurwVT9jJufdzqNNA1+Cl6omefB0xHjcBFrrQjZLDEI
-        JFkBz3fb6Rs3Rf/i8zJ8HXY1M8fEsf0Df4WYH69/tHdjKmvx1sXJOE00C8n9CF8DDFURdPYV+DhyqIbL
-        V7JX3OH+TjuQ0KWcBMvVXYkW2iJ6C1xWkjBGIYlW9IgbfRIrZ/ck9tMnZQWFhymnmYYi+I/dDmVS5e7r
-        6CkflM2cwoG6GWpCz9Bxwo7LPYCyHBue3pJD1VQ3TWcVSZjms8i3SuueInpHir40dKhSeZ+2cwkHht4x
-        DcPVeUXg+Z2GM/BvGphjUcWY312YMyfIEugnBLg1clIdAJehvW6SFuP3GfAjg+4kLUVcn8EX8bs6br9v
-        YC5Zq+WwhaAqsJUdVwStcibRStN03H1ELx+CIj+MDeuUIm6Vj8qmegmJjI6URJo6E21ULWBoOiEiF8IG
-        U4d4o+wpntMyDyQxERP6OUXAvebTJh10gBPQdjKU4vgQ83eBHILuRu5Vspk+QlCTEVz4UTlP3u20TjbR
-        WnyAi16yK5BD0FeR+4OymT5CUPcpgvWb92TaabFsor0Q68u++NW+htzrZBN9ZCiQlb741bZAbpUQqwWi
-        kxCrBaKTEKsFopMQqwWikxCrBaKTEKsFopMQqwWikxBrVCCzZJOCyp42ctbTBLSrcZrogQE5r2cokBd8
-        8at9BUWdJJuECjVi8ymmr90UdcKXYT7V/1PiINXx32OTkUBSIqdrvhyCTka5u1GeG5uMZaZh1XIuJlro
-        pdigmAiEi+h20Pt5CsjuSbTRQvn1UKEXVWJZX4Qsi8+GXwKUlbFAMREI36mIsX0YCvkh3HOzmHzPQJou
-        4OcGZ6s3JxQS6jMGbfgWWn9N+tqDsqLfUEwEwhJQaqkCw81DbpJ2uifpI3yuQc+Y5KwTwApKTOJNVOWe
-        6lOPfPagvNgvKKYCYal6QJR5IysBpJHGu5mC81GvPSjLS4ZiMpA45GzC0JeJdAWy19gDA5RlJUGxQMLF
-        vQTFfQxQugJ1CbMH5fmioVgg4eK5xsHxPCb2BrGDoKpPPpcCxQIpLBydU/1MGgIoq0qA0gkoSyNDsUCi
-        KQfK6hKhPBcJigUSXTlQ1gBKcU8JeFCWFIRigRSnHChrS4TybCiUgQJSzP5+uYn3vBgKirsaRb4aqFeY
-        U3QB7RbnhRI3EHEwtUwstxpb0Htodwz+xVD/Cke9wbvXHpRFSigDAQQr24zvX8SKg8uy9uxB4Wfr/YoT
-        CO+zYyULsDJ+Xjy4HGu/U3Qa9b9fls9TrEDQO7CSqI82WPMzOUnaIMvnKU4gThONxUpOB9pbh7lNls9T
-        zEDGYyL/K9DeOsz7Zfk8xQmEBSC89xFchnXQfMEsSTtl6TzFPYdgUl+BFUW/fnA7O0P/of7TZfk8xQqE
-        b5WZSRWY2D8FFJNezRG/03QVG+/qwJXLuIcsPrXg1AFKOy1Cu0MAkwGgM4b6b7j4XfwOHN1naJO89u9X
-        3EBYoqfUYtmvUSWWPxIebaIBYxHq0u2rVSHzcJ6izfx6jwAMFhYcOxCTJc5j8VzZSvNQWL6DJVivfPbm
-        1i3KnpGVBRJdOTDmlgjj9VAYLAskmnJgzCkRxjbUOhwGywIprBwYs0uEsT0SDJYFUlgSxpMlwOBLvW9E
-        hsGyQMLFxUzsp+mAwW87DdYmnz0YO4qCwbJAwoViDkVxjwRqEmYPxs6iYbAskPzioQp7RRNwVM2vnA3W
-        RWUPxq6SYLBMBcLFEAXdQuOQI1/DboZnwyOKud6PvGtk/oXtwXCwjtJgsNDYOCACBpxooXWImx8lyD6S
-        wFt6JtFGc/h4IIrwvUnoIYXPy6UEjN39gsEyEQgXGzCaETMXKZhPO513mqmGe1CYRA9rpOHI/wTa5Ifi
-        vcl1T79hsAwFMhbxFtpFPRFl6JI9rd7NUKdiGVkYb8UCg2UiEI7VF7/alwFunGySV1xkNr4/H0NXRtSC
-        LyzxO8T4tbopakANh8QCg2UokKiPRRcYtDxloeD7owDgCTdJr+BzAX6/29mAv8V5U+BtDqSoFwf0LXxs
-        vSJXFohmskA0kwWimSwQzWSBaCYLRDNZIJqpCCDPyCbaC7Gu8MWvtqZAmiIA4dMEKVolm2gtPnhLtNB2
-        ZR5+86vGa2QzfYSg7kGx1SfOsvZuCt43IEemMYvP0CKfg8o8/L7Co4Nspo8QFL9+6E9FwH530Bl8d4rO
-        /1BLnG/aSFOw8US5vfOSlhsYgqp0T9IPioD99i7wfI/vj+dECl1LuNUSMBrpXsT4sy/u/D4hm+onbFHv
-        opeoglb5JMbo9Ui+Gq6CJw6y+aWUMxDTRsT2R59Y8/lGopXelOnrJyRUAyDR7+L2/gtoFz4vaGD+Z2Yc
-        ezGPP3Rj6J0S62nzuMRDD7p7BYB8i+RUwZvow7oNuT7x+IsuPxNQin8IvvzMVwqncs7aSkzSMIJ9R+zi
-        qhMxxdu07h1ZCSi1dBd6ySHYzMfRUnQY82WF1r0jV3z7DIIdg15yxCgoPDem6Cg2uBH8HpayErYgcrbS
-        aED53IhJnnfnU7RXwFgvkyw3yZ7CD24uAZi0SEqVrM7muZBjb6enkU9lWcwbYRJzCoweMwpJNbgZSsA9
-        cotTF2EwzTFxbGnqRpzHcLDL72Mfmc3DGImEsHVhKxuGXeMqJL8AXoMC7Mbn25p4DwC8is+5HCNADDMO
-        hJWVlZWVlZWVVUki+h/RdMHhZWf3DwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="SalesControlCL.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>295, 17</value>
-  </metadata>
-  <metadata name="MonthlyDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="MonthlyTotal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="MonthlyDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="MonthlyTotal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="WeeklyDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="WeeklSale.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="WeeklyDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="WeeklSale.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="DailyDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="DailyTotal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="DailyDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="DailyTotal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="AdminControlsCL.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>139, 17</value>
-  </metadata>
-  <metadata name="SalesControlCL.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>295, 17</value>
-  </metadata>
 </root>

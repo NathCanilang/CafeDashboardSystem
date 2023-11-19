@@ -29,31 +29,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CafeDeLunaDashboard));
             this.MainPanelsCL = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.LoginPanelContainer = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.showpasschckBx = new System.Windows.Forms.CheckBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.LoginBtn = new System.Windows.Forms.Button();
             this.LoginPasswordTxtB = new System.Windows.Forms.TextBox();
             this.LoginUsernameTxtB = new System.Windows.Forms.TextBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.AdminPanelContainer = new System.Windows.Forms.Panel();
             this.AdminControlsPanel = new System.Windows.Forms.Panel();
             this.AdminHomePanel = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.AddMenuPanel = new System.Windows.Forms.Panel();
             this.VariationIDTxtBox = new System.Windows.Forms.TextBox();
             this.AddVarietyBtn = new System.Windows.Forms.Button();
@@ -65,13 +59,10 @@
             this.MenuNTxtB = new System.Windows.Forms.TextBox();
             this.AddMenuBtn = new System.Windows.Forms.Button();
             this.MenuAddImgBtn = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
             this.MenuSelectComB = new System.Windows.Forms.ComboBox();
             this.VariationCostTxtB = new System.Windows.Forms.TextBox();
             this.VariationDescTxtB = new System.Windows.Forms.TextBox();
             this.VariationNmTxtB = new System.Windows.Forms.TextBox();
-            this.VariationPicB = new System.Windows.Forms.PictureBox();
-            this.MenuPicB = new System.Windows.Forms.PictureBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.FoodTbl = new System.Windows.Forms.DataGridView();
@@ -101,9 +92,7 @@
             this.FirstNTxtB_AP = new System.Windows.Forms.TextBox();
             this.LastNTxtB_AP = new System.Windows.Forms.TextBox();
             this.AccDataTbl = new System.Windows.Forms.DataGridView();
-            this.UserPicB = new System.Windows.Forms.PictureBox();
             this.NavigationPanel = new System.Windows.Forms.Panel();
-            this.LogoutLogo = new System.Windows.Forms.PictureBox();
             this.LogoutLbl = new System.Windows.Forms.Label();
             this.AddMenuLbl = new System.Windows.Forms.Label();
             this.SalesRepLbl = new System.Windows.Forms.Label();
@@ -133,11 +122,6 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.lgoutLbl = new System.Windows.Forms.Label();
-            this.searchpicBox = new System.Windows.Forms.PictureBox();
-            this.logoutBtn = new System.Windows.Forms.PictureBox();
-            this.allBtn = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.SalesPanelContainer = new System.Windows.Forms.Panel();
             this.StartDatePicker = new System.Windows.Forms.DateTimePicker();
             this.SelectDateLbl = new System.Windows.Forms.Label();
@@ -165,42 +149,43 @@
             this.DailyDGV = new System.Windows.Forms.DataGridView();
             this.GenerateDailyReportBtn = new System.Windows.Forms.Button();
             this.SalesNavigationBar = new System.Windows.Forms.Panel();
-            this.BackpicBx = new System.Windows.Forms.PictureBox();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.MonthlyLbl = new System.Windows.Forms.Label();
             this.BackLbl = new System.Windows.Forms.Label();
             this.WeeklyLbl = new System.Windows.Forms.Label();
             this.DailyLbl = new System.Windows.Forms.Label();
             this.AdminControlsCL = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.SalesControlCL = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
+            this.logoutBtn = new System.Windows.Forms.PictureBox();
+            this.searchpicBox = new System.Windows.Forms.PictureBox();
+            this.allBtn = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.BackpicBx = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.VariationPicB = new System.Windows.Forms.PictureBox();
+            this.MenuPicB = new System.Windows.Forms.PictureBox();
+            this.UserPicB = new System.Windows.Forms.PictureBox();
+            this.LogoutLogo = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.MainPanelsCL)).BeginInit();
             this.LoginPanelContainer.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.AdminPanelContainer.SuspendLayout();
             this.AdminControlsPanel.SuspendLayout();
             this.AdminHomePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.AddMenuPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.VariationPicB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MenuPicB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FoodTbl)).BeginInit();
             this.AccountManagementPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AccDataTbl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UserPicB)).BeginInit();
             this.NavigationPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LogoutLogo)).BeginInit();
             this.ManagerStaffPanelContainer.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchpicBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logoutBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SalesPanelContainer.SuspendLayout();
             this.SalesPanel.SuspendLayout();
             this.MonthlyReportPanel.SuspendLayout();
@@ -216,21 +201,36 @@
             ((System.ComponentModel.ISupportInitialize)(this.MostSalesDailyTbl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DailyDGV)).BeginInit();
             this.SalesNavigationBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BackpicBx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AdminControlsCL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SalesControlCL)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoutBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchpicBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BackpicBx)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VariationPicB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MenuPicB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserPicB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoutLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // MainPanelsCL
             // 
             this.MainPanelsCL.ContainerControl = this;
             this.MainPanelsCL.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.MainPanelsCL.SelectedCard = "Card2";
+            this.MainPanelsCL.SelectedCard = "Card4";
             // 
             // LoginPanelContainer
             // 
             this.LoginPanelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(218)))), ((int)(((byte)(206)))));
-            this.MainPanelsCL.SetCardName(this.LoginPanelContainer, "Card4");
+            this.MainPanelsCL.SetCardName(this.LoginPanelContainer, "Card6");
             this.LoginPanelContainer.Controls.Add(this.panel1);
             this.LoginPanelContainer.Controls.Add(this.panel2);
             this.LoginPanelContainer.Controls.Add(this.panel3);
@@ -270,26 +270,6 @@
             this.showpasschckBx.UseVisualStyleBackColor = true;
             this.showpasschckBx.CheckedChanged += new System.EventHandler(this.showpasschckBx_CheckedChanged);
             // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::CafeSystem.Properties.Resources.usericon;
-            this.pictureBox7.Location = new System.Drawing.Point(200, 283);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 7;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::CafeSystem.Properties.Resources.passicon;
-            this.pictureBox6.Location = new System.Drawing.Point(200, 353);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 6;
-            this.pictureBox6.TabStop = false;
-            // 
             // LoginBtn
             // 
             this.LoginBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
@@ -323,21 +303,10 @@
             // 
             this.LoginUsernameTxtB.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoginUsernameTxtB.Location = new System.Drawing.Point(246, 290);
-            this.LoginUsernameTxtB.Multiline = true;
             this.LoginUsernameTxtB.Name = "LoginUsernameTxtB";
-            this.LoginUsernameTxtB.Size = new System.Drawing.Size(254, 33);
+            this.LoginUsernameTxtB.Size = new System.Drawing.Size(254, 32);
             this.LoginUsernameTxtB.TabIndex = 0;
             this.LoginUsernameTxtB.TextChanged += new System.EventHandler(this.LoginUsernameTxtB_TextChanged);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::CafeSystem.Properties.Resources.luna;
-            this.pictureBox5.Location = new System.Drawing.Point(150, -67);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(400, 400);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 5;
-            this.pictureBox5.TabStop = false;
             // 
             // panel2
             // 
@@ -355,30 +324,10 @@
             this.panel3.Size = new System.Drawing.Size(80, 450);
             this.panel3.TabIndex = 6;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::CafeSystem.Properties.Resources.coffee_BG_login;
-            this.pictureBox2.InitialImage = null;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(500, 500);
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::CafeSystem.Properties.Resources.coffee_BG_login;
-            this.pictureBox4.InitialImage = null;
-            this.pictureBox4.Location = new System.Drawing.Point(784, 161);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(500, 500);
-            this.pictureBox4.TabIndex = 7;
-            this.pictureBox4.TabStop = false;
-            // 
             // AdminPanelContainer
             // 
             this.AdminPanelContainer.BackColor = System.Drawing.Color.White;
-            this.MainPanelsCL.SetCardName(this.AdminPanelContainer, "Card3");
+            this.MainPanelsCL.SetCardName(this.AdminPanelContainer, "Card4");
             this.AdminPanelContainer.Controls.Add(this.AdminControlsPanel);
             this.AdminPanelContainer.Controls.Add(this.NavigationPanel);
             this.AdminPanelContainer.Location = new System.Drawing.Point(0, 0);
@@ -411,19 +360,9 @@
             this.AdminHomePanel.Size = new System.Drawing.Size(1104, 661);
             this.AdminHomePanel.TabIndex = 2;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1104, 661);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // AddMenuPanel
             // 
-            this.AddMenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.AddMenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(218)))), ((int)(((byte)(206)))));
             this.AdminControlsCL.SetCardName(this.AddMenuPanel, "Card2");
             this.AddMenuPanel.Controls.Add(this.VariationIDTxtBox);
             this.AddMenuPanel.Controls.Add(this.AddVarietyBtn);
@@ -435,7 +374,6 @@
             this.AddMenuPanel.Controls.Add(this.MenuNTxtB);
             this.AddMenuPanel.Controls.Add(this.AddMenuBtn);
             this.AddMenuPanel.Controls.Add(this.MenuAddImgBtn);
-            this.AddMenuPanel.Controls.Add(this.label14);
             this.AddMenuPanel.Controls.Add(this.MenuSelectComB);
             this.AddMenuPanel.Controls.Add(this.VariationCostTxtB);
             this.AddMenuPanel.Controls.Add(this.VariationDescTxtB);
@@ -474,35 +412,53 @@
             // 
             // CancelMealBtn
             // 
+            this.CancelMealBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
             this.CancelMealBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CancelMealBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.CancelMealBtn.FlatAppearance.BorderSize = 2;
+            this.CancelMealBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelMealBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelMealBtn.ForeColor = System.Drawing.Color.White;
             this.CancelMealBtn.Location = new System.Drawing.Point(383, 586);
             this.CancelMealBtn.Name = "CancelMealBtn";
             this.CancelMealBtn.Size = new System.Drawing.Size(335, 33);
             this.CancelMealBtn.TabIndex = 17;
             this.CancelMealBtn.Text = "Cancel Edit";
-            this.CancelMealBtn.UseVisualStyleBackColor = true;
+            this.CancelMealBtn.UseVisualStyleBackColor = false;
             this.CancelMealBtn.Click += new System.EventHandler(this.CancelMealBtn_Click);
             // 
             // DeleteFoodlBtn
             // 
+            this.DeleteFoodlBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
             this.DeleteFoodlBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DeleteFoodlBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.DeleteFoodlBtn.FlatAppearance.BorderSize = 2;
+            this.DeleteFoodlBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteFoodlBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteFoodlBtn.ForeColor = System.Drawing.Color.White;
             this.DeleteFoodlBtn.Location = new System.Drawing.Point(383, 547);
             this.DeleteFoodlBtn.Name = "DeleteFoodlBtn";
             this.DeleteFoodlBtn.Size = new System.Drawing.Size(335, 33);
             this.DeleteFoodlBtn.TabIndex = 16;
             this.DeleteFoodlBtn.Text = "Delete Food";
-            this.DeleteFoodlBtn.UseVisualStyleBackColor = true;
+            this.DeleteFoodlBtn.UseVisualStyleBackColor = false;
             this.DeleteFoodlBtn.Click += new System.EventHandler(this.DeleteFoodlBtn_Click);
             // 
             // UpdateMealBtn
             // 
+            this.UpdateMealBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
             this.UpdateMealBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UpdateMealBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.UpdateMealBtn.FlatAppearance.BorderSize = 2;
+            this.UpdateMealBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateMealBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateMealBtn.ForeColor = System.Drawing.Color.White;
             this.UpdateMealBtn.Location = new System.Drawing.Point(31, 586);
             this.UpdateMealBtn.Name = "UpdateMealBtn";
             this.UpdateMealBtn.Size = new System.Drawing.Size(335, 33);
             this.UpdateMealBtn.TabIndex = 15;
             this.UpdateMealBtn.Text = "Update Food Details";
-            this.UpdateMealBtn.UseVisualStyleBackColor = true;
+            this.UpdateMealBtn.UseVisualStyleBackColor = false;
             this.UpdateMealBtn.Click += new System.EventHandler(this.UpdateMealBtn_Click);
             // 
             // VarietyAddImgBtn
@@ -518,13 +474,19 @@
             // 
             // EditMealBtn
             // 
+            this.EditMealBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
             this.EditMealBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EditMealBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.EditMealBtn.FlatAppearance.BorderSize = 2;
+            this.EditMealBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditMealBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditMealBtn.ForeColor = System.Drawing.Color.White;
             this.EditMealBtn.Location = new System.Drawing.Point(31, 547);
             this.EditMealBtn.Name = "EditMealBtn";
             this.EditMealBtn.Size = new System.Drawing.Size(335, 33);
             this.EditMealBtn.TabIndex = 13;
             this.EditMealBtn.Text = "Edit Food Details";
-            this.EditMealBtn.UseVisualStyleBackColor = true;
+            this.EditMealBtn.UseVisualStyleBackColor = false;
             this.EditMealBtn.Click += new System.EventHandler(this.EditMealBtn_Click);
             // 
             // MenuNTxtB
@@ -556,16 +518,6 @@
             this.MenuAddImgBtn.Text = "Select Category Image";
             this.MenuAddImgBtn.UseVisualStyleBackColor = true;
             this.MenuAddImgBtn.Click += new System.EventHandler(this.MenuAddImgBtn_Click);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(24, 23);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(163, 42);
-            this.label14.TabIndex = 9;
-            this.label14.Text = "All Menu";
             // 
             // MenuSelectComB
             // 
@@ -599,24 +551,6 @@
             this.VariationNmTxtB.Size = new System.Drawing.Size(145, 20);
             this.VariationNmTxtB.TabIndex = 5;
             // 
-            // VariationPicB
-            // 
-            this.VariationPicB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.VariationPicB.Location = new System.Drawing.Point(831, 329);
-            this.VariationPicB.Name = "VariationPicB";
-            this.VariationPicB.Size = new System.Drawing.Size(163, 128);
-            this.VariationPicB.TabIndex = 4;
-            this.VariationPicB.TabStop = false;
-            // 
-            // MenuPicB
-            // 
-            this.MenuPicB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.MenuPicB.Location = new System.Drawing.Point(745, 110);
-            this.MenuPicB.Name = "MenuPicB";
-            this.MenuPicB.Size = new System.Drawing.Size(163, 128);
-            this.MenuPicB.TabIndex = 3;
-            this.MenuPicB.TabStop = false;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -641,20 +575,22 @@
             // 
             this.FoodTbl.AllowUserToAddRows = false;
             this.FoodTbl.AllowUserToDeleteRows = false;
+            this.FoodTbl.BackgroundColor = System.Drawing.Color.White;
             this.FoodTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.FoodTbl.Location = new System.Drawing.Point(31, 68);
+            this.FoodTbl.Location = new System.Drawing.Point(24, 12);
             this.FoodTbl.MultiSelect = false;
             this.FoodTbl.Name = "FoodTbl";
             this.FoodTbl.ReadOnly = true;
             this.FoodTbl.RowHeadersWidth = 51;
             this.FoodTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.FoodTbl.Size = new System.Drawing.Size(687, 473);
+            this.FoodTbl.Size = new System.Drawing.Size(694, 529);
             this.FoodTbl.TabIndex = 0;
             // 
             // AccountManagementPanel
             // 
-            this.AccountManagementPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.AccountManagementPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(218)))), ((int)(((byte)(206)))));
             this.AdminControlsCL.SetCardName(this.AccountManagementPanel, "Card1");
+            this.AccountManagementPanel.Controls.Add(this.UserPicB);
             this.AccountManagementPanel.Controls.Add(this.CancelAccBtn);
             this.AccountManagementPanel.Controls.Add(this.UpdateAccBtn);
             this.AccountManagementPanel.Controls.Add(this.EditAccBtn);
@@ -680,7 +616,6 @@
             this.AccountManagementPanel.Controls.Add(this.FirstNTxtB_AP);
             this.AccountManagementPanel.Controls.Add(this.LastNTxtB_AP);
             this.AccountManagementPanel.Controls.Add(this.AccDataTbl);
-            this.AccountManagementPanel.Controls.Add(this.UserPicB);
             this.AccountManagementPanel.Location = new System.Drawing.Point(0, 0);
             this.AdminControlsCL.SetMinimumSize(this.AccountManagementPanel, new System.Drawing.Size(200, 100));
             this.AccountManagementPanel.Name = "AccountManagementPanel";
@@ -690,61 +625,85 @@
             // 
             // CancelAccBtn
             // 
+            this.CancelAccBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
             this.CancelAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CancelAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.CancelAccBtn.FlatAppearance.BorderSize = 2;
+            this.CancelAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelAccBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelAccBtn.ForeColor = System.Drawing.Color.White;
             this.CancelAccBtn.Location = new System.Drawing.Point(791, 579);
             this.CancelAccBtn.Name = "CancelAccBtn";
             this.CancelAccBtn.Size = new System.Drawing.Size(289, 38);
             this.CancelAccBtn.TabIndex = 25;
             this.CancelAccBtn.Text = "Cancel Edit";
-            this.CancelAccBtn.UseVisualStyleBackColor = true;
+            this.CancelAccBtn.UseVisualStyleBackColor = false;
             this.CancelAccBtn.Click += new System.EventHandler(this.CancelAccBtn_Click);
             // 
             // UpdateAccBtn
             // 
+            this.UpdateAccBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
             this.UpdateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UpdateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.UpdateAccBtn.FlatAppearance.BorderSize = 2;
+            this.UpdateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateAccBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateAccBtn.ForeColor = System.Drawing.Color.White;
             this.UpdateAccBtn.Location = new System.Drawing.Point(491, 579);
             this.UpdateAccBtn.Name = "UpdateAccBtn";
             this.UpdateAccBtn.Size = new System.Drawing.Size(289, 38);
             this.UpdateAccBtn.TabIndex = 24;
             this.UpdateAccBtn.Text = "Update Account";
-            this.UpdateAccBtn.UseVisualStyleBackColor = true;
+            this.UpdateAccBtn.UseVisualStyleBackColor = false;
             this.UpdateAccBtn.Click += new System.EventHandler(this.UpdateAccBtn_Click);
             // 
             // EditAccBtn
             // 
+            this.EditAccBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
             this.EditAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EditAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.EditAccBtn.FlatAppearance.BorderSize = 2;
+            this.EditAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditAccBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditAccBtn.ForeColor = System.Drawing.Color.White;
             this.EditAccBtn.Location = new System.Drawing.Point(791, 535);
             this.EditAccBtn.Name = "EditAccBtn";
             this.EditAccBtn.Size = new System.Drawing.Size(289, 38);
             this.EditAccBtn.TabIndex = 23;
             this.EditAccBtn.Text = "Edit Account";
-            this.EditAccBtn.UseVisualStyleBackColor = true;
+            this.EditAccBtn.UseVisualStyleBackColor = false;
             this.EditAccBtn.Click += new System.EventHandler(this.EditAccBtn_Click);
             // 
             // CreateAccBtn
             // 
+            this.CreateAccBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
             this.CreateAccBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CreateAccBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.CreateAccBtn.FlatAppearance.BorderSize = 2;
+            this.CreateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CreateAccBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreateAccBtn.ForeColor = System.Drawing.Color.White;
             this.CreateAccBtn.Location = new System.Drawing.Point(491, 535);
             this.CreateAccBtn.Name = "CreateAccBtn";
             this.CreateAccBtn.Size = new System.Drawing.Size(289, 38);
             this.CreateAccBtn.TabIndex = 22;
             this.CreateAccBtn.Text = "Create Account";
-            this.CreateAccBtn.UseVisualStyleBackColor = true;
+            this.CreateAccBtn.UseVisualStyleBackColor = false;
             this.CreateAccBtn.Click += new System.EventHandler(this.CreateAccBtn_Click);
             // 
             // label11
             // 
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(318, 148);
+            this.label11.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(167, 14);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(145, 26);
+            this.label11.Size = new System.Drawing.Size(172, 33);
             this.label11.TabIndex = 21;
             this.label11.Text = "Employee Image:";
             // 
             // label10
             // 
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(246, 544);
+            this.label10.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(222, 509);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(132, 29);
             this.label10.TabIndex = 20;
@@ -752,8 +711,8 @@
             // 
             // label9
             // 
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(98, 544);
+            this.label9.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(74, 509);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(100, 29);
             this.label9.TabIndex = 19;
@@ -761,8 +720,8 @@
             // 
             // label8
             // 
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(317, 473);
+            this.label8.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(309, 411);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(100, 29);
             this.label8.TabIndex = 18;
@@ -770,8 +729,8 @@
             // 
             // label7
             // 
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(169, 473);
+            this.label7.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(161, 411);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(100, 29);
             this.label7.TabIndex = 17;
@@ -779,8 +738,8 @@
             // 
             // label6
             // 
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(22, 473);
+            this.label6.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(14, 411);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(112, 29);
             this.label6.TabIndex = 16;
@@ -788,26 +747,26 @@
             // 
             // label5
             // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(22, 330);
+            this.label5.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(13, 202);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 23);
+            this.label5.Size = new System.Drawing.Size(100, 33);
             this.label5.TabIndex = 15;
             this.label5.Text = "Name:";
             // 
             // label4
             // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(317, 403);
+            this.label4.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(311, 303);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 23);
+            this.label4.Size = new System.Drawing.Size(100, 37);
             this.label4.TabIndex = 14;
             this.label4.Text = "Age:";
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(22, 397);
+            this.label3.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(16, 311);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 29);
             this.label3.TabIndex = 13;
@@ -816,129 +775,127 @@
             // EmployeeIDTxtB_AP
             // 
             this.EmployeeIDTxtB_AP.Enabled = false;
-            this.EmployeeIDTxtB_AP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmployeeIDTxtB_AP.Location = new System.Drawing.Point(250, 576);
+            this.EmployeeIDTxtB_AP.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmployeeIDTxtB_AP.Location = new System.Drawing.Point(226, 541);
             this.EmployeeIDTxtB_AP.Multiline = true;
             this.EmployeeIDTxtB_AP.Name = "EmployeeIDTxtB_AP";
-            this.EmployeeIDTxtB_AP.Size = new System.Drawing.Size(142, 24);
+            this.EmployeeIDTxtB_AP.Size = new System.Drawing.Size(142, 32);
             this.EmployeeIDTxtB_AP.TabIndex = 12;
             // 
             // PositionComB_AP
             // 
-            this.PositionComB_AP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PositionComB_AP.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PositionComB_AP.FormattingEnabled = true;
-            this.PositionComB_AP.Location = new System.Drawing.Point(102, 576);
+            this.PositionComB_AP.Location = new System.Drawing.Point(78, 541);
             this.PositionComB_AP.Name = "PositionComB_AP";
-            this.PositionComB_AP.Size = new System.Drawing.Size(142, 24);
+            this.PositionComB_AP.Size = new System.Drawing.Size(142, 33);
             this.PositionComB_AP.TabIndex = 11;
             // 
             // SelectImgBtn
             // 
+            this.SelectImgBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
             this.SelectImgBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SelectImgBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectImgBtn.Location = new System.Drawing.Point(321, 298);
+            this.SelectImgBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.SelectImgBtn.FlatAppearance.BorderSize = 2;
+            this.SelectImgBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SelectImgBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectImgBtn.ForeColor = System.Drawing.Color.White;
+            this.SelectImgBtn.Location = new System.Drawing.Point(173, 167);
             this.SelectImgBtn.Name = "SelectImgBtn";
-            this.SelectImgBtn.Size = new System.Drawing.Size(142, 23);
+            this.SelectImgBtn.Size = new System.Drawing.Size(145, 38);
             this.SelectImgBtn.TabIndex = 10;
             this.SelectImgBtn.Text = "Select Image";
-            this.SelectImgBtn.UseVisualStyleBackColor = true;
+            this.SelectImgBtn.UseVisualStyleBackColor = false;
             this.SelectImgBtn.Click += new System.EventHandler(this.SelectImgBtn_Click);
             // 
             // EmailTxtB_AP
             // 
-            this.EmailTxtB_AP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmailTxtB_AP.Location = new System.Drawing.Point(321, 505);
+            this.EmailTxtB_AP.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmailTxtB_AP.Location = new System.Drawing.Point(313, 443);
             this.EmailTxtB_AP.Multiline = true;
             this.EmailTxtB_AP.Name = "EmailTxtB_AP";
-            this.EmailTxtB_AP.Size = new System.Drawing.Size(142, 24);
+            this.EmailTxtB_AP.Size = new System.Drawing.Size(142, 32);
             this.EmailTxtB_AP.TabIndex = 8;
             // 
             // PasswordTxtB_AP
             // 
-            this.PasswordTxtB_AP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordTxtB_AP.Location = new System.Drawing.Point(173, 505);
+            this.PasswordTxtB_AP.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordTxtB_AP.Location = new System.Drawing.Point(165, 443);
             this.PasswordTxtB_AP.Multiline = true;
             this.PasswordTxtB_AP.Name = "PasswordTxtB_AP";
-            this.PasswordTxtB_AP.Size = new System.Drawing.Size(142, 24);
+            this.PasswordTxtB_AP.Size = new System.Drawing.Size(142, 32);
             this.PasswordTxtB_AP.TabIndex = 7;
             // 
             // UsernameTxtB_AP
             // 
-            this.UsernameTxtB_AP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameTxtB_AP.Location = new System.Drawing.Point(25, 505);
+            this.UsernameTxtB_AP.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsernameTxtB_AP.Location = new System.Drawing.Point(17, 443);
             this.UsernameTxtB_AP.Multiline = true;
             this.UsernameTxtB_AP.Name = "UsernameTxtB_AP";
-            this.UsernameTxtB_AP.Size = new System.Drawing.Size(142, 24);
+            this.UsernameTxtB_AP.Size = new System.Drawing.Size(142, 32);
             this.UsernameTxtB_AP.TabIndex = 6;
             // 
             // AgeTxtB_AP
             // 
             this.AgeTxtB_AP.Enabled = false;
-            this.AgeTxtB_AP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AgeTxtB_AP.Location = new System.Drawing.Point(321, 429);
+            this.AgeTxtB_AP.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AgeTxtB_AP.Location = new System.Drawing.Point(315, 343);
             this.AgeTxtB_AP.Multiline = true;
             this.AgeTxtB_AP.Name = "AgeTxtB_AP";
-            this.AgeTxtB_AP.Size = new System.Drawing.Size(142, 24);
+            this.AgeTxtB_AP.Size = new System.Drawing.Size(142, 32);
             this.AgeTxtB_AP.TabIndex = 5;
             // 
             // UserBirthdate
             // 
             this.UserBirthdate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserBirthdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserBirthdate.Location = new System.Drawing.Point(25, 429);
+            this.UserBirthdate.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserBirthdate.Location = new System.Drawing.Point(19, 343);
             this.UserBirthdate.Name = "UserBirthdate";
-            this.UserBirthdate.Size = new System.Drawing.Size(290, 22);
+            this.UserBirthdate.Size = new System.Drawing.Size(290, 32);
             this.UserBirthdate.TabIndex = 4;
             // 
             // MiddleNTxtB_AP
             // 
-            this.MiddleNTxtB_AP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MiddleNTxtB_AP.Location = new System.Drawing.Point(321, 356);
+            this.MiddleNTxtB_AP.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MiddleNTxtB_AP.Location = new System.Drawing.Point(313, 240);
             this.MiddleNTxtB_AP.Multiline = true;
             this.MiddleNTxtB_AP.Name = "MiddleNTxtB_AP";
-            this.MiddleNTxtB_AP.Size = new System.Drawing.Size(142, 24);
+            this.MiddleNTxtB_AP.Size = new System.Drawing.Size(142, 32);
             this.MiddleNTxtB_AP.TabIndex = 3;
             // 
             // FirstNTxtB_AP
             // 
-            this.FirstNTxtB_AP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FirstNTxtB_AP.Location = new System.Drawing.Point(173, 356);
+            this.FirstNTxtB_AP.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FirstNTxtB_AP.Location = new System.Drawing.Point(165, 240);
             this.FirstNTxtB_AP.Multiline = true;
             this.FirstNTxtB_AP.Name = "FirstNTxtB_AP";
-            this.FirstNTxtB_AP.Size = new System.Drawing.Size(142, 24);
+            this.FirstNTxtB_AP.Size = new System.Drawing.Size(142, 32);
             this.FirstNTxtB_AP.TabIndex = 2;
             // 
             // LastNTxtB_AP
             // 
-            this.LastNTxtB_AP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LastNTxtB_AP.Location = new System.Drawing.Point(25, 356);
+            this.LastNTxtB_AP.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LastNTxtB_AP.Location = new System.Drawing.Point(17, 240);
             this.LastNTxtB_AP.Multiline = true;
             this.LastNTxtB_AP.Name = "LastNTxtB_AP";
-            this.LastNTxtB_AP.Size = new System.Drawing.Size(142, 24);
+            this.LastNTxtB_AP.Size = new System.Drawing.Size(142, 32);
             this.LastNTxtB_AP.TabIndex = 1;
             // 
             // AccDataTbl
             // 
             this.AccDataTbl.AllowUserToAddRows = false;
             this.AccDataTbl.AllowUserToDeleteRows = false;
+            this.AccDataTbl.BackgroundColor = System.Drawing.Color.White;
             this.AccDataTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AccDataTbl.Location = new System.Drawing.Point(491, 122);
+            this.AccDataTbl.Location = new System.Drawing.Point(471, 12);
             this.AccDataTbl.MultiSelect = false;
             this.AccDataTbl.Name = "AccDataTbl";
             this.AccDataTbl.ReadOnly = true;
+            this.AccDataTbl.RowHeadersVisible = false;
             this.AccDataTbl.RowHeadersWidth = 51;
             this.AccDataTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.AccDataTbl.Size = new System.Drawing.Size(589, 407);
+            this.AccDataTbl.Size = new System.Drawing.Size(621, 517);
             this.AccDataTbl.TabIndex = 0;
-            // 
-            // UserPicB
-            // 
-            this.UserPicB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.UserPicB.Location = new System.Drawing.Point(321, 177);
-            this.UserPicB.Name = "UserPicB";
-            this.UserPicB.Size = new System.Drawing.Size(142, 115);
-            this.UserPicB.TabIndex = 9;
-            this.UserPicB.TabStop = false;
             // 
             // NavigationPanel
             // 
@@ -953,18 +910,6 @@
             this.NavigationPanel.Size = new System.Drawing.Size(180, 661);
             this.NavigationPanel.TabIndex = 0;
             // 
-            // LogoutLogo
-            // 
-            this.LogoutLogo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LogoutLogo.Image = ((System.Drawing.Image)(resources.GetObject("LogoutLogo.Image")));
-            this.LogoutLogo.Location = new System.Drawing.Point(26, 12);
-            this.LogoutLogo.Name = "LogoutLogo";
-            this.LogoutLogo.Size = new System.Drawing.Size(42, 37);
-            this.LogoutLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.LogoutLogo.TabIndex = 4;
-            this.LogoutLogo.TabStop = false;
-            this.LogoutLogo.Click += new System.EventHandler(this.LogoutLogo_Click);
-            // 
             // LogoutLbl
             // 
             this.LogoutLbl.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -974,7 +919,7 @@
             this.LogoutLbl.Name = "LogoutLbl";
             this.LogoutLbl.Size = new System.Drawing.Size(143, 41);
             this.LogoutLbl.TabIndex = 3;
-            this.LogoutLbl.Text = "Log-out";
+            this.LogoutLbl.Text = "Log Out";
             this.LogoutLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.LogoutLbl.Click += new System.EventHandler(this.LogoutLbl_Click);
             // 
@@ -996,7 +941,7 @@
             this.SalesRepLbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SalesRepLbl.Font = new System.Drawing.Font("Handmade", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SalesRepLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(11)))));
-            this.SalesRepLbl.Location = new System.Drawing.Point(3, 420);
+            this.SalesRepLbl.Location = new System.Drawing.Point(3, 426);
             this.SalesRepLbl.Name = "SalesRepLbl";
             this.SalesRepLbl.Size = new System.Drawing.Size(174, 49);
             this.SalesRepLbl.TabIndex = 1;
@@ -1038,8 +983,8 @@
             this.ManagerStaffPanelContainer.Controls.Add(this.discChckBx);
             this.ManagerStaffPanelContainer.Controls.Add(this.dataGridView1);
             this.ManagerStaffPanelContainer.Controls.Add(this.lgoutLbl);
-            this.ManagerStaffPanelContainer.Controls.Add(this.searchpicBox);
             this.ManagerStaffPanelContainer.Controls.Add(this.logoutBtn);
+            this.ManagerStaffPanelContainer.Controls.Add(this.searchpicBox);
             this.ManagerStaffPanelContainer.Controls.Add(this.allBtn);
             this.ManagerStaffPanelContainer.Controls.Add(this.pictureBox8);
             this.ManagerStaffPanelContainer.Controls.Add(this.pictureBox3);
@@ -1245,23 +1190,23 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -1270,35 +1215,35 @@
             this.Column4,
             this.Column5,
             this.Column6});
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
             this.dataGridView1.Location = new System.Drawing.Point(895, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Handmade", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Handmade", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle36.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.RowTemplate.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(382, 291);
@@ -1333,9 +1278,9 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Handmade", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Handmade", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle9;
             this.Column4.HeaderText = "+";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -1361,71 +1306,18 @@
             this.lgoutLbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lgoutLbl.Font = new System.Drawing.Font("Handmade", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lgoutLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(11)))));
-            this.lgoutLbl.Location = new System.Drawing.Point(249, 12);
+            this.lgoutLbl.Location = new System.Drawing.Point(211, 14);
             this.lgoutLbl.Name = "lgoutLbl";
-            this.lgoutLbl.Size = new System.Drawing.Size(66, 28);
+            this.lgoutLbl.Size = new System.Drawing.Size(116, 28);
             this.lgoutLbl.TabIndex = 3;
-            this.lgoutLbl.Text = "Log Out";
+            this.lgoutLbl.Text = "          Log Out";
             this.lgoutLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lgoutLbl.Click += new System.EventHandler(this.lgoutLbl_Click);
             // 
-            // searchpicBox
-            // 
-            this.searchpicBox.Image = global::CafeSystem.Properties.Resources.find1;
-            this.searchpicBox.Location = new System.Drawing.Point(843, 12);
-            this.searchpicBox.Name = "searchpicBox";
-            this.searchpicBox.Size = new System.Drawing.Size(30, 30);
-            this.searchpicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.searchpicBox.TabIndex = 18;
-            this.searchpicBox.TabStop = false;
-            // 
-            // logoutBtn
-            // 
-            this.logoutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.logoutBtn.Image = ((System.Drawing.Image)(resources.GetObject("logoutBtn.Image")));
-            this.logoutBtn.Location = new System.Drawing.Point(213, 12);
-            this.logoutBtn.Name = "logoutBtn";
-            this.logoutBtn.Size = new System.Drawing.Size(30, 30);
-            this.logoutBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.logoutBtn.TabIndex = 15;
-            this.logoutBtn.TabStop = false;
-            this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
-            // 
-            // allBtn
-            // 
-            this.allBtn.BackColor = System.Drawing.Color.White;
-            this.allBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.allBtn.Image = ((System.Drawing.Image)(resources.GetObject("allBtn.Image")));
-            this.allBtn.Location = new System.Drawing.Point(12, 10);
-            this.allBtn.Name = "allBtn";
-            this.allBtn.Size = new System.Drawing.Size(177, 159);
-            this.allBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.allBtn.TabIndex = 0;
-            this.allBtn.TabStop = false;
-            this.allBtn.Click += new System.EventHandler(this.allBtn_Click);
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
-            this.pictureBox8.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(889, 661);
-            this.pictureBox8.TabIndex = 20;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(218)))), ((int)(((byte)(206)))));
-            this.pictureBox3.Location = new System.Drawing.Point(887, 0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(394, 687);
-            this.pictureBox3.TabIndex = 21;
-            this.pictureBox3.TabStop = false;
-            // 
             // SalesPanelContainer
             // 
-            this.SalesPanelContainer.BackColor = System.Drawing.Color.White;
-            this.MainPanelsCL.SetCardName(this.SalesPanelContainer, "Card1");
+            this.SalesPanelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(218)))), ((int)(((byte)(206)))));
+            this.MainPanelsCL.SetCardName(this.SalesPanelContainer, "Card3");
             this.SalesPanelContainer.Controls.Add(this.StartDatePicker);
             this.SalesPanelContainer.Controls.Add(this.SelectDateLbl);
             this.SalesPanelContainer.Controls.Add(this.CategoryReportLbl);
@@ -1696,6 +1588,7 @@
             // SalesNavigationBar
             // 
             this.SalesNavigationBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
+            this.SalesNavigationBar.Controls.Add(this.panel4);
             this.SalesNavigationBar.Controls.Add(this.BackpicBx);
             this.SalesNavigationBar.Controls.Add(this.MonthlyLbl);
             this.SalesNavigationBar.Controls.Add(this.BackLbl);
@@ -1706,17 +1599,12 @@
             this.SalesNavigationBar.Size = new System.Drawing.Size(180, 661);
             this.SalesNavigationBar.TabIndex = 0;
             // 
-            // BackpicBx
+            // panel4
             // 
-            this.BackpicBx.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BackpicBx.Image = global::CafeSystem.Properties.Resources.back_icon;
-            this.BackpicBx.Location = new System.Drawing.Point(86, 16);
-            this.BackpicBx.Name = "BackpicBx";
-            this.BackpicBx.Size = new System.Drawing.Size(30, 25);
-            this.BackpicBx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.BackpicBx.TabIndex = 5;
-            this.BackpicBx.TabStop = false;
-            this.BackpicBx.Click += new System.EventHandler(this.BackpicBx_Click);
+            this.panel4.Location = new System.Drawing.Point(180, 175);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1104, 100);
+            this.panel4.TabIndex = 4;
             // 
             // MonthlyLbl
             // 
@@ -1780,7 +1668,176 @@
             // 
             this.SalesControlCL.ContainerControl = this.SalesPanel;
             this.SalesControlCL.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.SalesControlCL.SelectedCard = "Card3";
+            this.SalesControlCL.SelectedCard = "Card2";
+            // 
+            // logoutBtn
+            // 
+            this.logoutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logoutBtn.Image = ((System.Drawing.Image)(resources.GetObject("logoutBtn.Image")));
+            this.logoutBtn.Location = new System.Drawing.Point(217, 14);
+            this.logoutBtn.Name = "logoutBtn";
+            this.logoutBtn.Size = new System.Drawing.Size(30, 28);
+            this.logoutBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logoutBtn.TabIndex = 15;
+            this.logoutBtn.TabStop = false;
+            this.logoutBtn.Click += new System.EventHandler(this.logoutBtn_Click);
+            // 
+            // searchpicBox
+            // 
+            this.searchpicBox.Image = global::CafeSystem.Properties.Resources.find1;
+            this.searchpicBox.Location = new System.Drawing.Point(843, 12);
+            this.searchpicBox.Name = "searchpicBox";
+            this.searchpicBox.Size = new System.Drawing.Size(30, 30);
+            this.searchpicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.searchpicBox.TabIndex = 18;
+            this.searchpicBox.TabStop = false;
+            // 
+            // allBtn
+            // 
+            this.allBtn.BackColor = System.Drawing.Color.White;
+            this.allBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.allBtn.Image = ((System.Drawing.Image)(resources.GetObject("allBtn.Image")));
+            this.allBtn.Location = new System.Drawing.Point(12, 10);
+            this.allBtn.Name = "allBtn";
+            this.allBtn.Size = new System.Drawing.Size(177, 159);
+            this.allBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.allBtn.TabIndex = 0;
+            this.allBtn.TabStop = false;
+            this.allBtn.Click += new System.EventHandler(this.allBtn_Click);
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
+            this.pictureBox8.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(889, 661);
+            this.pictureBox8.TabIndex = 20;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(218)))), ((int)(((byte)(206)))));
+            this.pictureBox3.Location = new System.Drawing.Point(887, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(394, 687);
+            this.pictureBox3.TabIndex = 21;
+            this.pictureBox3.TabStop = false;
+            // 
+            // BackpicBx
+            // 
+            this.BackpicBx.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BackpicBx.Image = global::CafeSystem.Properties.Resources.back_icon;
+            this.BackpicBx.Location = new System.Drawing.Point(83, 16);
+            this.BackpicBx.Name = "BackpicBx";
+            this.BackpicBx.Size = new System.Drawing.Size(30, 25);
+            this.BackpicBx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BackpicBx.TabIndex = 5;
+            this.BackpicBx.TabStop = false;
+            this.BackpicBx.Click += new System.EventHandler(this.BackpicBx_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1104, 661);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // VariationPicB
+            // 
+            this.VariationPicB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.VariationPicB.Location = new System.Drawing.Point(831, 329);
+            this.VariationPicB.Name = "VariationPicB";
+            this.VariationPicB.Size = new System.Drawing.Size(163, 128);
+            this.VariationPicB.TabIndex = 4;
+            this.VariationPicB.TabStop = false;
+            // 
+            // MenuPicB
+            // 
+            this.MenuPicB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MenuPicB.Location = new System.Drawing.Point(745, 110);
+            this.MenuPicB.Name = "MenuPicB";
+            this.MenuPicB.Size = new System.Drawing.Size(163, 128);
+            this.MenuPicB.TabIndex = 3;
+            this.MenuPicB.TabStop = false;
+            // 
+            // UserPicB
+            // 
+            this.UserPicB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
+            this.UserPicB.BackgroundImage = global::CafeSystem.Properties.Resources.imgicon2;
+            this.UserPicB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.UserPicB.Image = global::CafeSystem.Properties.Resources.imgicon;
+            this.UserPicB.InitialImage = null;
+            this.UserPicB.Location = new System.Drawing.Point(173, 51);
+            this.UserPicB.Name = "UserPicB";
+            this.UserPicB.Size = new System.Drawing.Size(145, 115);
+            this.UserPicB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.UserPicB.TabIndex = 9;
+            this.UserPicB.TabStop = false;
+            // 
+            // LogoutLogo
+            // 
+            this.LogoutLogo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LogoutLogo.Image = ((System.Drawing.Image)(resources.GetObject("LogoutLogo.Image")));
+            this.LogoutLogo.Location = new System.Drawing.Point(26, 12);
+            this.LogoutLogo.Name = "LogoutLogo";
+            this.LogoutLogo.Size = new System.Drawing.Size(42, 37);
+            this.LogoutLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.LogoutLogo.TabIndex = 4;
+            this.LogoutLogo.TabStop = false;
+            this.LogoutLogo.Click += new System.EventHandler(this.LogoutLogo_Click);
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::CafeSystem.Properties.Resources.usericon;
+            this.pictureBox7.Location = new System.Drawing.Point(200, 283);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 7;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::CafeSystem.Properties.Resources.passicon;
+            this.pictureBox6.Location = new System.Drawing.Point(200, 353);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 6;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::CafeSystem.Properties.Resources.luna;
+            this.pictureBox5.Location = new System.Drawing.Point(150, -67);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(400, 400);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 5;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::CafeSystem.Properties.Resources.coffee_BG_login;
+            this.pictureBox2.InitialImage = null;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(500, 500);
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::CafeSystem.Properties.Resources.coffee_BG_login;
+            this.pictureBox4.InitialImage = null;
+            this.pictureBox4.Location = new System.Drawing.Point(784, 161);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(500, 500);
+            this.pictureBox4.TabIndex = 7;
+            this.pictureBox4.TabStop = false;
             // 
             // CafeDeLunaDashboard
             // 
@@ -1802,36 +1859,21 @@
             this.LoginPanelContainer.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.AdminPanelContainer.ResumeLayout(false);
             this.AdminControlsPanel.ResumeLayout(false);
             this.AdminHomePanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.AddMenuPanel.ResumeLayout(false);
             this.AddMenuPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.VariationPicB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MenuPicB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FoodTbl)).EndInit();
             this.AccountManagementPanel.ResumeLayout(false);
             this.AccountManagementPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AccDataTbl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UserPicB)).EndInit();
             this.NavigationPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.LogoutLogo)).EndInit();
             this.ManagerStaffPanelContainer.ResumeLayout(false);
             this.ManagerStaffPanelContainer.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchpicBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logoutBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.SalesPanelContainer.ResumeLayout(false);
             this.SalesPanel.ResumeLayout(false);
             this.MonthlyReportPanel.ResumeLayout(false);
@@ -1847,9 +1889,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.MostSalesDailyTbl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DailyDGV)).EndInit();
             this.SalesNavigationBar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.BackpicBx)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AdminControlsCL)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SalesControlCL)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoutBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchpicBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BackpicBx)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VariationPicB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MenuPicB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserPicB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoutLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1912,7 +1969,6 @@
         private System.Windows.Forms.TextBox VariationCostTxtB;
         private System.Windows.Forms.TextBox VariationDescTxtB;
         private System.Windows.Forms.TextBox VariationNmTxtB;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button CancelMealBtn;
         private System.Windows.Forms.Button DeleteFoodlBtn;
         private System.Windows.Forms.Button UpdateMealBtn;
@@ -1992,6 +2048,7 @@
         private System.Windows.Forms.DataGridViewButtonColumn Column6;
         private System.Windows.Forms.PictureBox BackpicBx;
         private System.Windows.Forms.CheckBox showpasschckBx;
+        private System.Windows.Forms.Panel panel4;
     }
 }
 

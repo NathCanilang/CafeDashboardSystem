@@ -84,6 +84,7 @@ namespace CafeSystem
             WeeklyLbl.MouseHover += labelChangeColor.MouseHover;
             MonthlyLbl.MouseHover += labelChangeColor.MouseHover;
             BackLbl.MouseHover += labelChangeColor.MouseHover;
+            lgoutLbl.MouseHover += labelChangeColor.MouseHover;
 
             //Label color change when leave
             AccManagementLbl.MouseLeave += labelChangeColor.MouseLeave;
@@ -94,6 +95,7 @@ namespace CafeSystem
             WeeklyLbl.MouseLeave += labelChangeColor.MouseLeave;
             MonthlyLbl.MouseLeave += labelChangeColor.MouseLeave;
             BackLbl.MouseLeave += labelChangeColor.MouseLeave;
+            lgoutLbl.MouseLeave += labelChangeColor.MouseLeave;
 
             //Admin Panel
             FoodTbl.DataError += new DataGridViewDataErrorEventHandler(adminMethods.FoodTable_DataError);
@@ -103,6 +105,7 @@ namespace CafeSystem
             MenuSelectComB.DropDownStyle = ComboBoxStyle.DropDownList;
             adminMethods.PopulateMealComboBox();
             UserBirthdate.ValueChanged += CalculateAge;
+            UserPicB.Parent = AccountManagementPanel;
 
             //Staff Panel
             dataGridView1.RowsAdded += dataGridView1_RowsAdded;
@@ -1556,10 +1559,7 @@ namespace CafeSystem
         }
 
         private void logoutBtn_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Are you sure you want to log-out?", "information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
+        {          
                 loginPanelManager.ShowPanel(LoginPanelContainer);
                 dataGridView1.Rows.Clear();
                 sbLbl.Text = "Php. 0.00";
@@ -1567,15 +1567,11 @@ namespace CafeSystem
                 dscLbl.Text = "Php. 0.00";
                 cashtxtBx.Text = "0.00";
                 cashtxtBx.ForeColor = Color.LightGray;
-                discChckBx.Checked = false;
-            }
+                discChckBx.Checked = false;            
         }
 
         private void lgoutLbl_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Are you sure you want to log-out?", "information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
+        {            
                 loginPanelManager.ShowPanel(LoginPanelContainer);
                 dataGridView1.Rows.Clear();
                 sbLbl.Text = "Php. 0.00";
@@ -1583,8 +1579,7 @@ namespace CafeSystem
                 dscLbl.Text = "Php. 0.00";
                 cashtxtBx.Text = "0.00";
                 cashtxtBx.ForeColor = Color.LightGray;
-                discChckBx.Checked = false;
-            }
+                discChckBx.Checked = false;            
         }
 
         private void dataGridView1_KeyUp(object sender, KeyEventArgs e)
