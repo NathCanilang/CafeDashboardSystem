@@ -63,6 +63,36 @@ namespace CafeSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addfoodicon {
+            get {
+                object obj = ResourceManager.GetObject("addfoodicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap addmenuicon {
+            get {
+                object obj = ResourceManager.GetObject("addmenuicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap addusericon {
+            get {
+                object obj = ResourceManager.GetObject("addusericon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap all {
             get {
                 object obj = ResourceManager.GetObject("all", resourceCulture);
@@ -136,36 +166,6 @@ namespace CafeSystem.Properties {
         internal static System.Drawing.Bitmap home_admin_BG {
             get {
                 object obj = ResourceManager.GetObject("home admin BG", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap imgicon {
-            get {
-                object obj = ResourceManager.GetObject("imgicon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap imgicon1 {
-            get {
-                object obj = ResourceManager.GetObject("imgicon1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap imgicon2 {
-            get {
-                object obj = ResourceManager.GetObject("imgicon2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

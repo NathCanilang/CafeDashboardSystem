@@ -1114,6 +1114,7 @@ namespace CafeSystem
                         BackgroundImage = mealImage,
                         BackgroundImageLayout = ImageLayout.Stretch,
                         Tag = dr["VariationID"].ToString(),
+                        Margin = new Padding(5)
                     };
 
                     price = new Label
@@ -1124,6 +1125,7 @@ namespace CafeSystem
                         TextAlign = ContentAlignment.TopLeft,
                         Dock = DockStyle.Top,
                         BackColor = Color.White,
+
                     };
 
                     mealname = new Label
@@ -1279,6 +1281,7 @@ namespace CafeSystem
                             BackgroundImage = mealImage,
                             BackgroundImageLayout = ImageLayout.Stretch,
                             Tag = dr["VariationID"].ToString(),
+                            Margin = new Padding(5)
                         };
 
                         price = new Label
@@ -1447,7 +1450,6 @@ namespace CafeSystem
                 GenerateID = orderIDGenerator();
                 InsertOrderData(GenerateID, true);
                 InsertOrderItemsData(GenerateID, dataGridView1, true);
-
                 dataGridView1.Rows.Clear();
                 sbLbl.Text = "Php. 0.00";
                 ttlLbl.Text = "Php. 0.00";
@@ -1726,6 +1728,7 @@ namespace CafeSystem
                                 BackgroundImage = mealImage,
                                 BackgroundImageLayout = ImageLayout.Stretch,
                                 Tag = dr["VariationID"].ToString(),
+                                Margin = new Padding(5)
                             };
 
                             price = new Label
