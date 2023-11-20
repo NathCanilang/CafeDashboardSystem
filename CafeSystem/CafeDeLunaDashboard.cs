@@ -129,6 +129,11 @@ namespace CafeSystem
         {
             loginPanelManager.ShowPanel(LoginPanelContainer);
         }
+        private void SalesReportBtn_Click(object sender, EventArgs e)
+        {
+            loginPanelManager.ShowPanel(SalesPanelContainer);
+            salesPanelManager.ShowPanel(DailyReportPanel);
+        }
 
         private void AccManagementLbl_Click(object sender, EventArgs e)
         {
@@ -162,8 +167,18 @@ namespace CafeSystem
 
         private void BackLbl_Click(object sender, EventArgs e)
         {
-            loginPanelManager.ShowPanel(AdminPanelContainer);
-            adminPanelManager.ShowPanel(AdminHomePanel);
+            if (PositionTxtBox2.Text == "Admin")
+            {
+                loginPanelManager.ShowPanel(AdminPanelContainer);
+                adminPanelManager.ShowPanel(AdminHomePanel);
+            }
+            else
+            {
+                loginPanelManager.ShowPanel(ManagerStaffPanelContainer);
+            }
+
+
+
         }
 
         private void BackpicBx_Click(object sender, EventArgs e)
@@ -188,6 +203,7 @@ namespace CafeSystem
             if (usernameInput == "Admin" && passwordInput == "admin123")
             {
                 MessageBox.Show("Admin login successful", "Welcome, Admin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                PositionTxtBox2.Text = "Admin";
                 loginPanelManager.ShowPanel(AdminPanelContainer);
             }
             else
@@ -219,13 +235,14 @@ namespace CafeSystem
                                     {
                                         MessageBox.Show("Login Successful", "Welcome, Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         loginPanelManager.ShowPanel(ManagerStaffPanelContainer);
-                                        PositionTxtBox.Text = "Manager";
+                                        PositionTxtBox2.Text = "Manager";
+                                        SalesReportBtn.Enabled = false;
                                     }
                                     else if (userRole == "Cashier")
                                     {
                                         MessageBox.Show("Login Successful", "Welcome, Staff", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         loginPanelManager.ShowPanel(ManagerStaffPanelContainer);
-                                        PositionTxtBox.Text = "Staff";
+                                        SalesReportBtn.Enabled = true;
                                     }
                                     GetData();
                                 }
@@ -2068,8 +2085,6 @@ namespace CafeSystem
                 image.Save(ms, ImageFormat.Png);
                 return ms.ToArray();
             }
-        }             
-        
-
+        }
     }
 }
