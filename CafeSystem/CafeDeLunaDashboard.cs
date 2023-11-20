@@ -13,6 +13,7 @@ using iText.Layout.Properties;
 using iText.IO.Image;
 using Image = System.Drawing.Image; 
 using TextAlignment = iText.Layout.Properties.TextAlignment;
+using iText.Layout.Splitting;
 
 namespace CafeSystem
 {
@@ -43,7 +44,6 @@ namespace CafeSystem
         private int employeeID;
         private string positionDB;
         private string usernameDB;
-
         private readonly string[] position = { "Manager", "Cashier" };
         public int EmployeeIDBeingEdited = -1;
 
@@ -65,6 +65,7 @@ namespace CafeSystem
             loginPanelManager.ShowPanel(LoginPanelContainer);
             adminPanelManager.ShowPanel(AdminHomePanel);
 
+
             //Restrictions - Lahat ng textbox na kailangan ng restrictions ay dito (please refer to the method)
             LastNTxtB_AP.KeyPress += keypressNumbersRestrictions.KeyPress;
             FirstNTxtB_AP.KeyPress += keypressNumbersRestrictions.KeyPress;
@@ -83,6 +84,7 @@ namespace CafeSystem
             WeeklyLbl.MouseHover += labelChangeColor.MouseHover;
             MonthlyLbl.MouseHover += labelChangeColor.MouseHover;
             BackLbl.MouseHover += labelChangeColor.MouseHover;
+            lgoutLbl.MouseHover += labelChangeColor.MouseHover;
 
             //Label color change when leave
             AccManagementLbl.MouseLeave += labelChangeColor.MouseLeave;
@@ -93,6 +95,7 @@ namespace CafeSystem
             WeeklyLbl.MouseLeave += labelChangeColor.MouseLeave;
             MonthlyLbl.MouseLeave += labelChangeColor.MouseLeave;
             BackLbl.MouseLeave += labelChangeColor.MouseLeave;
+            lgoutLbl.MouseLeave += labelChangeColor.MouseLeave;
 
             //Admin Panel
             FoodTbl.DataError += new DataGridViewDataErrorEventHandler(adminMethods.FoodTable_DataError);
@@ -102,12 +105,19 @@ namespace CafeSystem
             MenuSelectComB.DropDownStyle = ComboBoxStyle.DropDownList;
             adminMethods.PopulateMealComboBox();
             UserBirthdate.ValueChanged += CalculateAge;
+            UserPicB.Parent = AccountManagementPanel;
 
             //Staff Panel
             dataGridView1.RowsAdded += dataGridView1_RowsAdded;
             dataGridView1.RowsRemoved += dataGridView1_RowsRemoved;
             dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
             cashtxtBx.KeyPress += cashtxtBx_KeyPress;
+
+            //Parenting design
+            logoutBtn.Parent = pictureBox8;
+            lgoutLbl.Parent = pictureBox8;
+            searchpicBox.Parent = pictureBox8;
+
         }
 
         private void LogoutLbl_Click(object sender, EventArgs e)
@@ -155,6 +165,13 @@ namespace CafeSystem
             loginPanelManager.ShowPanel(AdminPanelContainer);
             adminPanelManager.ShowPanel(AdminHomePanel);
         }
+
+        private void BackpicBx_Click(object sender, EventArgs e)
+        {
+            loginPanelManager.ShowPanel(AdminPanelContainer);
+            adminPanelManager.ShowPanel(AdminHomePanel);
+        }
+
         private void CalculateAge(object sender, EventArgs e)
         {
             DateTime selectedDate = UserBirthdate.Value;
@@ -212,14 +229,10 @@ namespace CafeSystem
                                     }
                                     GetData();
                                 }
-                                else
-                                {
-                                    MessageBox.Show("Invalid username or password.", "Try again", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                }
                             }
                             else
                             {
-                                MessageBox.Show("Invalid Access.", "Try again", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show("Invalid username and/or password.", "Try again", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
                         }
                     }
@@ -228,6 +241,51 @@ namespace CafeSystem
             }
             LoginUsernameTxtB.Text = "";
             LoginPasswordTxtB.Text = "";
+        }
+
+        private void LoginPasswordTxtB_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                LoginBtn_Click(sender, e);
+            }
+        }
+
+        private void showpasschckBx_CheckedChanged(object sender, EventArgs e)
+        {
+            if (showpasschckBx.Checked)
+            {
+                // If checked, show the password
+                LoginPasswordTxtB.PasswordChar = '\0'; // '\0' means no password character
+            }
+            else
+            {
+                // If unchecked, hide the password
+                LoginPasswordTxtB.PasswordChar = '*'; // You can use any character as a replacement
+            }
+        }
+
+        private void LoginUsernameTxtB_TextChanged(object sender, EventArgs e)
+        {
+            CheckLoginButtonState();
+        }
+
+        private void LoginPasswordTxtB_TextChanged(object sender, EventArgs e)
+        {
+            CheckLoginButtonState();
+        }
+
+        private void CheckLoginButtonState()
+        {
+            if (!string.IsNullOrEmpty(LoginUsernameTxtB.Text) && !string.IsNullOrEmpty(LoginPasswordTxtB.Text))
+            {
+                LoginBtn.Enabled = true;
+            }
+            else
+            {
+                LoginBtn.Enabled = false;
+            }
         }
 
         private void SelectImgBtn_Click(object sender, EventArgs e)
@@ -243,7 +301,7 @@ namespace CafeSystem
                     {
                         // Load the selected image
                         Image selectedImage = Image.FromFile(openFileDialog.FileName);
-                        
+
                         // Resize the selected image
                         int newWidth = 142; // Set the new width
                         int newHeight = 115; // Set the new height
@@ -435,7 +493,7 @@ namespace CafeSystem
                 PasswordTxtB_AP.Text = "";
                 EmailTxtB_AP.Text = "";
                 PositionComB_AP.SelectedIndex = -1;
-                UserPicB.Image = null;
+                UserPicB.Image = Properties.Resources.addusericon;
 
                 adminPanelManager.ShowPanel(AccountManagementPanel);
             }
@@ -579,7 +637,7 @@ namespace CafeSystem
             PasswordTxtB_AP.Text = "";
             EmailTxtB_AP.Text = "";
             PositionComB_AP.SelectedIndex = -1;
-            UserPicB.Image = null;
+            UserPicB.Image = Properties.Resources.addusericon;
 
             adminPanelManager.ShowPanel(AccountManagementPanel);
         }
@@ -828,10 +886,10 @@ namespace CafeSystem
                 {
                     MessageBox.Show("Please select a single row for editing.", "Try again", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-            UpdateMealBtn.Show();
-            CancelMealBtn.Show();
-            DeleteFoodlBtn.Hide();
-            EditMealBtn.Hide();
+                UpdateMealBtn.Show();
+                CancelMealBtn.Show();
+                DeleteFoodlBtn.Hide();
+                EditMealBtn.Hide();
             }
         }
 
@@ -965,7 +1023,7 @@ namespace CafeSystem
             TextboxPlaceholders.SetPlaceholder(VariationNmTxtB, "Food Name");
             TextboxPlaceholders.SetPlaceholder(VariationDescTxtB, "Description");
             TextboxPlaceholders.SetPlaceholder(VariationCostTxtB, "Price");
-            VariationPicB.Image = null;
+            VariationPicB.Image = Properties.Resources.addfoodicon;
             MenuSelectComB.SelectedIndex = -1;
             VariationIDTxtBox.Clear();
 
@@ -982,7 +1040,7 @@ namespace CafeSystem
             TextboxPlaceholders.SetPlaceholder(VariationNmTxtB, "Food Name");
             TextboxPlaceholders.SetPlaceholder(VariationDescTxtB, "Description");
             TextboxPlaceholders.SetPlaceholder(VariationCostTxtB, "Price");
-            VariationPicB.Image = null;
+            VariationPicB.Image = Properties.Resources.addfoodicon;
             MenuSelectComB.SelectedIndex = -1;
             VariationIDTxtBox.Clear();
 
@@ -1056,6 +1114,7 @@ namespace CafeSystem
                         BackgroundImage = mealImage,
                         BackgroundImageLayout = ImageLayout.Stretch,
                         Tag = dr["VariationID"].ToString(),
+                        Margin = new Padding(5)
                     };
 
                     price = new Label
@@ -1066,6 +1125,7 @@ namespace CafeSystem
                         TextAlign = ContentAlignment.TopLeft,
                         Dock = DockStyle.Top,
                         BackColor = Color.White,
+
                     };
 
                     mealname = new Label
@@ -1186,8 +1246,6 @@ namespace CafeSystem
             conn.Close();
         }
 
-
-
         private void OnFLP2Click(object sender, EventArgs e)
         {
             if (sender is PictureBox clickedPic)
@@ -1223,6 +1281,7 @@ namespace CafeSystem
                             BackgroundImage = mealImage,
                             BackgroundImageLayout = ImageLayout.Stretch,
                             Tag = dr["VariationID"].ToString(),
+                            Margin = new Padding(5)
                         };
 
                         price = new Label
@@ -1260,7 +1319,7 @@ namespace CafeSystem
         private void allBtn_Click(object sender, EventArgs e)
         {
             GetData();
-        }        
+        }
 
         private void UpdateTotalPrice()
         {
@@ -1314,38 +1373,15 @@ namespace CafeSystem
             }
         }
 
-        private decimal GetUnitPriceForFood(string foodName)
+        private void CheckVoidButtonState()
         {
-            decimal unitPrice = 0;
-
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            if (dataGridView1.Rows.Count == 0)
             {
-                using (MySqlCommand command = new MySqlCommand("SELECT VariationCost FROM mealvariation WHERE VariationName = @foodName", connection))
-                {
-                    command.Parameters.AddWithValue("@foodName", foodName);
-
-                    connection.Open();
-
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            unitPrice = decimal.Parse(reader["VariationCost"].ToString());
-                        }
-                    }
-                }
+                voidBtn.Enabled = false;
             }
-
-            return unitPrice;
-        }
-
-
-        private byte[] GetBytesFromImage(Image image)
-        {
-            using (MemoryStream ms = new MemoryStream())
+            else
             {
-                image.Save(ms, ImageFormat.Png); // You can specify the image format here
-                return ms.ToArray();
+                voidBtn.Enabled = true;
             }
         }
 
@@ -1353,12 +1389,8 @@ namespace CafeSystem
         {
             string userPosition = PositionTxtBox.Text;
             DialogResult result;
+            CheckVoidButtonState();
 
-            if (dataGridView1.Rows.Count == 0)
-            {
-                MessageBox.Show("There are no items in your cart.", "No Items", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
             if (userPosition == "Staff")
             {
                 result = MessageBox.Show("Do you want to void these items?", "Void Items", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -1408,7 +1440,7 @@ namespace CafeSystem
                     return;
                 }
             }
-            else 
+            else
             {
                 result = MessageBox.Show("Do you want to void these items?", "Void Items", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             }
@@ -1418,7 +1450,6 @@ namespace CafeSystem
                 GenerateID = orderIDGenerator();
                 InsertOrderData(GenerateID, true);
                 InsertOrderItemsData(GenerateID, dataGridView1, true);
-
                 dataGridView1.Rows.Clear();
                 sbLbl.Text = "Php. 0.00";
                 ttlLbl.Text = "Php. 0.00";
@@ -1431,9 +1462,9 @@ namespace CafeSystem
 
         private void placeBtn_Click(object sender, EventArgs e)
         {
-                GeneratePDFReceipt();         
+            GeneratePDFReceipt(GenerateID);
         }
-        private void GeneratePDFReceipt()
+        private void GeneratePDFReceipt(int orderid)
         {
             decimal subtotal = decimal.Parse(sbLbl.Text.Replace("Php. ", ""));
             decimal discount = decimal.Parse(dscLbl.Text.Replace("Php. ", ""));
@@ -1472,11 +1503,18 @@ namespace CafeSystem
                         ImageData logoImageData = ImageDataFactory.Create(GetBytesFromImage(Properties.Resources.luna));
                         iText.Layout.Element.Image logo = new iText.Layout.Element.Image(logoImageData);
                         logo.SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
-                        logo.SetWidth(150);
-                        logo.SetHeight(150);
+                        logo.SetWidth(200);
+                        logo.SetHeight(200);
                         // Add the logo to the PDF
                         doc.Add(logo);
+                        doc.Add(new Paragraph("BLOCK 5,  ORANGE STREET, LAKEVIEW, PINAGBUHATAN, PASIG CITY").SetTextAlignment(TextAlignment.CENTER));
+                        doc.Add(new Paragraph(" "));
+                        doc.Add(new Paragraph(" "));
+                        doc.Add(new Paragraph(" "));
+                        doc.Add(new Paragraph("Tel NO : (02) 4568-2996").SetTextAlignment(TextAlignment.LEFT));
+                        doc.Add(new Paragraph("Mobile NO : (0993) 369-4904").SetTextAlignment(TextAlignment.LEFT));
                         doc.Add(new Paragraph($"Served by: {positionDB} {usernameDB}").SetTextAlignment(TextAlignment.LEFT));
+                        doc.Add(new Paragraph($"Order #{orderid} ").SetTextAlignment(TextAlignment.LEFT));
                         doc.Add(new Paragraph("Date: " + DateTime.Now.ToString("MM/dd/yyyy   hh:mm:ss tt")).SetTextAlignment(TextAlignment.LEFT));
                         doc.Add(new Paragraph("--------------------------------------------------------------------------------------------------"));
                         doc.Add(new Paragraph($"QUANTITY                           MEAL                    PRICE"));
@@ -1502,7 +1540,7 @@ namespace CafeSystem
                         doc.Add(new Paragraph($"CHANGE:                         Php. {change.ToString("0.00")}"));
 
                         doc.Add(new Paragraph("--------------------------------------------------------------------------------------------------"));
-                        doc.Add(new Paragraph("This Receipt Serves as Your Proof of Purchase").SetTextAlignment(TextAlignment.CENTER));
+                        doc.Add(new Paragraph("THIS RECEIPT SERVES AS YOUR PROOF OF PURCHASE").SetTextAlignment(TextAlignment.CENTER));
                     }
 
                     MessageBox.Show("Receipt generated successfully and saved to:\n" + pdfFilePath, "Enjoy your meal!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1523,10 +1561,7 @@ namespace CafeSystem
         }
 
         private void logoutBtn_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Are you sure you want to log-out?", "information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
+        {          
                 loginPanelManager.ShowPanel(LoginPanelContainer);
                 dataGridView1.Rows.Clear();
                 sbLbl.Text = "Php. 0.00";
@@ -1534,8 +1569,19 @@ namespace CafeSystem
                 dscLbl.Text = "Php. 0.00";
                 cashtxtBx.Text = "0.00";
                 cashtxtBx.ForeColor = Color.LightGray;
-                discChckBx.Checked = false;
-            }
+                discChckBx.Checked = false;            
+        }
+
+        private void lgoutLbl_Click(object sender, EventArgs e)
+        {            
+                loginPanelManager.ShowPanel(LoginPanelContainer);
+                dataGridView1.Rows.Clear();
+                sbLbl.Text = "Php. 0.00";
+                ttlLbl.Text = "Php. 0.00";
+                dscLbl.Text = "Php. 0.00";
+                cashtxtBx.Text = "0.00";
+                cashtxtBx.ForeColor = Color.LightGray;
+                discChckBx.Checked = false;            
         }
 
         private void dataGridView1_KeyUp(object sender, KeyEventArgs e)
@@ -1594,29 +1640,29 @@ namespace CafeSystem
 
                                     if (position == "Manager")
                                     {
-                                            if (e.RowIndex < dataGridView1.Rows.Count)
+                                        if (e.RowIndex < dataGridView1.Rows.Count)
+                                        {
+                                            // Calculate the price of the removed item
+                                            decimal removedItemPrice = decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString());
+
+                                            // Remove the selected row from the DataGridView
+                                            dataGridView1.Rows.RemoveAt(e.RowIndex);
+
+                                            // Update the total price by subtracting the removed item's price
+                                            totalPrice -= removedItemPrice;
+                                            sbLbl.Text = "Php. " + totalPrice.ToString("0.00");
+                                            ttlLbl.Text = sbLbl.Text;
+
+                                            if (discChckBx.Checked)
                                             {
-                                                // Calculate the price of the removed item
-                                                decimal removedItemPrice = decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString());
+                                                decimal totalPrice = decimal.Parse(sbLbl.Text.Replace("Php. ", ""));
+                                                decimal discount = totalPrice * 0.20m;
+                                                decimal discountedTotal = totalPrice - discount;
 
-                                                // Remove the selected row from the DataGridView
-                                                dataGridView1.Rows.RemoveAt(e.RowIndex);
-
-                                                // Update the total price by subtracting the removed item's price
-                                                totalPrice -= removedItemPrice;
-                                                sbLbl.Text = "Php. " + totalPrice.ToString("0.00");
-                                                ttlLbl.Text = sbLbl.Text;
-
-                                                if (discChckBx.Checked)
-                                                {
-                                                    decimal totalPrice = decimal.Parse(sbLbl.Text.Replace("Php. ", ""));
-                                                    decimal discount = totalPrice * 0.20m;
-                                                    decimal discountedTotal = totalPrice - discount;
-
-                                                    dscLbl.Text = "Php. " + discount.ToString("0.00");
-                                                    ttlLbl.Text = "Php. " + discountedTotal.ToString("0.00");
-                                                }
-                                            }                                       
+                                                dscLbl.Text = "Php. " + discount.ToString("0.00");
+                                                ttlLbl.Text = "Php. " + discountedTotal.ToString("0.00");
+                                            }
+                                        }
                                     }
                                     else
                                     {
@@ -1640,11 +1686,10 @@ namespace CafeSystem
                         totalPrice -= removedItemPrice;
                         sbLbl.Text = "Php. " + totalPrice.ToString("0.00");
                         ttlLbl.Text = sbLbl.Text;
-                    }                   
+                    }
                 }
             }
         }
-
 
         private void CafeDeLunaDashboard_Load(object sender, EventArgs e)
         {
@@ -1683,6 +1728,7 @@ namespace CafeSystem
                                 BackgroundImage = mealImage,
                                 BackgroundImageLayout = ImageLayout.Stretch,
                                 Tag = dr["VariationID"].ToString(),
+                                Margin = new Padding(5)
                             };
 
                             price = new Label
@@ -1818,7 +1864,6 @@ namespace CafeSystem
             }
         }
 
-
         private void discChckBx_CheckedChanged(object sender, EventArgs e)
         {
             if (discChckBx.Checked)
@@ -1837,7 +1882,7 @@ namespace CafeSystem
             }
         }
 
-        //Methods for sending place order to database
+        //Methods for sending place order to database and others 
         string connectionString = "server=localhost;user=root;database=dashboarddb;password=";
         private void InsertOrderData(int generatedOrderID, bool isVoided)
         {
@@ -1872,7 +1917,6 @@ namespace CafeSystem
             string voidedStatus = isVoided ? "Voided" : "Placed";
             MessageBox.Show($"{voidedStatus} order successfully. OrderID={generatedOrderID}, UserID={employeeID}, Amount={ttlLbl.Text}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
 
         private void InsertSalesData(int generatedOrderID)
         {
@@ -1978,16 +2022,54 @@ namespace CafeSystem
         private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             RefreshPlaceButtonState();
+            CheckVoidButtonState();
         }
 
         private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             RefreshPlaceButtonState();
+            CheckVoidButtonState();
         }
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             RefreshPlaceButtonState();
+            CheckVoidButtonState();
         }
+
+        private decimal GetUnitPriceForFood(string foodName)
+        {
+            decimal unitPrice = 0;
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                using (MySqlCommand command = new MySqlCommand("SELECT VariationCost FROM mealvariation WHERE VariationName = @foodName", connection))
+                {
+                    command.Parameters.AddWithValue("@foodName", foodName);
+
+                    connection.Open();
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            unitPrice = decimal.Parse(reader["VariationCost"].ToString());
+                        }
+                    }
+                }
+            }
+            return unitPrice;
+        }
+
+        private byte[] GetBytesFromImage(Image image)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                image.Save(ms, ImageFormat.Png);
+                return ms.ToArray();
+            }
+        }             
+        
+
     }
 }
