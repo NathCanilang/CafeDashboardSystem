@@ -493,7 +493,7 @@ namespace CafeSystem
                 PasswordTxtB_AP.Text = "";
                 EmailTxtB_AP.Text = "";
                 PositionComB_AP.SelectedIndex = -1;
-                UserPicB.Image = null;
+                UserPicB.Image = Properties.Resources.addusericon;
 
                 adminPanelManager.ShowPanel(AccountManagementPanel);
             }
@@ -637,7 +637,7 @@ namespace CafeSystem
             PasswordTxtB_AP.Text = "";
             EmailTxtB_AP.Text = "";
             PositionComB_AP.SelectedIndex = -1;
-            UserPicB.Image = null;
+            UserPicB.Image = Properties.Resources.addusericon;
 
             adminPanelManager.ShowPanel(AccountManagementPanel);
         }
@@ -1023,7 +1023,7 @@ namespace CafeSystem
             TextboxPlaceholders.SetPlaceholder(VariationNmTxtB, "Food Name");
             TextboxPlaceholders.SetPlaceholder(VariationDescTxtB, "Description");
             TextboxPlaceholders.SetPlaceholder(VariationCostTxtB, "Price");
-            VariationPicB.Image = null;
+            VariationPicB.Image = Properties.Resources.addfoodicon;
             MenuSelectComB.SelectedIndex = -1;
             VariationIDTxtBox.Clear();
 
@@ -1040,7 +1040,7 @@ namespace CafeSystem
             TextboxPlaceholders.SetPlaceholder(VariationNmTxtB, "Food Name");
             TextboxPlaceholders.SetPlaceholder(VariationDescTxtB, "Description");
             TextboxPlaceholders.SetPlaceholder(VariationCostTxtB, "Price");
-            VariationPicB.Image = null;
+            VariationPicB.Image = Properties.Resources.addfoodicon;
             MenuSelectComB.SelectedIndex = -1;
             VariationIDTxtBox.Clear();
 
