@@ -176,15 +176,19 @@ namespace CafeSystem
             {
                 loginPanelManager.ShowPanel(ManagerStaffPanelContainer);
             }
-
-
-
         }
 
         private void BackpicBx_Click(object sender, EventArgs e)
         {
-            loginPanelManager.ShowPanel(AdminPanelContainer);
-            adminPanelManager.ShowPanel(AdminHomePanel);
+            if (PositionTxtBox2.Text == "Admin")
+            {
+                loginPanelManager.ShowPanel(AdminPanelContainer);
+                adminPanelManager.ShowPanel(AdminHomePanel);
+            }
+            else
+            {
+                loginPanelManager.ShowPanel(ManagerStaffPanelContainer);
+            }
         }
 
         private void CalculateAge(object sender, EventArgs e)
@@ -212,7 +216,10 @@ namespace CafeSystem
                 {
                     conn.Open();
 
-                    string query = "SELECT Position, Username, EmployeeID FROM employee_acc WHERE Username = @username AND Password = @password";
+
+                    string query = "SELECT Position, Username, EmployeeID FROM employee_acc WHERE Username = @username COLLATE utf8mb4_bin " +
+                          "AND Password = @password COLLATE utf8mb4_bin";
+                    
                     using (MySqlCommand command = new MySqlCommand(query, conn))
                     {
                         command.Parameters.AddWithValue("@username", usernameInput);
@@ -272,14 +279,12 @@ namespace CafeSystem
         private void showpasschckBx_CheckedChanged(object sender, EventArgs e)
         {
             if (showpasschckBx.Checked)
-            {
-                // If checked, show the password
-                LoginPasswordTxtB.PasswordChar = '\0'; // '\0' means no password character
+            {    
+                LoginPasswordTxtB.PasswordChar = '\0'; 
             }
             else
             {
-                // If unchecked, hide the password
-                LoginPasswordTxtB.PasswordChar = '*'; // You can use any character as a replacement
+                LoginPasswordTxtB.PasswordChar = '*'; 
             }
         }
 
