@@ -145,16 +145,22 @@
             this.SalesPanel = new System.Windows.Forms.Panel();
             this.MonthlyReportPanel = new System.Windows.Forms.Panel();
             this.ComputedSalesMonthlyTbl = new System.Windows.Forms.DataGridView();
+            this.MonthlyDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MonthlyTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MostSalesMonthlyTbl = new System.Windows.Forms.DataGridView();
             this.MonthlyDGV = new System.Windows.Forms.DataGridView();
             this.GenerateMonthlyReportBtn = new System.Windows.Forms.Button();
             this.WeeklyReportPanel = new System.Windows.Forms.Panel();
             this.ComputedSalesWeeklyTbl = new System.Windows.Forms.DataGridView();
+            this.WeeklyDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WeeklSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MostSalesWeeklyTbl = new System.Windows.Forms.DataGridView();
             this.WeeklyDGV = new System.Windows.Forms.DataGridView();
             this.GenerateWeeklyReportBtn = new System.Windows.Forms.Button();
             this.DailyReportPanel = new System.Windows.Forms.Panel();
             this.ComputedSalesDailyTbl = new System.Windows.Forms.DataGridView();
+            this.DailyDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DailyTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MostSalesDailyTbl = new System.Windows.Forms.DataGridView();
             this.DailyDGV = new System.Windows.Forms.DataGridView();
             this.GenerateDailyReportBtn = new System.Windows.Forms.Button();
@@ -168,12 +174,6 @@
             this.DailyLbl = new System.Windows.Forms.Label();
             this.AdminControlsCL = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.SalesControlCL = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
-            this.WeeklyDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WeeklSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DailyDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DailyTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MonthlyDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MonthlyTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.MainPanelsCL)).BeginInit();
             this.LoginPanelContainer.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -227,7 +227,7 @@
             // 
             this.MainPanelsCL.ContainerControl = this;
             this.MainPanelsCL.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.MainPanelsCL.SelectedCard = "Card3";
+            this.MainPanelsCL.SelectedCard = "Card4";
             // 
             // LoginPanelContainer
             // 
@@ -789,7 +789,7 @@
             this.EditAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EditAccBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditAccBtn.ForeColor = System.Drawing.Color.White;
-            this.EditAccBtn.Location = new System.Drawing.Point(791, 535);
+            this.EditAccBtn.Location = new System.Drawing.Point(791, 536);
             this.EditAccBtn.Name = "EditAccBtn";
             this.EditAccBtn.Size = new System.Drawing.Size(289, 38);
             this.EditAccBtn.TabIndex = 23;
@@ -806,7 +806,7 @@
             this.CreateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CreateAccBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CreateAccBtn.ForeColor = System.Drawing.Color.White;
-            this.CreateAccBtn.Location = new System.Drawing.Point(491, 535);
+            this.CreateAccBtn.Location = new System.Drawing.Point(491, 536);
             this.CreateAccBtn.Name = "CreateAccBtn";
             this.CreateAccBtn.Size = new System.Drawing.Size(289, 38);
             this.CreateAccBtn.TabIndex = 22;
@@ -1603,6 +1603,22 @@
             this.ComputedSalesMonthlyTbl.Size = new System.Drawing.Size(1052, 65);
             this.ComputedSalesMonthlyTbl.TabIndex = 3;
             // 
+            // MonthlyDate
+            // 
+            this.MonthlyDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MonthlyDate.HeaderText = "Date";
+            this.MonthlyDate.MinimumWidth = 6;
+            this.MonthlyDate.Name = "MonthlyDate";
+            this.MonthlyDate.ReadOnly = true;
+            // 
+            // MonthlyTotal
+            // 
+            this.MonthlyTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MonthlyTotal.HeaderText = "Monthly Total Sale";
+            this.MonthlyTotal.MinimumWidth = 6;
+            this.MonthlyTotal.Name = "MonthlyTotal";
+            this.MonthlyTotal.ReadOnly = true;
+            // 
             // MostSalesMonthlyTbl
             // 
             this.MostSalesMonthlyTbl.AllowUserToDeleteRows = false;
@@ -1667,6 +1683,22 @@
             this.ComputedSalesWeeklyTbl.RowHeadersWidth = 51;
             this.ComputedSalesWeeklyTbl.Size = new System.Drawing.Size(1052, 65);
             this.ComputedSalesWeeklyTbl.TabIndex = 3;
+            // 
+            // WeeklyDate
+            // 
+            this.WeeklyDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.WeeklyDate.HeaderText = "Date";
+            this.WeeklyDate.MinimumWidth = 6;
+            this.WeeklyDate.Name = "WeeklyDate";
+            this.WeeklyDate.ReadOnly = true;
+            // 
+            // WeeklSale
+            // 
+            this.WeeklSale.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.WeeklSale.HeaderText = "Weekly Total Sale";
+            this.WeeklSale.MinimumWidth = 6;
+            this.WeeklSale.Name = "WeeklSale";
+            this.WeeklSale.ReadOnly = true;
             // 
             // MostSalesWeeklyTbl
             // 
@@ -1737,6 +1769,22 @@
             this.ComputedSalesDailyTbl.RowHeadersWidth = 51;
             this.ComputedSalesDailyTbl.Size = new System.Drawing.Size(1052, 65);
             this.ComputedSalesDailyTbl.TabIndex = 3;
+            // 
+            // DailyDate
+            // 
+            this.DailyDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DailyDate.HeaderText = "Date";
+            this.DailyDate.MinimumWidth = 6;
+            this.DailyDate.Name = "DailyDate";
+            this.DailyDate.ReadOnly = true;
+            // 
+            // DailyTotal
+            // 
+            this.DailyTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DailyTotal.HeaderText = "Daily Total Sale";
+            this.DailyTotal.MinimumWidth = 6;
+            this.DailyTotal.Name = "DailyTotal";
+            this.DailyTotal.ReadOnly = true;
             // 
             // MostSalesDailyTbl
             // 
@@ -1878,54 +1926,6 @@
             this.SalesControlCL.ContainerControl = this.SalesPanel;
             this.SalesControlCL.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
             this.SalesControlCL.SelectedCard = "Card2";
-            // 
-            // WeeklyDate
-            // 
-            this.WeeklyDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.WeeklyDate.HeaderText = "Date";
-            this.WeeklyDate.MinimumWidth = 6;
-            this.WeeklyDate.Name = "WeeklyDate";
-            this.WeeklyDate.ReadOnly = true;
-            // 
-            // WeeklSale
-            // 
-            this.WeeklSale.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.WeeklSale.HeaderText = "Weekly Total Sale";
-            this.WeeklSale.MinimumWidth = 6;
-            this.WeeklSale.Name = "WeeklSale";
-            this.WeeklSale.ReadOnly = true;
-            // 
-            // DailyDate
-            // 
-            this.DailyDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DailyDate.HeaderText = "Date";
-            this.DailyDate.MinimumWidth = 6;
-            this.DailyDate.Name = "DailyDate";
-            this.DailyDate.ReadOnly = true;
-            // 
-            // DailyTotal
-            // 
-            this.DailyTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DailyTotal.HeaderText = "Daily Total Sale";
-            this.DailyTotal.MinimumWidth = 6;
-            this.DailyTotal.Name = "DailyTotal";
-            this.DailyTotal.ReadOnly = true;
-            // 
-            // MonthlyDate
-            // 
-            this.MonthlyDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MonthlyDate.HeaderText = "Date";
-            this.MonthlyDate.MinimumWidth = 6;
-            this.MonthlyDate.Name = "MonthlyDate";
-            this.MonthlyDate.ReadOnly = true;
-            // 
-            // MonthlyTotal
-            // 
-            this.MonthlyTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MonthlyTotal.HeaderText = "Monthly Total Sale";
-            this.MonthlyTotal.MinimumWidth = 6;
-            this.MonthlyTotal.Name = "MonthlyTotal";
-            this.MonthlyTotal.ReadOnly = true;
             // 
             // CafeDeLunaDashboard
             // 

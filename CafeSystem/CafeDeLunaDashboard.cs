@@ -45,7 +45,7 @@ namespace CafeSystem
         private int employeeID;
         private string positionDB;
         private string usernameDB;
-        private readonly string[] position = { "Manager", "Cashier" };
+        private readonly string[] position = { "Manager", "Cashier", "Disabled" };
         public int EmployeeIDBeingEdited = -1;
 
         bool isNewImageSelected = false;
@@ -286,13 +286,19 @@ namespace CafeSystem
                                         MessageBox.Show("Login Successful", "Welcome, Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         loginPanelManager.ShowPanel(ManagerStaffPanelContainer);
                                         PositionTxtBox2.Text = "Manager";
-                                        SalesReportBtn.Enabled = false;
+                                        SalesReportBtn.Enabled = true;
+                                        PositionTxtBox.Text = "Manager";
                                     }
                                     else if (userRole == "Cashier")
                                     {
                                         MessageBox.Show("Login Successful", "Welcome, Staff", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         loginPanelManager.ShowPanel(ManagerStaffPanelContainer);
-                                        SalesReportBtn.Enabled = true;
+                                        SalesReportBtn.Enabled = false;
+                                        PositionTxtBox.Text = "Staff";
+                                    }
+                                    else if (userRole == "Disabled")
+                                    {
+                                        MessageBox.Show("Invalid Access", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
                                     GetData();
                                 }
