@@ -25,14 +25,18 @@ namespace CafeSystem
         }
         public void ShowPanel(Panel panelToShow)
         {
-            // Main Panel
-            LoginPanelContainer.Hide();
-            AdminPanelContainer.Hide();
-            SalesPanelContainer.Hide();
-            ManagerStaffPanelContainer.Hide();
+            if (!panelToShow.Visible)
+            {
+                // Main Panel
+                LoginPanelContainer.Hide();
+                AdminPanelContainer.Hide();
+                SalesPanelContainer.Hide();
+                ManagerStaffPanelContainer.Hide();
 
-            panelToShow.Show();
-            if (panelToShow == ManagerStaffPanelContainer   )
+                panelToShow.Show();
+            }
+
+            if (panelToShow == ManagerStaffPanelContainer)
             {
                 CafeDeLunaDashboard.cafeDeLunaInstance.GetData();
                 CafeDeLunaDashboard.cafeDeLunaInstance.GetData2();

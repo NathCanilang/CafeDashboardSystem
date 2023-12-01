@@ -14,6 +14,7 @@ using iText.IO.Image;
 using Image = System.Drawing.Image; 
 using TextAlignment = iText.Layout.Properties.TextAlignment;
 using iText.Layout.Splitting;
+using System.Collections.Generic;
 
 namespace CafeSystem
 {
@@ -44,7 +45,7 @@ namespace CafeSystem
         private int employeeID;
         private string positionDB;
         private string usernameDB;
-        private readonly string[] position = { "Manager", "Cashier" };
+        private readonly string[] position = { "Manager", "Cashier", "Disabled" };
         public int EmployeeIDBeingEdited = -1;
 
         bool isNewImageSelected = false;
@@ -122,12 +123,20 @@ namespace CafeSystem
 
         private void LogoutLbl_Click(object sender, EventArgs e)
         {
-            loginPanelManager.ShowPanel(LoginPanelContainer);
+            DialogResult result = MessageBox.Show("Are you sure that you want to Log-out?", "Attention", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(result == DialogResult.Yes)
+            {
+                loginPanelManager.ShowPanel(LoginPanelContainer);
+            }
         }
 
         private void LogoutLogo_Click(object sender, EventArgs e)
         {
-            loginPanelManager.ShowPanel(LoginPanelContainer);
+            DialogResult result = MessageBox.Show("Are you sure that you want to Log-out?", "Attention", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                loginPanelManager.ShowPanel(LoginPanelContainer);
+            }
         }
         private void SalesReportBtn_Click(object sender, EventArgs e)
         {
@@ -198,6 +207,40 @@ namespace CafeSystem
             AgeTxtB_AP.Text = age.ToString();
         }
 
+        private void logoutBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to Log-out?", "Attention", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                loginPanelManager.ShowPanel(LoginPanelContainer);
+                dataGridView1.Rows.Clear();
+                sbLbl.Text = "Php. 0.00";
+                ttlLbl.Text = "Php. 0.00";
+                dscLbl.Text = "Php. 0.00";
+                cashtxtBx.Text = "0.00";
+                cashtxtBx.ForeColor = Color.LightGray;
+                discChckBx.Checked = false;
+
+            }
+        }
+
+        private void lgoutLbl_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to Log-out?", "Attention", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                loginPanelManager.ShowPanel(LoginPanelContainer);
+                dataGridView1.Rows.Clear();
+                sbLbl.Text = "Php. 0.00";
+                ttlLbl.Text = "Php. 0.00";
+                dscLbl.Text = "Php. 0.00";
+                cashtxtBx.Text = "0.00";
+                cashtxtBx.ForeColor = Color.LightGray;
+                discChckBx.Checked = false;
+
+            }
+        }
+
         private void LoginBtn_Click(object sender, EventArgs e)
         {
             string usernameInput = LoginUsernameTxtB.Text;
@@ -243,13 +286,19 @@ namespace CafeSystem
                                         MessageBox.Show("Login Successful", "Welcome, Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         loginPanelManager.ShowPanel(ManagerStaffPanelContainer);
                                         PositionTxtBox2.Text = "Manager";
-                                        SalesReportBtn.Enabled = false;
+                                        SalesReportBtn.Enabled = true;
+                                        PositionTxtBox.Text = "Manager";
                                     }
                                     else if (userRole == "Cashier")
                                     {
                                         MessageBox.Show("Login Successful", "Welcome, Staff", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         loginPanelManager.ShowPanel(ManagerStaffPanelContainer);
-                                        SalesReportBtn.Enabled = true;
+                                        SalesReportBtn.Enabled = false;
+                                        PositionTxtBox.Text = "Staff";
+                                    }
+                                    else if (userRole == "Disabled")
+                                    {
+                                        MessageBox.Show("Invalid Access", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
                                     GetData();
                                 }
@@ -1071,6 +1120,7 @@ namespace CafeSystem
 
         private void GenerateDailyReport_Click(object sender, EventArgs e)
         {
+            ComputedSalesDailyTbl.Rows.Clear();
             DateTime selectedDate = StartDatePicker.Value;
             dailySalesReportMethod.CalculateAndDisplaySalesReportDaily(DailyDGV, ComputedSalesDailyTbl, selectedDate);
 
@@ -1117,10 +1167,11 @@ namespace CafeSystem
         public void GetData()
         {
             conn.Close();
-            flowLayoutPanel1.Controls.Clear();
             conn.Open();
             cm = new MySqlCommand("SELECT VariationName, VariationCost, MealImage, VariationID FROM mealvariation", conn);
             dr = cm.ExecuteReader();
+
+            List<Control> controls = new List<Control>();
 
             while (dr.Read())
             {
@@ -1147,7 +1198,6 @@ namespace CafeSystem
                         TextAlign = ContentAlignment.TopLeft,
                         Dock = DockStyle.Top,
                         BackColor = Color.White,
-
                     };
 
                     mealname = new Label
@@ -1162,28 +1212,27 @@ namespace CafeSystem
 
                     pic.Controls.Add(mealname);
                     pic.Controls.Add(price);
-                    flowLayoutPanel1.Controls.Add(pic);
                     pic.Click += OnFLP1Click;
+
+                    controls.Add(pic);
                 }
             }
+
             dr.Close();
             conn.Close();
+
+            flowLayoutPanel1.Controls.Clear();
+            flowLayoutPanel1.Controls.AddRange(controls.ToArray());
         }
 
         public void GetData2()
         {
-            flowLayoutPanel2.Controls.Clear();
+            conn.Close();
             conn.Open();
             cm = new MySqlCommand("SELECT MealImage, MealID, MealName FROM meal WHERE MealID>=24", conn);
             dr = cm.ExecuteReader();
 
-            TableLayoutPanel table = new TableLayoutPanel
-            {
-                Dock = DockStyle.Fill,
-                AutoSize = true,
-                AutoSizeMode = AutoSizeMode.GrowAndShrink,
-                ColumnCount = 1,  // One column for one picture per row
-            };
+            List<Control> controls = new List<Control>();
 
             while (dr.Read())
             {
@@ -1211,15 +1260,29 @@ namespace CafeSystem
                         Dock = DockStyle.Bottom,
                         BackColor = Color.White,
                     };
+
+                    TableLayoutPanel table = new TableLayoutPanel
+                    {
+                        Dock = DockStyle.Fill,
+                        AutoSize = true,
+                        AutoSizeMode = AutoSizeMode.GrowAndShrink,
+                        ColumnCount = 1,  // One column for one picture per row
+                    };
+
                     table.RowStyles.Add(new RowStyle(SizeType.AutoSize));
                     table.Controls.Add(menupic);
                     table.Controls.Add(mealname);
-                    flowLayoutPanel2.Controls.Add(table);
                     menupic.Click += OnFLP2Click;
+
+                    controls.Add(table);
                 }
             }
+
             dr.Close();
             conn.Close();
+
+            flowLayoutPanel2.Controls.Clear();
+            flowLayoutPanel2.Controls.AddRange(controls.ToArray());
         }
 
         private void OnFLP1Click(object sender, EventArgs e)
@@ -1580,30 +1643,6 @@ namespace CafeSystem
                     System.Diagnostics.Process.Start(pdfFilePath);
                 }
             }
-        }
-
-        private void logoutBtn_Click(object sender, EventArgs e)
-        {          
-                loginPanelManager.ShowPanel(LoginPanelContainer);
-                dataGridView1.Rows.Clear();
-                sbLbl.Text = "Php. 0.00";
-                ttlLbl.Text = "Php. 0.00";
-                dscLbl.Text = "Php. 0.00";
-                cashtxtBx.Text = "0.00";
-                cashtxtBx.ForeColor = Color.LightGray;
-                discChckBx.Checked = false;            
-        }
-
-        private void lgoutLbl_Click(object sender, EventArgs e)
-        {            
-                loginPanelManager.ShowPanel(LoginPanelContainer);
-                dataGridView1.Rows.Clear();
-                sbLbl.Text = "Php. 0.00";
-                ttlLbl.Text = "Php. 0.00";
-                dscLbl.Text = "Php. 0.00";
-                cashtxtBx.Text = "0.00";
-                cashtxtBx.ForeColor = Color.LightGray;
-                discChckBx.Checked = false;            
         }
 
         private void dataGridView1_KeyUp(object sender, KeyEventArgs e)
