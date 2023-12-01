@@ -227,7 +227,7 @@
             // 
             this.MainPanelsCL.ContainerControl = this;
             this.MainPanelsCL.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.MainPanelsCL.SelectedCard = "Card4";
+            this.MainPanelsCL.SelectedCard = "Card2";
             // 
             // LoginPanelContainer
             // 
@@ -1182,10 +1182,10 @@
             // cashtxtBx
             // 
             this.cashtxtBx.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cashtxtBx.Location = new System.Drawing.Point(1141, 512);
-            this.cashtxtBx.Multiline = true;
+            this.cashtxtBx.ForeColor = System.Drawing.Color.Black;
+            this.cashtxtBx.Location = new System.Drawing.Point(1151, 511);
             this.cashtxtBx.Name = "cashtxtBx";
-            this.cashtxtBx.Size = new System.Drawing.Size(67, 34);
+            this.cashtxtBx.Size = new System.Drawing.Size(67, 42);
             this.cashtxtBx.TabIndex = 14;
             this.cashtxtBx.TextChanged += new System.EventHandler(this.cashtxtBx_TextChanged);
             this.cashtxtBx.Enter += new System.EventHandler(this.cashtxtBx_Enter);
@@ -1379,7 +1379,6 @@
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 51;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
