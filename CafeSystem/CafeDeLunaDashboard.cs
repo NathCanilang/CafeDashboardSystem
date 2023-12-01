@@ -14,6 +14,9 @@ using iText.IO.Image;
 using Image = System.Drawing.Image; 
 using TextAlignment = iText.Layout.Properties.TextAlignment;
 using iText.Layout.Splitting;
+using iText.Layout.Borders;
+using iText.Kernel.Colors;
+using Color = System.Drawing.Color;
 
 namespace CafeSystem
 {
@@ -1460,6 +1463,26 @@ namespace CafeSystem
             GenerateID = orderIDGenerator();
         }
 
+        private string GetVariationCost(string variationName)
+        {
+            conn.Open();
+            cm = new MySqlCommand("SELECT VariationCost FROM mealvariation WHERE VariationName = @VariationName", conn);
+            cm.Parameters.AddWithValue("@VariationName", variationName);
+            dr = cm.ExecuteReader();
+
+            string variationCost = "0.00"; // Default value
+
+            if (dr.Read())
+            {
+                variationCost = dr["VariationCost"].ToString();
+            }
+
+            dr.Close();
+            conn.Close();
+
+            return variationCost;
+        }
+
         private void placeBtn_Click(object sender, EventArgs e)
         {
             GeneratePDFReceipt(GenerateID);
@@ -1505,7 +1528,7 @@ namespace CafeSystem
                         logo.SetHorizontalAlignment(iText.Layout.Properties.HorizontalAlignment.CENTER);
                         logo.SetWidth(200);
                         logo.SetHeight(200);
-                        // Add the logo to the PDF
+
                         doc.Add(logo);
                         doc.Add(new Paragraph("BLOCK 5,  ORANGE STREET, LAKEVIEW, PINAGBUHATAN, PASIG CITY").SetTextAlignment(TextAlignment.CENTER));
                         doc.Add(new Paragraph(" "));
@@ -1517,20 +1540,33 @@ namespace CafeSystem
                         doc.Add(new Paragraph($"Order #{orderid} ").SetTextAlignment(TextAlignment.LEFT));
                         doc.Add(new Paragraph("Date: " + DateTime.Now.ToString("MM/dd/yyyy   hh:mm:ss tt")).SetTextAlignment(TextAlignment.LEFT));
                         doc.Add(new Paragraph("--------------------------------------------------------------------------------------------------"));
-                        doc.Add(new Paragraph($"QUANTITY                           MEAL                    PRICE"));
+
+                        Table table = new Table(4);
+                        table.SetWidth(UnitValue.CreatePercentValue(100));
+                        table.SetTextAlignment(TextAlignment.CENTER);
+                        table.AddCell(new Cell().Add(new Paragraph("QUANTITY")).SetBorder(Border.NO_BORDER));
+                        table.AddCell(new Cell().Add(new Paragraph("PRICE")).SetBorder(Border.NO_BORDER));
+                        table.AddCell(new Cell().Add(new Paragraph("MEAL")).SetBorder(Border.NO_BORDER));
+                        table.AddCell(new Cell().Add(new Paragraph("TOTAL")).SetBorder(Border.NO_BORDER));
 
                         foreach (DataGridViewRow row in dataGridView1.Rows)
                         {
                             string food = row.Cells[0].Value.ToString();
                             string quantity = row.Cells[2].Value.ToString();
-                            string price = row.Cells[4].Value.ToString();
+                            string totalprice = row.Cells[4].Value.ToString();
+                            string variationCost = GetVariationCost(food);
                             if (int.TryParse(quantity, out int quantityValue))
                             {
                                 totalQuantity += quantityValue;
                             }
-                            doc.Add(new Paragraph($"{quantity}                                   {food}                    {price}"));
+
+                            table.AddCell(new Cell().Add(new Paragraph(quantity)).SetBorder(Border.NO_BORDER));
+                            table.AddCell(new Cell().Add(new Paragraph(variationCost)).SetBorder(Border.NO_BORDER));
+                            table.AddCell(new Cell().Add(new Paragraph(food)).SetBorder(Border.NO_BORDER));
+                            table.AddCell(new Cell().Add(new Paragraph(totalprice)).SetBorder(Border.NO_BORDER));
                         }
 
+                        doc.Add(table);
                         doc.Add(new Paragraph($"---------------------------------------{totalQuantity} Item(s)-----------------------------------------"));
                         doc.Add(new Paragraph($"SUBTOTAL:                         Php. {subtotal.ToString("0.00")}"));
                         doc.Add(new Paragraph($"DISCOUNT:                         Php. {discount.ToString("0.00")}"));
@@ -1538,7 +1574,6 @@ namespace CafeSystem
                         doc.Add(new Paragraph($"CASH:                         Php. {cashEntered.ToString("0.00")}"));
                         decimal change = cashEntered - totalAmount;
                         doc.Add(new Paragraph($"CHANGE:                         Php. {change.ToString("0.00")}"));
-
                         doc.Add(new Paragraph("--------------------------------------------------------------------------------------------------"));
                         doc.Add(new Paragraph("THIS RECEIPT SERVES AS YOUR PROOF OF PURCHASE").SetTextAlignment(TextAlignment.CENTER));
                     }
