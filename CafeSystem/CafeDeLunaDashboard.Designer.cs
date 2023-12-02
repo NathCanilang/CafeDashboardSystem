@@ -227,7 +227,7 @@
             // 
             this.MainPanelsCL.ContainerControl = this;
             this.MainPanelsCL.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.MainPanelsCL.SelectedCard = "Card2";
+            this.MainPanelsCL.SelectedCard = "Card3";
             // 
             // LoginPanelContainer
             // 
@@ -1128,6 +1128,7 @@
             // 
             this.SalesReportBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
             this.SalesReportBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SalesReportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SalesReportBtn.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SalesReportBtn.ForeColor = System.Drawing.Color.White;
             this.SalesReportBtn.Location = new System.Drawing.Point(1012, 612);
@@ -1641,6 +1642,7 @@
             // GenerateMonthlyReportBtn
             // 
             this.GenerateMonthlyReportBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
+            this.GenerateMonthlyReportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GenerateMonthlyReportBtn.Font = new System.Drawing.Font("Handmade", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GenerateMonthlyReportBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(11)))));
             this.GenerateMonthlyReportBtn.Location = new System.Drawing.Point(232, 379);
@@ -1729,6 +1731,7 @@
             // GenerateWeeklyReportBtn
             // 
             this.GenerateWeeklyReportBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
+            this.GenerateWeeklyReportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GenerateWeeklyReportBtn.Font = new System.Drawing.Font("Handmade", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GenerateWeeklyReportBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(11)))));
             this.GenerateWeeklyReportBtn.Location = new System.Drawing.Point(232, 379);
@@ -1809,6 +1812,7 @@
             // 
             this.GenerateDailyReportBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
             this.GenerateDailyReportBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GenerateDailyReportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GenerateDailyReportBtn.Font = new System.Drawing.Font("Handmade", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GenerateDailyReportBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(11)))));
             this.GenerateDailyReportBtn.Location = new System.Drawing.Point(232, 379);
@@ -1924,7 +1928,7 @@
             // 
             this.SalesControlCL.ContainerControl = this.SalesPanel;
             this.SalesControlCL.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.SalesControlCL.SelectedCard = "Card2";
+            this.SalesControlCL.SelectedCard = "Card1";
             // 
             // CafeDeLunaDashboard
             // 

@@ -1672,7 +1672,7 @@ namespace CafeSystem
                     sbLbl.Text = "Php. 0.00";
                     ttlLbl.Text = "Php. 0.00";
                     dscLbl.Text = "Php. 0.00";
-                    cashtxtBx.Text = "0.00";
+                    cashtxtBx.Text = "";
                     discChckBx.Checked = false;
                     cashtxtBx.ForeColor = Color.LightGray;
                     System.Diagnostics.Process.Start(pdfFilePath);
