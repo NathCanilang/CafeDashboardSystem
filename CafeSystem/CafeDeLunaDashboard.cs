@@ -1646,19 +1646,26 @@ namespace CafeSystem
                             }
 
                             table.AddCell(new Cell().Add(new Paragraph(quantity)).SetBorder(Border.NO_BORDER));
-                            table.AddCell(new Cell().Add(new Paragraph(variationCost)).SetBorder(Border.NO_BORDER));
+                            table.AddCell(new Cell().Add(new Paragraph($"Php. {variationCost}")).SetBorder(Border.NO_BORDER));
                             table.AddCell(new Cell().Add(new Paragraph(food)).SetBorder(Border.NO_BORDER));
-                            table.AddCell(new Cell().Add(new Paragraph(totalprice)).SetBorder(Border.NO_BORDER));
+                            table.AddCell(new Cell().Add(new Paragraph($"Php. {totalprice}")).SetBorder(Border.NO_BORDER));
                         }
 
                         doc.Add(table);
-                        doc.Add(new Paragraph($"---------------------------------------{totalQuantity} Item(s)-----------------------------------------"));
-                        doc.Add(new Paragraph($"SUBTOTAL:                         Php. {subtotal.ToString("0.00")}"));
-                        doc.Add(new Paragraph($"DISCOUNT:                         Php. {discount.ToString("0.00")}"));
-                        doc.Add(new Paragraph($"TOTAL:                         Php. {totalAmount.ToString("0.00")}"));
-                        doc.Add(new Paragraph($"CASH:                         Php. {cashEntered.ToString("0.00")}"));
+
+                        Table table1 = new Table(2);
+                        table1.SetWidth(UnitValue.CreatePercentValue(100));
+                        table1.SetTextAlignment(TextAlignment.LEFT);
                         decimal change = cashEntered - totalAmount;
-                        doc.Add(new Paragraph($"CHANGE:                         Php. {change.ToString("0.00")}"));
+
+                        AddReceiptDetailRow(table1, "SUBTOTAL:", $"Php. {subtotal.ToString("0.00")}");
+                        AddReceiptDetailRow(table1, "DISCOUNT:", $"Php. {discount.ToString("0.00")}");
+                        AddReceiptDetailRow(table1, "TOTAL:", $"Php. {totalAmount.ToString("0.00")}");
+                        AddReceiptDetailRow(table1, "CASH:", $"Php. {cashEntered.ToString("0.00")}");
+                        AddReceiptDetailRow(table1, "CHANGE:", $"Php. {change.ToString("0.00")}");
+
+                        doc.Add(new Paragraph($"---------------------------------------{totalQuantity} Item(s)-----------------------------------------"));
+                        doc.Add(table1);
                         doc.Add(new Paragraph("--------------------------------------------------------------------------------------------------"));
                         doc.Add(new Paragraph("THIS RECEIPT SERVES AS YOUR PROOF OF PURCHASE").SetTextAlignment(TextAlignment.CENTER));
                     }
@@ -1678,6 +1685,12 @@ namespace CafeSystem
                     System.Diagnostics.Process.Start(pdfFilePath);
                 }
             }
+        }
+
+        void AddReceiptDetailRow(Table table, string description, string value)
+        {
+            table.AddCell(new Cell().Add(new Paragraph(description)).SetBorder(Border.NO_BORDER));
+            table.AddCell(new Cell().Add(new Paragraph(value)).SetTextAlignment(TextAlignment.RIGHT).SetBorder(Border.NO_BORDER));
         }
 
         private void dataGridView1_KeyUp(object sender, KeyEventArgs e)
