@@ -34,6 +34,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CafeDeLunaDashboard));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MainPanelsCL = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
@@ -166,12 +168,16 @@
             this.DailyLbl = new System.Windows.Forms.Label();
             this.AdminControlsCL = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.SalesControlCL = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
+
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewButtonColumn();
+
+            this.SalesLinkLbl = new System.Windows.Forms.LinkLabel();
+
             ((System.ComponentModel.ISupportInitialize)(this.MainPanelsCL)).BeginInit();
             this.LoginPanelContainer.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -468,6 +474,7 @@
             this.VariationIDTxtBox.Size = new System.Drawing.Size(30, 20);
             this.VariationIDTxtBox.TabIndex = 19;
             this.VariationIDTxtBox.TabStop = false;
+            this.VariationIDTxtBox.Visible = false;
             // 
             // AddVarietyBtn
             // 
@@ -1091,6 +1098,7 @@
             // 
             this.ManagerStaffPanelContainer.BackColor = System.Drawing.Color.White;
             this.MainPanelsCL.SetCardName(this.ManagerStaffPanelContainer, "Card2");
+            this.ManagerStaffPanelContainer.Controls.Add(this.SalesLinkLbl);
             this.ManagerStaffPanelContainer.Controls.Add(this.flowLayoutPanel2);
             this.ManagerStaffPanelContainer.Controls.Add(this.flowLayoutPanel1);
             this.ManagerStaffPanelContainer.Controls.Add(this.SearchTxtbx);
@@ -1182,7 +1190,7 @@
             this.placeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.placeBtn.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.placeBtn.ForeColor = System.Drawing.Color.White;
-            this.placeBtn.Location = new System.Drawing.Point(1100, 595);
+            this.placeBtn.Location = new System.Drawing.Point(1099, 561);
             this.placeBtn.Name = "placeBtn";
             this.placeBtn.Size = new System.Drawing.Size(140, 40);
             this.placeBtn.TabIndex = 13;
@@ -1199,7 +1207,7 @@
             this.voidBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.voidBtn.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.voidBtn.ForeColor = System.Drawing.Color.White;
-            this.voidBtn.Location = new System.Drawing.Point(954, 595);
+            this.voidBtn.Location = new System.Drawing.Point(953, 561);
             this.voidBtn.Name = "voidBtn";
             this.voidBtn.Size = new System.Drawing.Size(140, 40);
             this.voidBtn.TabIndex = 12;
@@ -1379,6 +1387,54 @@
             this.dataGridView1.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridView1_RowsRemoved);
             this.dataGridView1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyUp);
             // 
+
+            // Column1
+            // 
+            this.Column1.HeaderText = "Food";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 175;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "-";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 25;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Quantity";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column3.Width = 60;
+            // 
+            // Column4
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Handmade", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column4.HeaderText = "+";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 25;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Price";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 70;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Bin";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 25;
+            // 
+
             // lgoutLbl
             // 
             this.lgoutLbl.AutoSize = true;
@@ -1814,6 +1870,7 @@
             this.SalesControlCL.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
             this.SalesControlCL.SelectedCard = "Card2";
             // 
+
             // Column1
             // 
             this.Column1.HeaderText = "Food";
@@ -1859,6 +1916,20 @@
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             this.Column6.Width = 25;
+//Edited
+            // SalesLinkLbl
+            // 
+            this.SalesLinkLbl.ActiveLinkColor = System.Drawing.Color.Black;
+            this.SalesLinkLbl.BackColor = System.Drawing.Color.Transparent;
+            this.SalesLinkLbl.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SalesLinkLbl.LinkColor = System.Drawing.Color.Black;
+            this.SalesLinkLbl.Location = new System.Drawing.Point(1011, 616);
+            this.SalesLinkLbl.Name = "SalesLinkLbl";
+            this.SalesLinkLbl.Size = new System.Drawing.Size(155, 33);
+            this.SalesLinkLbl.TabIndex = 22;
+            this.SalesLinkLbl.TabStop = true;
+            this.SalesLinkLbl.Text = "See Sales Report";
+
             // 
             // CafeDeLunaDashboard
             // 
@@ -2071,6 +2142,11 @@
         private System.Windows.Forms.DataGridViewButtonColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewButtonColumn Column6;
+        private System.Windows.Forms.PictureBox BackpicBx;
+        private System.Windows.Forms.CheckBox showpasschckBx;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.LinkLabel SalesLinkLbl;
+
     }
 }
 
