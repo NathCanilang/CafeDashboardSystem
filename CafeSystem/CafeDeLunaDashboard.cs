@@ -18,6 +18,7 @@ using iText.Layout.Borders;
 using iText.Kernel.Colors;
 using Color = System.Drawing.Color;
 using System.Collections.Generic;
+using Syncfusion.Windows.Forms.Interop;
 
 namespace CafeSystem
 {
@@ -41,6 +42,8 @@ namespace CafeSystem
         private readonly LoginPanelManager loginPanelManager;
         private readonly AdminPanelManager adminPanelManager;
         private readonly SalesPanelManager salesPanelManager;
+        private readonly DisplayEmployeeIDPic displayEmployeeIDPic = new DisplayEmployeeIDPic();
+        private readonly DisplayMealPic displayMealPic = new DisplayMealPic();
         private byte[] imageData;
         private decimal totalPrice = 0.00m;
         private bool isSearchTextPlaceholder = true;
@@ -102,8 +105,12 @@ namespace CafeSystem
             lgoutLbl.MouseLeave += labelChangeColor.MouseLeave;
 
             //Admin Panel
-            FoodTbl.DataError += new DataGridViewDataErrorEventHandler(adminMethods.FoodTable_DataError);
-            FoodTbl.RowPostPaint += new DataGridViewRowPostPaintEventHandler(adminMethods.FoodTable_RowPostPaint);
+            FoodTbl.DataError += new DataGridViewDataErrorEventHandler(displayMealPic.FoodTable_DataError);
+            FoodTbl.RowPostPaint += new DataGridViewRowPostPaintEventHandler(displayMealPic.FoodTable_RowPostPaint);
+
+            AccDataTbl.DataError += new DataGridViewDataErrorEventHandler(displayEmployeeIDPic.EmployeeTable_DataError);
+            AccDataTbl.RowPostPaint += new DataGridViewRowPostPaintEventHandler(displayEmployeeIDPic.EmployeeTable_RowPostPaint);
+
             PositionComB_AP.Items.AddRange(position);
             PositionComB_AP.DropDownStyle = ComboBoxStyle.DropDownList;
             MenuSelectComB.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -373,8 +380,10 @@ namespace CafeSystem
                 {
                     try
                     {
-                        // Load the selected image
-                        Image selectedImage = Image.FromFile(openFileDialog.FileName);
+                        // Load the selected image into a MemoryStream
+                        byte[] imageBytes = File.ReadAllBytes(openFileDialog.FileName);
+                        MemoryStream ms = new MemoryStream(imageBytes);
+                        Image selectedImage = Image.FromStream(ms);
 
                         // Resize the selected image
                         int newWidth = 142; // Set the new width
@@ -538,7 +547,7 @@ namespace CafeSystem
                     UsernameTxtB_AP.Text = usernameColumn;
                     PositionComB_AP.Text = positionColumn;
                     EmployeeIDTxtB_AP.Text = employeeIDColumn.ToString();
-                    adminMethods.LoadUserImage(employeeIDColumn);
+                    displayEmployeeIDPic.LoadUserImage(employeeIDColumn);
                 }
                 else
                 {
@@ -663,16 +672,19 @@ namespace CafeSystem
 
                     if (isNewImageSelected)
                     {
-                        using (MemoryStream ms = new MemoryStream())
+                        using (Bitmap bmp = new Bitmap(UserPicB.Image))
                         {
-                            UserPicB.Image.Save(ms, ImageFormat.Jpeg); // You can choose the format you want
-                            byte[] imageData = ms.ToArray();
-                            cmdDataBase.Parameters.AddWithValue("@EmployeeIMG", imageData);
+                            using (MemoryStream ms = new MemoryStream())
+                            {
+                                bmp.Save(ms, ImageFormat.Jpeg);
+                                byte[] imageData = ms.ToArray();
+                                cmdDataBase.Parameters.AddWithValue("@EmployeeIMG", imageData);
+                            }
                         }
                     }
 
                     cmdDataBase.ExecuteNonQuery();
-
+                    
                     adminMethods.RefreshTbl();
                     MessageBox.Show("Account Updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -803,6 +815,7 @@ namespace CafeSystem
                     conn.Close();
                 }
             }
+            MenuPicB.Image = Properties.Resources.addmenuicon;
         }
 
         private void VarietyAddImgBtn_Click(object sender, EventArgs e)
@@ -928,7 +941,7 @@ namespace CafeSystem
                     VariationDescTxtB.Text = variationDesc;
                     VariationCostTxtB.Text = variationCost;
                     VariationIDTxtBox.Text = variationID;
-                    adminMethods.LoadMenuItemImageFood(variationIDColumn);
+                    displayMealPic.LoadMenuItemImageFood(variationIDColumn);
 
                     try
                     {
@@ -1006,11 +1019,14 @@ namespace CafeSystem
 
                     if (isNewFoodImageSelected)
                     {
-                        using (MemoryStream ms = new MemoryStream())
+                        using (Bitmap bmp = new Bitmap(VariationPicB.Image))
                         {
-                            VariationPicB.Image.Save(ms, ImageFormat.Jpeg); // You can choose the format you want
-                            imageData = ms.ToArray();
-                            updateQuery += ", MealImage = @mealImage";
+                            using (MemoryStream ms = new MemoryStream())
+                            {
+                                bmp.Save(ms, ImageFormat.Jpeg); // You can choose the format you want
+                                imageData = ms.ToArray();
+                                updateQuery += ", MealImage = @mealImage";
+                            }
                         }
                     }
 
