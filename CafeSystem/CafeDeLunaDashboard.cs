@@ -912,6 +912,7 @@ namespace CafeSystem
             DialogResult result = MessageBox.Show("Are you sure you want to edit this meal?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                AddVarietyBtn.Enabled = false;
                 if (FoodTbl.SelectedRows.Count == 1)
                 {
                     DataGridViewRow selectedRow = FoodTbl.SelectedRows[0];
@@ -962,47 +963,11 @@ namespace CafeSystem
                 }
                 UpdateMealBtn.Show();
                 CancelMealBtn.Show();
-                DeleteFoodlBtn.Hide();
                 EditMealBtn.Hide();
             }
         }
 
-        private void DeleteFoodlBtn_Click(object sender, EventArgs e)
-        {
-            if (FoodTbl.SelectedRows.Count == 1)
-            {
-                DataGridViewRow selectedRow = FoodTbl.SelectedRows[0];
-                int variationIDColumn = Convert.ToInt32(FoodTbl.SelectedRows[0].Cells["VariationID"].Value);
-
-                DialogResult result = MessageBox.Show("Are you sure you want to delete this row?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
-                {
-                    try
-                    {
-                        conn.Open();
-                        string deleteQuery = "DELETE FROM mealvariation WHERE VariationID = @VariationID";
-                        MySqlCommand cmdDataBase = new MySqlCommand(deleteQuery, conn);
-                        cmdDataBase.Parameters.AddWithValue("@VariationID", variationIDColumn);
-                        cmdDataBase.ExecuteNonQuery();
-
-                        adminMethods.LoadMenuItems();
-                        MessageBox.Show("Row Deleted!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message);
-                    }
-                    finally
-                    {
-                        conn.Close();
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please select a single row for deletion.", "Try again", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
+        
 
         private void UpdateMealBtn_Click(object sender, EventArgs e)
         {
@@ -1066,6 +1031,7 @@ namespace CafeSystem
 
                     adminMethods.LoadMenuItems();
                     MessageBox.Show("Meal Updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    AddVarietyBtn.Enabled = true;
                 }
 
                 catch (MySqlException a)
@@ -1091,7 +1057,6 @@ namespace CafeSystem
             }
             UpdateMealBtn.Hide();
             CancelMealBtn.Hide();
-            DeleteFoodlBtn.Show();
             EditMealBtn.Show();
 
             TextboxPlaceholders.SetPlaceholder(VariationNmTxtB, "Food Name");
@@ -1108,8 +1073,9 @@ namespace CafeSystem
         {
             UpdateMealBtn.Hide();
             CancelMealBtn.Hide();
-            DeleteFoodlBtn.Show();
             EditMealBtn.Show();
+            AddVarietyBtn.Enabled = true;
+
 
             TextboxPlaceholders.SetPlaceholder(VariationNmTxtB, "Food Name");
             TextboxPlaceholders.SetPlaceholder(VariationDescTxtB, "Description");
@@ -1679,7 +1645,7 @@ namespace CafeSystem
                     sbLbl.Text = "Php. 0.00";
                     ttlLbl.Text = "Php. 0.00";
                     dscLbl.Text = "Php. 0.00";
-                    cashtxtBx.Text = "0.00";
+                    cashtxtBx.Text = "";
                     discChckBx.Checked = false;
                     cashtxtBx.ForeColor = Color.LightGray;
                     System.Diagnostics.Process.Start(pdfFilePath);
