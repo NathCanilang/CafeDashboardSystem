@@ -379,7 +379,7 @@ namespace CafeSystem
             conn.Open();
 
             // Get sales data for the selected date
-            string query = "SELECT * FROM Sales WHERE DATE(SaleDate) = @Date";
+            string query = "SELECT * FROM sales WHERE DATE(SaleDate) = @Date";
             using (MySqlCommand command = new MySqlCommand(query, conn))
             {
                 command.Parameters.Add(new MySqlParameter("@Date", MySqlDbType.Date) { Value = selectedDate.Date });
@@ -398,7 +398,7 @@ namespace CafeSystem
 
         public decimal CalculateSalesForDay(DateTime date)
         {
-            string query = "SELECT SUM(Amount) AS TotalSales FROM Sales WHERE DATE(SaleDate) = @Date";
+            string query = "SELECT SUM(Amount) AS TotalSales FROM sales WHERE DATE(SaleDate) = @Date";
 
             using (MySqlCommand command = new MySqlCommand(query, conn))
             {
@@ -441,7 +441,7 @@ namespace CafeSystem
         }
         public decimal CalculateSalesForWeek(DateTime startDate, DateTime endDate)
         {
-            string query = "SELECT SUM(Amount) AS TotalSales FROM Sales WHERE DATE(SaleDate) BETWEEN @StartDate AND @EndDate";
+            string query = "SELECT SUM(Amount) AS TotalSales FROM sales WHERE DATE(SaleDate) BETWEEN @StartDate AND @EndDate";
 
             using (MySqlCommand command = new MySqlCommand(query, conn))
             {
@@ -459,7 +459,7 @@ namespace CafeSystem
             conn.Open();
 
             // Get sales data for the selected week
-            string query = "SELECT * FROM Sales WHERE DATE(SaleDate) BETWEEN @StartDate AND @EndDate";
+            string query = "SELECT * FROM sales WHERE DATE(SaleDate) BETWEEN @StartDate AND @EndDate";
             using (MySqlCommand command = new MySqlCommand(query, conn))
             {
                 command.Parameters.Add(new MySqlParameter("@StartDate", MySqlDbType.Date) { Value = startDate });
@@ -513,7 +513,7 @@ namespace CafeSystem
         }
         public decimal CalculateSalesForMonth(DateTime startDate, DateTime endDate)
         {
-            string query = "SELECT SUM(Amount) AS TotalSales FROM Sales WHERE DATE(SaleDate) BETWEEN @StartDate AND @EndDate";
+            string query = "SELECT SUM(Amount) AS TotalSales FROM sales WHERE DATE(SaleDate) BETWEEN @StartDate AND @EndDate";
 
             using (MySqlCommand command = new MySqlCommand(query, conn))
             {
@@ -531,7 +531,7 @@ namespace CafeSystem
             conn.Open();
 
             // Get sales data for the selected month
-            string query = "SELECT * FROM Sales WHERE DATE(SaleDate) BETWEEN @StartDate AND @EndDate";
+            string query = "SELECT * FROM sales WHERE DATE(SaleDate) BETWEEN @StartDate AND @EndDate";
             using (MySqlCommand command = new MySqlCommand(query, conn))
             {
                 command.Parameters.Add(new MySqlParameter("@StartDate", MySqlDbType.Date) { Value = startDate });
