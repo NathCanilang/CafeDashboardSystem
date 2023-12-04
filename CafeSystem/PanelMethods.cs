@@ -176,6 +176,12 @@ namespace CafeSystem
     }
     internal class DisplayMealPic
     {
+        private readonly MySqlConnection conn;
+        public DisplayMealPic()
+        {
+            string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
+            conn = new MySqlConnection(mysqlcon);
+        }
         public void LoadMenuItemImageFood(int variationID)
         {
             byte[] imageData = GetFoodImageDataFromDatabase(variationID); // Call a new method to get image data
@@ -218,16 +224,15 @@ namespace CafeSystem
         }
         public byte[] GetFoodImageDataFromDatabase(int variationID)
         {
-            string connectionString = "server=localhost;user=root;database=dashboarddb;password=";
-
+           
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (conn)
                 {
-                    connection.Open();
+                    conn.Open();
                     string query = "SELECT MealImage FROM mealvariation WHERE VariationID = @variationID";
 
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
                     {
                         command.Parameters.AddWithValue("@variationID", variationID);
 
