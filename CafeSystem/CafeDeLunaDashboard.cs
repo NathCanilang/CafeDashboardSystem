@@ -62,7 +62,7 @@ namespace CafeSystem
         {
             InitializeComponent();
             cafeDeLunaInstance = this;
-            string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
+            string mysqlcon = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
             conn = new MySqlConnection(mysqlcon);
             loginPanelManager = new LoginPanelManager(LoginPanelContainer, AdminPanelContainer, SalesPanelContainer, ManagerStaffPanelContainer);
             adminPanelManager = new AdminPanelManager(AdminHomePanel, AccountManagementPanel, AddMenuPanel);
@@ -1469,7 +1469,7 @@ namespace CafeSystem
                 {
                     string enteredPassword = Encryptor.HashPassword(Microsoft.VisualBasic.Interaction.InputBox("Enter manager password:", "Password Required", ""));
 
-                    string connectionString = "server=localhost;user=root;database=dashboarddb;password=";
+                    string connectionString = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
 
                     using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
@@ -1710,7 +1710,7 @@ namespace CafeSystem
                     // If the user is a staff member, prompt for manager's password
                     string enteredPassword = Encryptor.HashPassword(Microsoft.VisualBasic.Interaction.InputBox("Enter manager password:", "Password Required", ""));
 
-                    string connectionString = "server=localhost;user=root;database=dashboarddb;password=";
+                    string connectionString = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
 
                     using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
@@ -1974,7 +1974,7 @@ namespace CafeSystem
         }
 
         //Methods for sending place order to database and others 
-        string connectionString = "server=localhost;user=root;database=dashboarddb;password=";
+        string connectionString = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
         private void InsertOrderData(int generatedOrderID, bool isVoided)
         {
             using (MySqlConnection connection = new MySqlConnection(connectionString))
