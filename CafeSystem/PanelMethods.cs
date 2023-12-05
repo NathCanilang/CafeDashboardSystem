@@ -18,7 +18,7 @@ namespace CafeSystem
 
         public AdminMethods()
         {
-            string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
+            string mysqlcon = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
             conn = new MySqlConnection(mysqlcon);
         }
         public int AgeCalculation(DateTime employeeBirth)
@@ -43,8 +43,20 @@ namespace CafeSystem
             {
                 adapter.Fill(dt);
             }
-
             CafeDeLunaDashboard.cafeDeLunaInstance.AccDataTbl.DataSource = dt;
+        }
+
+        public void RefreshTblForMenu()
+        {
+            string query = "SELECT MealID, MealName, MealImage FROM meal";
+            DataTable dt = new DataTable();
+
+            using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn))
+            {
+                adapter.Fill(dt);
+            }
+            CafeDeLunaDashboard.cafeDeLunaInstance.MenuTbl.DataSource = dt;
+
         }
         public Image ResizeImages(Image image, int width, int height)
         {
@@ -64,7 +76,7 @@ namespace CafeSystem
         {
             CafeDeLunaDashboard.cafeDeLunaInstance.MenuSelectComB.Items.Clear();
 
-            string connectionString = "server=localhost;user=root;database=dashboarddb;password=";
+            string connectionString = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
 
             try
             {
@@ -98,7 +110,7 @@ namespace CafeSystem
         }
         public int GetMealIDFromDatabase(string mealName)
         {
-            string connectionString = "server=localhost;user=root;database=dashboarddb;password=";
+            string connectionString = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
             int mealID = -1;
 
             try
@@ -179,7 +191,7 @@ namespace CafeSystem
         private readonly MySqlConnection conn;
         public DisplayMealPic()
         {
-            string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
+            string mysqlcon = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
             conn = new MySqlConnection(mysqlcon);
         }
         public void LoadMenuItemImageFood(int variationID)
@@ -271,7 +283,7 @@ namespace CafeSystem
         private readonly MySqlConnection conn;
         public DisplayEmployeeIDPic()
         {
-            string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
+            string mysqlcon = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
             conn = new MySqlConnection(mysqlcon);
         }
 
@@ -358,15 +370,17 @@ namespace CafeSystem
         {
             CafeDeLunaDashboard.cafeDeLunaInstance.AccDataTbl.AutoResizeRow(e.RowIndex, DataGridViewAutoSizeRowMode.AllCells);
         }
+    }
 
-
+    internal class DisplayMenuInfoPic
+    {
 
     }
 
     internal class DailySalesReportMethod
     {
         private readonly MySqlConnection conn;
-        private readonly string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
+        private readonly string mysqlcon = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
 
         public DailySalesReportMethod()
         {
@@ -379,7 +393,7 @@ namespace CafeSystem
             conn.Open();
 
             // Get sales data for the selected date
-            string query = "SELECT * FROM Sales WHERE DATE(SaleDate) = @Date";
+            string query = "SELECT * FROM sales WHERE DATE(SaleDate) = @Date";
             using (MySqlCommand command = new MySqlCommand(query, conn))
             {
                 command.Parameters.Add(new MySqlParameter("@Date", MySqlDbType.Date) { Value = selectedDate.Date });
@@ -398,7 +412,7 @@ namespace CafeSystem
 
         public decimal CalculateSalesForDay(DateTime date)
         {
-            string query = "SELECT SUM(Amount) AS TotalSales FROM Sales WHERE DATE(SaleDate) = @Date";
+            string query = "SELECT SUM(Amount) AS TotalSales FROM sales WHERE DATE(SaleDate) = @Date";
 
             using (MySqlCommand command = new MySqlCommand(query, conn))
             {
@@ -433,7 +447,7 @@ namespace CafeSystem
     internal class WeeklySalesReportMethod
     {
         private readonly MySqlConnection conn;
-        private readonly string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
+        private readonly string mysqlcon = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
 
         public WeeklySalesReportMethod()
         {
@@ -441,7 +455,7 @@ namespace CafeSystem
         }
         public decimal CalculateSalesForWeek(DateTime startDate, DateTime endDate)
         {
-            string query = "SELECT SUM(Amount) AS TotalSales FROM Sales WHERE DATE(SaleDate) BETWEEN @StartDate AND @EndDate";
+            string query = "SELECT SUM(Amount) AS TotalSales FROM sales WHERE DATE(SaleDate) BETWEEN @StartDate AND @EndDate";
 
             using (MySqlCommand command = new MySqlCommand(query, conn))
             {
@@ -459,7 +473,7 @@ namespace CafeSystem
             conn.Open();
 
             // Get sales data for the selected week
-            string query = "SELECT * FROM Sales WHERE DATE(SaleDate) BETWEEN @StartDate AND @EndDate";
+            string query = "SELECT * FROM sales WHERE DATE(SaleDate) BETWEEN @StartDate AND @EndDate";
             using (MySqlCommand command = new MySqlCommand(query, conn))
             {
                 command.Parameters.Add(new MySqlParameter("@StartDate", MySqlDbType.Date) { Value = startDate });
@@ -505,7 +519,7 @@ namespace CafeSystem
     internal class MonthlySalesReportMethod
     {
         private readonly MySqlConnection conn;
-        private readonly string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
+        private readonly string mysqlcon = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
 
         public MonthlySalesReportMethod()
         {
@@ -513,7 +527,7 @@ namespace CafeSystem
         }
         public decimal CalculateSalesForMonth(DateTime startDate, DateTime endDate)
         {
-            string query = "SELECT SUM(Amount) AS TotalSales FROM Sales WHERE DATE(SaleDate) BETWEEN @StartDate AND @EndDate";
+            string query = "SELECT SUM(Amount) AS TotalSales FROM sales WHERE DATE(SaleDate) BETWEEN @StartDate AND @EndDate";
 
             using (MySqlCommand command = new MySqlCommand(query, conn))
             {
@@ -531,7 +545,7 @@ namespace CafeSystem
             conn.Open();
 
             // Get sales data for the selected month
-            string query = "SELECT * FROM Sales WHERE DATE(SaleDate) BETWEEN @StartDate AND @EndDate";
+            string query = "SELECT * FROM sales WHERE DATE(SaleDate) BETWEEN @StartDate AND @EndDate";
             using (MySqlCommand command = new MySqlCommand(query, conn))
             {
                 command.Parameters.Add(new MySqlParameter("@StartDate", MySqlDbType.Date) { Value = startDate });
