@@ -75,6 +75,7 @@ namespace CafeSystem
             {
                 adminMethods.LoadMenuItems();
                 adminMethods.RefreshTblForMenu();
+                adminMethods.PopulateMealComboBox();
             }
         }
     }

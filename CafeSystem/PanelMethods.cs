@@ -18,7 +18,7 @@ namespace CafeSystem
 
         public AdminMethods()
         {
-            string mysqlcon = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
+            string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
             conn = new MySqlConnection(mysqlcon);
         }
         public int AgeCalculation(DateTime employeeBirth)
@@ -76,7 +76,7 @@ namespace CafeSystem
         {
             CafeDeLunaDashboard.cafeDeLunaInstance.MenuSelectComB.Items.Clear();
 
-            string connectionString = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
+            string connectionString = "server=localhost;user=root;database=dashboarddb;password=";
 
             try
             {
@@ -110,7 +110,7 @@ namespace CafeSystem
         }
         public int GetMealIDFromDatabase(string mealName)
         {
-            string connectionString = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
+            string connectionString = "server=localhost;user=root;database=dashboarddb;password=";
             int mealID = -1;
 
             try
@@ -191,7 +191,7 @@ namespace CafeSystem
         private readonly MySqlConnection conn;
         public DisplayMealPic()
         {
-            string mysqlcon = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
+            string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
             conn = new MySqlConnection(mysqlcon);
         }
         public void LoadMenuItemImageFood(int variationID)
@@ -283,7 +283,7 @@ namespace CafeSystem
         private readonly MySqlConnection conn;
         public DisplayEmployeeIDPic()
         {
-            string mysqlcon = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
+            string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
             conn = new MySqlConnection(mysqlcon);
         }
 
@@ -374,13 +374,103 @@ namespace CafeSystem
 
     internal class DisplayMenuInfoPic
     {
+        private readonly MySqlConnection conn;
+        public DisplayMenuInfoPic()
+        {
+            string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
+            conn = new MySqlConnection(mysqlcon);
+        }
+       
+        public void MenuTable_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            if (e.ColumnIndex == 0) // Assuming column index for "AccountPfp" is 1
+            {
+                // Set the cell value to null to display an empty cell
+                e.ThrowException = false;
+                CafeDeLunaDashboard.cafeDeLunaInstance.MenuTbl[e.ColumnIndex, e.RowIndex].Value = null;
+            }
+        }
 
+        public void MenuTable_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            CafeDeLunaDashboard.cafeDeLunaInstance.MenuTbl.AutoResizeRow(e.RowIndex, DataGridViewAutoSizeRowMode.AllCells);
+        }
+
+        public void LoadMenuItemImageFood(int variationID)
+        {
+            byte[] imageData = GetMenuImageDataFromDatabase(variationID); // Call a new method to get image data
+
+            try
+            {
+                if (imageData != null && imageData.Length > 0)
+                {
+                    using (MemoryStream ms = new MemoryStream(imageData))
+                    {
+                        Image image = Image.FromStream(ms);
+
+                        // Set the PictureBox image only if the conversion succeeds
+                        CafeDeLunaDashboard.cafeDeLunaInstance.MenuPicB.Image = image;
+                    }
+                }
+                else
+                {
+                    // Set PictureBox image to a default image or null if there's no image data
+                    CafeDeLunaDashboard.cafeDeLunaInstance.MenuPicB.Image = null;
+                }
+            }
+            catch (ArgumentException ex)
+            {
+                // Handle the exception if the byte array does not represent a valid image format
+                MessageBox.Show("Error loading image: Invalid image data format.");
+                MessageBox.Show("Exception Details: " + ex.Message);
+
+                // Set PictureBox image to a default image or show an error image
+                CafeDeLunaDashboard.cafeDeLunaInstance.VariationPicB.Image = null; // Set pictureBox image to default or show an error image
+            }
+            catch (Exception ex)
+            {
+                // Handle other exceptions
+                MessageBox.Show("Error loading image: " + ex.Message);
+
+                // Set PictureBox image to a default image or show an error image
+                CafeDeLunaDashboard.cafeDeLunaInstance.VariationPicB.Image = null; // Set pictureBox image to default or show an error image
+            }
+        }
+        public byte[] GetMenuImageDataFromDatabase(int mealID)
+        {
+
+            try
+            {
+                using (conn)
+                {
+                    conn.Open();
+                    string query = "SELECT MealImage FROM meal WHERE MealID = @mealID";
+
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    {
+                        command.Parameters.AddWithValue("@mealID", mealID);
+
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && result != DBNull.Value)
+                        {
+                            return (byte[])result;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ito?: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return null;
+        }
     }
 
     internal class DailySalesReportMethod
     {
         private readonly MySqlConnection conn;
-        private readonly string mysqlcon = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
+        private readonly string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
 
         public DailySalesReportMethod()
         {
@@ -447,7 +537,7 @@ namespace CafeSystem
     internal class WeeklySalesReportMethod
     {
         private readonly MySqlConnection conn;
-        private readonly string mysqlcon = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
+        private readonly string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
 
         public WeeklySalesReportMethod()
         {
@@ -519,7 +609,7 @@ namespace CafeSystem
     internal class MonthlySalesReportMethod
     {
         private readonly MySqlConnection conn;
-        private readonly string mysqlcon = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
+        private readonly string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
 
         public MonthlySalesReportMethod()
         {
