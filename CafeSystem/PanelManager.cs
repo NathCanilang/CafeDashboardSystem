@@ -74,6 +74,7 @@ namespace CafeSystem
             else if(panelToShow == AddMenuPanel)
             {
                 adminMethods.LoadMenuItems();
+                adminMethods.RefreshTblForMenu();
             }
         }
     }

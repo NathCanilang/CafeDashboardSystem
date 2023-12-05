@@ -43,8 +43,20 @@ namespace CafeSystem
             {
                 adapter.Fill(dt);
             }
-
             CafeDeLunaDashboard.cafeDeLunaInstance.AccDataTbl.DataSource = dt;
+        }
+
+        public void RefreshTblForMenu()
+        {
+            string query = "SELECT MealID, MealName, MealImage FROM meal";
+            DataTable dt = new DataTable();
+
+            using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn))
+            {
+                adapter.Fill(dt);
+            }
+            CafeDeLunaDashboard.cafeDeLunaInstance.MenuTbl.DataSource = dt;
+
         }
         public Image ResizeImages(Image image, int width, int height)
         {
@@ -358,8 +370,10 @@ namespace CafeSystem
         {
             CafeDeLunaDashboard.cafeDeLunaInstance.AccDataTbl.AutoResizeRow(e.RowIndex, DataGridViewAutoSizeRowMode.AllCells);
         }
+    }
 
-
+    internal class DisplayMenuInfoPic
+    {
 
     }
 

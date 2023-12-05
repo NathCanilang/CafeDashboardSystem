@@ -743,8 +743,8 @@ namespace CafeSystem
                         Image selectedImage = Image.FromFile(openFileDialog.FileName);
 
                         // Resize the selected image
-                        int newWidth = 745; // Set the new width
-                        int newHeight = 110; // Set the new height
+                        int newWidth = 163; // Set the new width
+                        int newHeight = 128; // Set the new height
                         Image resizedImage = adminMethods.ResizeImages(selectedImage, newWidth, newHeight);
 
                         MenuPicB.Image = resizedImage;
