@@ -11,7 +11,7 @@ using iText.Layout;
 using iText.Layout.Element;
 using iText.Layout.Properties;
 using iText.IO.Image;
-using Image = System.Drawing.Image; 
+using Image = System.Drawing.Image;
 using TextAlignment = iText.Layout.Properties.TextAlignment;
 using iText.Layout.Splitting;
 using iText.Layout.Borders;
@@ -44,6 +44,7 @@ namespace CafeSystem
         private readonly SalesPanelManager salesPanelManager;
         private readonly DisplayEmployeeIDPic displayEmployeeIDPic = new DisplayEmployeeIDPic();
         private readonly DisplayMealPic displayMealPic = new DisplayMealPic();
+        private readonly DisplayMenuInfoPic displayMenuInfoPic = new DisplayMenuInfoPic();
         private byte[] imageData;
         private decimal totalPrice = 0.00m;
         private bool isSearchTextPlaceholder = true;
@@ -56,6 +57,7 @@ namespace CafeSystem
 
         bool isNewImageSelected = false;
         bool isNewFoodImageSelected = false;
+        bool isNewMenuImageSelected = false;
         bool IsEditMode = false;
 
         public CafeDeLunaDashboard()
@@ -67,6 +69,17 @@ namespace CafeSystem
             loginPanelManager = new LoginPanelManager(LoginPanelContainer, AdminPanelContainer, SalesPanelContainer, ManagerStaffPanelContainer);
             adminPanelManager = new AdminPanelManager(AdminHomePanel, AccountManagementPanel, AddMenuPanel);
             salesPanelManager = new SalesPanelManager(DailyReportPanel, WeeklyReportPanel, MonthlyReportPanel);
+
+            //Placeholders
+            TextboxPlaceholders.SetPlaceholder(LastNTxtB_AP, "Last Name");
+            TextboxPlaceholders.SetPlaceholder(FirstNTxtB_AP, "First Name");
+            TextboxPlaceholders.SetPlaceholder(MiddleNTxtB_AP, "Middle Name");
+            TextboxPlaceholders.SetPlaceholder(MenuNTxtB, "Menu Name");
+            TextboxPlaceholders.SetPlaceholder(VariationNmTxtB, "Food Name");
+            TextboxPlaceholders.SetPlaceholder(VariationDescTxtB, "Food Description");
+            TextboxPlaceholders.SetPlaceholder(VariationCostTxtB, "Food Cost");
+            TextboxPlaceholders.SetPlaceholder(SearchTxtbx, "Search Food");
+
 
             //Startup Panels
             loginPanelManager.ShowPanel(LoginPanelContainer);
@@ -107,9 +120,10 @@ namespace CafeSystem
             //Admin Panel
             FoodTbl.DataError += new DataGridViewDataErrorEventHandler(displayMealPic.FoodTable_DataError);
             FoodTbl.RowPostPaint += new DataGridViewRowPostPaintEventHandler(displayMealPic.FoodTable_RowPostPaint);
-
             AccDataTbl.DataError += new DataGridViewDataErrorEventHandler(displayEmployeeIDPic.EmployeeTable_DataError);
             AccDataTbl.RowPostPaint += new DataGridViewRowPostPaintEventHandler(displayEmployeeIDPic.EmployeeTable_RowPostPaint);
+            MenuTbl.DataError += new DataGridViewDataErrorEventHandler(displayMenuInfoPic.MenuTable_DataError);
+            MenuTbl.RowPostPaint += new DataGridViewRowPostPaintEventHandler(displayMenuInfoPic.MenuTable_RowPostPaint);
 
             PositionComB_AP.Items.AddRange(position);
             PositionComB_AP.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -128,13 +142,12 @@ namespace CafeSystem
             logoutBtn.Parent = pictureBox8;
             lgoutLbl.Parent = pictureBox8;
             searchpicBox.Parent = pictureBox8;
-
         }
 
         private void LogoutLbl_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure that you want to Log-out?", "Attention", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if(result == DialogResult.Yes)
+            if (result == DialogResult.Yes)
             {
                 loginPanelManager.ShowPanel(LoginPanelContainer);
             }
@@ -262,6 +275,7 @@ namespace CafeSystem
                 MessageBox.Show("Admin login successful", "Welcome, Admin", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 PositionTxtBox2.Text = "Admin";
                 loginPanelManager.ShowPanel(AdminPanelContainer);
+                adminPanelManager.ShowPanel(AdminHomePanel);
             }
             else
             {
@@ -272,7 +286,7 @@ namespace CafeSystem
 
                     string query = "SELECT Position, Username, EmployeeID FROM employee_acc WHERE Username = @username COLLATE utf8mb4_bin " +
                           "AND Password = @password COLLATE utf8mb4_bin";
-                    
+
                     using (MySqlCommand command = new MySqlCommand(query, conn))
                     {
                         command.Parameters.AddWithValue("@username", usernameInput);
@@ -338,12 +352,12 @@ namespace CafeSystem
         private void showpasschckBx_CheckedChanged(object sender, EventArgs e)
         {
             if (showpasschckBx.Checked)
-            {    
-                LoginPasswordTxtB.PasswordChar = '\0'; 
+            {
+                LoginPasswordTxtB.PasswordChar = '\0';
             }
             else
             {
-                LoginPasswordTxtB.PasswordChar = '*'; 
+                LoginPasswordTxtB.PasswordChar = '*';
             }
         }
 
@@ -461,6 +475,19 @@ namespace CafeSystem
 
                     adminMethods.RefreshTbl();
                     MessageBox.Show("Account Created!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    TextboxPlaceholders.SetPlaceholder(LastNTxtB_AP, "Last Name");
+                    TextboxPlaceholders.SetPlaceholder(FirstNTxtB_AP, "First Name");
+                    TextboxPlaceholders.SetPlaceholder(MiddleNTxtB_AP, "Middle Name");
+                    UserBirthdate.Value = DateTime.Today;
+                    AgeTxtB_AP.Text = "";
+                    UsernameTxtB_AP.Text = "";
+                    PasswordTxtB_AP.Text = "";
+                    EmailTxtB_AP.Text = "";
+                    PositionComB_AP.SelectedIndex = -1;
+                    UserPicB.Image = Properties.Resources.addusericon;
+                    adminPanelManager.ShowPanel(AccountManagementPanel);
+
                 }
                 catch (MySqlException a)
                 {
@@ -487,73 +514,74 @@ namespace CafeSystem
 
         private void EditAccBtn_Click(object sender, EventArgs e)
         {
+            if (AccDataTbl.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a row for editing.", "Try again", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             DialogResult result = MessageBox.Show("Are you sure you want to edit accounts?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                if (AccDataTbl.SelectedRows.Count == 1)
+                // Rest of your code for handling the editing process
+                IsEditMode = true;
+                UpdateAccBtn.Show();
+                CancelAccBtn.Show();
+                CreateAccBtn.Hide();
+                EditAccBtn.Hide();
+
+                DataGridViewRow selectedRow = AccDataTbl.SelectedRows[0];
+                string nameColumn = selectedRow.Cells["Name"].Value.ToString();
+                string birthdayColumn = selectedRow.Cells["Birthday"].Value.ToString().Trim();
+                string ageColumn = selectedRow.Cells["Age"].Value.ToString();
+                string emailColumn = selectedRow.Cells["Email"].Value.ToString();
+                string usernameColumn = selectedRow.Cells["Username"].Value.ToString();
+                string positionColumn = selectedRow.Cells["Position"].Value.ToString();
+                int employeeIDColumn = Convert.ToInt32(selectedRow.Cells["EmployeeID"].Value);
+                string[] nameParts = nameColumn.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+                EmployeeIDBeingEdited = Convert.ToInt32(selectedRow.Cells["EmployeeID"].Value);
+
+                if (nameParts.Length > 0)
                 {
-                    IsEditMode = true;
-                    UpdateAccBtn.Show();
-                    CancelAccBtn.Show();
-                    CreateAccBtn.Hide();
-                    EditAccBtn.Hide();
+                    string lastName = nameParts[0].Trim();
+                    LastNTxtB_AP.Text = lastName;
+                }
 
-                    DataGridViewRow selectedRow = AccDataTbl.SelectedRows[0];
-                    string nameColumn = selectedRow.Cells["Name"].Value.ToString();
-                    string birthdayColumn = selectedRow.Cells["Birthday"].Value.ToString().Trim();
-                    string ageColumn = selectedRow.Cells["Age"].Value.ToString();
-                    string emailColumn = selectedRow.Cells["Email"].Value.ToString();
-                    string usernameColumn = selectedRow.Cells["Username"].Value.ToString();
-                    string positionColumn = selectedRow.Cells["Position"].Value.ToString();
-                    int employeeIDColumn = Convert.ToInt32(AccDataTbl.SelectedRows[0].Cells["EmployeeID"].Value);
-                    string[] nameParts = nameColumn.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                if (nameParts.Length > 1)
+                {
+                    string[] firstMiddleNameParts = nameParts[1].Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-                    EmployeeIDBeingEdited = Convert.ToInt32(AccDataTbl.SelectedRows[0].Cells["EmployeeID"].Value);
-
-
-                    if (nameParts.Length > 0)
+                    if (firstMiddleNameParts.Length > 0)
                     {
-                        string lastName = nameParts[0].Trim();      // Trim the last name
-                        LastNTxtB_AP.Text = lastName;
+                        string firstName = firstMiddleNameParts[0].Trim();
+                        FirstNTxtB_AP.Text = firstName;
                     }
 
-                    if (nameParts.Length > 1)
+                    if (firstMiddleNameParts.Length > 1)
                     {
-                        string[] firstMiddleNameParts = nameParts[1].Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-
-                        if (firstMiddleNameParts.Length > 0)
-                        {
-                            string firstName = firstMiddleNameParts[0].Trim();     // Trim the first name
-                            FirstNTxtB_AP.Text = firstName;
-                        }
-
-                        if (firstMiddleNameParts.Length > 1)
-                        {
-                            string middleName = firstMiddleNameParts[1].Trim();    // Trim the middle name
-                            MiddleNTxtB_AP.Text = middleName;
-                        }
+                        string middleName = firstMiddleNameParts[1].Trim();
+                        MiddleNTxtB_AP.Text = middleName;
                     }
-                    if (DateTime.TryParse(birthdayColumn, out DateTime birthday))
-                    {
-                        UserBirthdate.Value = birthday;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid date format in the 'Birthday' column.", "Try again", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
+                }
 
-                    AgeTxtB_AP.Text = ageColumn;
-                    EmailTxtB_AP.Text = emailColumn;
-                    UsernameTxtB_AP.Text = usernameColumn;
-                    PositionComB_AP.Text = positionColumn;
-                    EmployeeIDTxtB_AP.Text = employeeIDColumn.ToString();
-                    displayEmployeeIDPic.LoadUserImage(employeeIDColumn);
+                if (DateTime.TryParse(birthdayColumn, out DateTime birthday))
+                {
+                    UserBirthdate.Value = birthday;
                 }
                 else
                 {
-                    MessageBox.Show("Please select a single row for editing.", "Try again", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Invalid date format in the 'Birthday' column.", "Try again", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+
+                AgeTxtB_AP.Text = ageColumn;
+                EmailTxtB_AP.Text = emailColumn;
+                UsernameTxtB_AP.Text = usernameColumn;
+                PositionComB_AP.Text = positionColumn;
+                EmployeeIDTxtB_AP.Text = employeeIDColumn.ToString();
+                displayEmployeeIDPic.LoadUserImage(employeeIDColumn);
             }
+
         }
 
         private void CancelAccBtn_Click(object sender, EventArgs e)
@@ -684,7 +712,7 @@ namespace CafeSystem
                     }
 
                     cmdDataBase.ExecuteNonQuery();
-                    
+
                     adminMethods.RefreshTbl();
                     MessageBox.Show("Account Updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -743,12 +771,12 @@ namespace CafeSystem
                         Image selectedImage = Image.FromFile(openFileDialog.FileName);
 
                         // Resize the selected image
-                        int newWidth = 745; // Set the new width
-                        int newHeight = 110; // Set the new height
+                        int newWidth = 163; // Set the new width
+                        int newHeight = 128; // Set the new height
                         Image resizedImage = adminMethods.ResizeImages(selectedImage, newWidth, newHeight);
 
                         MenuPicB.Image = resizedImage;
-                        isNewImageSelected = true; // Set the flag to true
+                        isNewMenuImageSelected = true; // Set the flag to true
                     }
                     catch (Exception ex)
                     {
@@ -795,9 +823,9 @@ namespace CafeSystem
                     adminMethods.PopulateMealComboBox();
                     MessageBox.Show("New meal added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    //TxtPlaceholder.SetPlaceholder(MenuNTxtB, "Menu Name");
-                    MenuPicB.Image = null;
-
+                    TextboxPlaceholders.SetPlaceholder(MenuNTxtB, "Menu Name");
+                    MenuPicB.Image = Properties.Resources.addmenuicon;
+                    MenuID.Clear();
                 }
                 catch (MySqlException a)
                 {
@@ -815,7 +843,7 @@ namespace CafeSystem
                     conn.Close();
                 }
             }
-            MenuPicB.Image = Properties.Resources.addmenuicon;
+            
         }
 
         private void VarietyAddImgBtn_Click(object sender, EventArgs e)
@@ -897,9 +925,12 @@ namespace CafeSystem
                     MessageBox.Show("New variation added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     TextboxPlaceholders.SetPlaceholder(VariationNmTxtB, "Food Name");
-                    TextboxPlaceholders.SetPlaceholder(VariationDescTxtB, "Description");
-                    TextboxPlaceholders.SetPlaceholder(VariationCostTxtB, "Price");
-                    VariationPicB.Image = null;
+                    TextboxPlaceholders.SetPlaceholder(VariationDescTxtB, "Food Description");
+                    TextboxPlaceholders.SetPlaceholder(VariationCostTxtB, "Food Cost");
+                    VariationPicB.Image = Properties.Resources.addfoodicon;
+                    MenuSelectComB.SelectedIndex = -1;
+                    VariationIDTxtBox.Clear();
+                    adminPanelManager.ShowPanel(AddMenuPanel);
                 }
                 catch (MySqlException a)
                 {
@@ -922,10 +953,15 @@ namespace CafeSystem
 
         private void EditMealBtn_Click(object sender, EventArgs e)
         {
+            if (FoodTbl.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a row for editing.", "Try again", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             DialogResult result = MessageBox.Show("Are you sure you want to edit this meal?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                AddVarietyBtn.Enabled = false;
                 if (FoodTbl.SelectedRows.Count == 1)
                 {
                     DataGridViewRow selectedRow = FoodTbl.SelectedRows[0];
@@ -935,7 +971,7 @@ namespace CafeSystem
                     string variationCost = selectedRow.Cells["VariationCost"].Value.ToString();
                     string mealID = selectedRow.Cells["MealID"].Value.ToString();
                     string variationID = selectedRow.Cells["VariationID"].Value.ToString();
-                    int variationIDColumn = Convert.ToInt32(FoodTbl.SelectedRows[0].Cells["VariationID"].Value);
+                    int variationIDColumn = Convert.ToInt32(selectedRow.Cells["VariationID"].Value);
 
                     VariationNmTxtB.Text = variationName;
                     VariationDescTxtB.Text = variationDesc;
@@ -943,20 +979,23 @@ namespace CafeSystem
                     VariationIDTxtBox.Text = variationID;
                     displayMealPic.LoadMenuItemImageFood(variationIDColumn);
 
+                    AddVarietyBtn.Enabled = false;
+                    UpdateMealBtn.Show();
+                    CancelMealBtn.Show();
+                    EditMealBtn.Hide();
+
                     try
                     {
                         conn.Open();
                         string sqlQuery = "SELECT MealName FROM meal WHERE mealID = @mealID";
                         MySqlCommand cmdDataBase = new MySqlCommand(sqlQuery, conn);
-                        cmdDataBase.Parameters.AddWithValue("@mealID", mealID); // Replace 'yourMealID' with the actual mealID
+                        cmdDataBase.Parameters.AddWithValue("@mealID", mealID);
                         MySqlDataReader reader = cmdDataBase.ExecuteReader();
-
-                        // Loop through the results and add them to the ComboBox
 
                         if (reader.Read())
                         {
                             string mealName = reader.GetString(0);
-                            MenuSelectComB.SelectedItem = mealName; // Set the selected item in the ComboBox
+                            MenuSelectComB.SelectedItem = mealName;
                         }
                         reader.Close();
                     }
@@ -974,13 +1013,8 @@ namespace CafeSystem
                 {
                     MessageBox.Show("Please select a single row for editing.", "Try again", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                UpdateMealBtn.Show();
-                CancelMealBtn.Show();
-                EditMealBtn.Hide();
             }
         }
-
-        
 
         private void UpdateMealBtn_Click(object sender, EventArgs e)
         {
@@ -1076,12 +1110,11 @@ namespace CafeSystem
             EditMealBtn.Show();
 
             TextboxPlaceholders.SetPlaceholder(VariationNmTxtB, "Food Name");
-            TextboxPlaceholders.SetPlaceholder(VariationDescTxtB, "Description");
-            TextboxPlaceholders.SetPlaceholder(VariationCostTxtB, "Price");
+            TextboxPlaceholders.SetPlaceholder(VariationDescTxtB, "Food Description");
+            TextboxPlaceholders.SetPlaceholder(VariationCostTxtB, "Food Cost");
             VariationPicB.Image = Properties.Resources.addfoodicon;
             MenuSelectComB.SelectedIndex = -1;
             VariationIDTxtBox.Clear();
-
             adminPanelManager.ShowPanel(AddMenuPanel);
         }
 
@@ -1094,12 +1127,165 @@ namespace CafeSystem
 
 
             TextboxPlaceholders.SetPlaceholder(VariationNmTxtB, "Food Name");
-            TextboxPlaceholders.SetPlaceholder(VariationDescTxtB, "Description");
-            TextboxPlaceholders.SetPlaceholder(VariationCostTxtB, "Price");
+            TextboxPlaceholders.SetPlaceholder(VariationDescTxtB, "Food Description");
+            TextboxPlaceholders.SetPlaceholder(VariationCostTxtB, "Food Cost");
             VariationPicB.Image = Properties.Resources.addfoodicon;
             MenuSelectComB.SelectedIndex = -1;
             VariationIDTxtBox.Clear();
+            adminPanelManager.ShowPanel(AddMenuPanel);
+        }
 
+        private void EditMenuBtn_Click(object sender, EventArgs e)
+        {
+            if (MenuTbl.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a row for editing.", "Try again", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Are you sure you want to edit this meal?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                if (MenuTbl.SelectedRows.Count == 1)
+                {
+                    DataGridViewRow selectedRow = MenuTbl.SelectedRows[0];
+
+                    string MenuName = selectedRow.Cells["MealName"].Value.ToString();
+                    string mealID = selectedRow.Cells["MealID"].Value.ToString();
+                    int mealIDColumn = Convert.ToInt32(selectedRow.Cells["MealID"].Value);
+
+                    MenuNTxtB.Text = MenuName;
+                    MenuID.Text = mealID;
+                    displayMenuInfoPic.LoadMenuItemImageFood(mealIDColumn);
+
+                    AddMenuBtn.Enabled = false;
+                    UpdateMenuBtn.Show();
+                    CancelMenuEdit.Show();
+                    EditMenuBtn.Hide();
+
+                    try
+                    {
+                        conn.Open();
+                        string sqlQuery = "SELECT MealName FROM meal WHERE mealID = @mealID";
+                        MySqlCommand cmdDataBase = new MySqlCommand(sqlQuery, conn);
+                        cmdDataBase.Parameters.AddWithValue("@mealID", mealID);
+                        MySqlDataReader reader = cmdDataBase.ExecuteReader();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please select a single row for editing.", "Try again", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void CancelMenuEdit_Click(object sender, EventArgs e)
+        {
+            UpdateMenuBtn.Hide();
+            CancelMenuEdit.Hide();
+            EditMenuBtn.Show();
+            AddMenuBtn.Enabled = true;
+
+            TextboxPlaceholders.SetPlaceholder(MenuNTxtB, "Menu Name");
+            MenuPicB.Image = Properties.Resources.addmenuicon;
+            MenuID.Clear();
+
+            adminPanelManager.ShowPanel(AddMenuPanel);
+        }
+
+        private void UpdateMenuBtn_Click(object sender, EventArgs e)
+        {
+            string mealName = MenuNTxtB.Text;
+            int menuID = Convert.ToInt32(MenuTbl.SelectedRows[0].Cells["MealID"].Value);
+
+            if (string.IsNullOrWhiteSpace(mealName) || mealName == "Menu Name")
+            {
+                MessageBox.Show("Please fill out all the required data", "Missing Informations", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            DialogResult choices = MessageBox.Show("Are you sure the information you have entered is correct?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (choices == DialogResult.Yes)
+            {
+                try
+                {
+                    conn.Open();
+                    string updateQuery = "UPDATE meal SET MealName = @mealName";
+
+                    byte[] imageData = null;
+
+                    if (isNewMenuImageSelected)
+                    {
+                        using (Bitmap bmp = new Bitmap(MenuPicB.Image))
+                        {
+                            using (MemoryStream ms = new MemoryStream())
+                            {
+                                bmp.Save(ms, ImageFormat.Jpeg); // You can choose the format you want
+                                imageData = ms.ToArray();
+                                updateQuery += ", MealImage = @mealImage";
+                            }
+                        }
+                    }
+
+                    updateQuery += " WHERE MealID = @mealID";
+
+                    MySqlCommand cmdDataBase = new MySqlCommand(updateQuery, conn);
+                    cmdDataBase.Parameters.AddWithValue("@mealName", mealName);
+                    cmdDataBase.Parameters.AddWithValue("@mealID", menuID);
+
+                    if (isNewMenuImageSelected)
+                    {
+                        cmdDataBase.Parameters.AddWithValue("@MealImage", imageData);
+                    }
+
+                    cmdDataBase.ExecuteNonQuery();
+
+                    adminMethods.LoadMenuItems();
+                    MessageBox.Show("Menu Updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    AddVarietyBtn.Enabled = true;
+                    TextboxPlaceholders.SetPlaceholder(MenuNTxtB, "Menu Name");
+                    MenuPicB.Image = Properties.Resources.addmenuicon;
+                    MenuID.Clear();
+
+                    UpdateMenuBtn.Hide();
+                    CancelMenuEdit.Hide();
+                    EditMenuBtn.Show();
+                }
+
+                catch (MySqlException a)
+                {
+                    if (a.Number == 1062)
+                    {
+                        MessageBox.Show("Menu name already exist.", "Add variation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show(a.Message, "Add Menu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception b)
+                {
+                    MessageBox.Show(b.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+
+            MenuNTxtB.Clear();
+            MenuID.Clear();
+            MenuPicB.Image = Properties.Resources.addmenuicon;
             adminPanelManager.ShowPanel(AddMenuPanel);
         }
 
