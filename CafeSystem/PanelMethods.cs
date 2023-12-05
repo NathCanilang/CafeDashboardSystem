@@ -18,7 +18,7 @@ namespace CafeSystem
 
         public AdminMethods()
         {
-            string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
+            string mysqlcon = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
             conn = new MySqlConnection(mysqlcon);
         }
         public int AgeCalculation(DateTime employeeBirth)
@@ -76,7 +76,7 @@ namespace CafeSystem
         {
             CafeDeLunaDashboard.cafeDeLunaInstance.MenuSelectComB.Items.Clear();
 
-            string connectionString = "server=localhost;user=root;database=dashboarddb;password=";
+            string connectionString = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
 
             try
             {
@@ -110,7 +110,7 @@ namespace CafeSystem
         }
         public int GetMealIDFromDatabase(string mealName)
         {
-            string connectionString = "server=localhost;user=root;database=dashboarddb;password=";
+            string connectionString = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
             int mealID = -1;
 
             try
@@ -191,7 +191,7 @@ namespace CafeSystem
         private readonly MySqlConnection conn;
         public DisplayMealPic()
         {
-            string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
+            string mysqlcon = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
             conn = new MySqlConnection(mysqlcon);
         }
         public void LoadMenuItemImageFood(int variationID)
@@ -283,7 +283,7 @@ namespace CafeSystem
         private readonly MySqlConnection conn;
         public DisplayEmployeeIDPic()
         {
-            string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
+            string mysqlcon = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
             conn = new MySqlConnection(mysqlcon);
         }
 
@@ -377,7 +377,7 @@ namespace CafeSystem
         private readonly MySqlConnection conn;
         public DisplayMenuInfoPic()
         {
-            string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
+            string mysqlcon = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
             conn = new MySqlConnection(mysqlcon);
         }
        
@@ -470,7 +470,7 @@ namespace CafeSystem
     internal class DailySalesReportMethod
     {
         private readonly MySqlConnection conn;
-        private readonly string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
+        private readonly string mysqlcon = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
 
         public DailySalesReportMethod()
         {
@@ -537,7 +537,7 @@ namespace CafeSystem
     internal class WeeklySalesReportMethod
     {
         private readonly MySqlConnection conn;
-        private readonly string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
+        private readonly string mysqlcon = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
 
         public WeeklySalesReportMethod()
         {
@@ -609,7 +609,7 @@ namespace CafeSystem
     internal class MonthlySalesReportMethod
     {
         private readonly MySqlConnection conn;
-        private readonly string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
+        private readonly string mysqlcon = "server=154.41.240.153;user=u322177170_NathTuba;database=u322177170_NathTuba;password=/Nvqh3z:V0";
 
         public MonthlySalesReportMethod()
         {
