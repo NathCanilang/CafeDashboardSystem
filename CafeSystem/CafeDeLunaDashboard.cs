@@ -205,10 +205,12 @@ namespace CafeSystem
             {
                 loginPanelManager.ShowPanel(AdminPanelContainer);
                 adminPanelManager.ShowPanel(AdminHomePanel);
+                ClearSalesTable();
             }
             else
             {
                 loginPanelManager.ShowPanel(ManagerStaffPanelContainer);
+                ClearSalesTable();
             }
         }
 
@@ -278,6 +280,7 @@ namespace CafeSystem
                 PositionTxtBox2.Text = "Admin";
                 loginPanelManager.ShowPanel(AdminPanelContainer);
                 adminPanelManager.ShowPanel(AdminHomePanel);
+                showpasschckBx.Checked = false;
             }
             else
             {
@@ -314,6 +317,7 @@ namespace CafeSystem
                                         PositionTxtBox2.Text = "Manager";
                                         SalesReportBtn.Enabled = true;
                                         PositionTxtBox.Text = "Manager";
+                                        showpasschckBx.Checked = false;
                                     }
                                     else if (userRole == "Cashier")
                                     {
@@ -321,10 +325,11 @@ namespace CafeSystem
                                         loginPanelManager.ShowPanel(ManagerStaffPanelContainer);
                                         SalesReportBtn.Enabled = false;
                                         PositionTxtBox.Text = "Staff";
+                                        showpasschckBx.Checked = false;
                                     }
                                     else if (userRole == "Disabled")
                                     {
-                                        MessageBox.Show("Invalid Access", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        MessageBox.Show("Invalid Account", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
                                     GetData();
                                 }
@@ -338,8 +343,9 @@ namespace CafeSystem
                 }
 
             }
-            LoginUsernameTxtB.Text = "";
-            LoginPasswordTxtB.Text = "";
+            TextboxPlaceholders.SetPlaceholder(LoginUsernameTxtB, "Enter Username");
+            TextboxPlaceholders.SetPlaceholder(LoginPasswordTxtB, "Enter Password", true);
+            showpasschckBx.Checked = false;
         }
 
         private void LoginPasswordTxtB_KeyDown(object sender, KeyEventArgs e)
@@ -488,6 +494,7 @@ namespace CafeSystem
                     EmailTxtB_AP.Text = "";
                     PositionComB_AP.SelectedIndex = -1;
                     UserPicB.Image = Properties.Resources.addusericon;
+                    EmployeePasswordChckB.Checked = false;
                     adminPanelManager.ShowPanel(AccountManagementPanel);
 
                 }
@@ -610,6 +617,7 @@ namespace CafeSystem
                 EmailTxtB_AP.Text = "";
                 PositionComB_AP.SelectedIndex = -1;
                 UserPicB.Image = Properties.Resources.addusericon;
+                EmployeePasswordChckB.Checked = false;
 
                 adminPanelManager.ShowPanel(AccountManagementPanel);
             }
@@ -757,7 +765,7 @@ namespace CafeSystem
             EmailTxtB_AP.Text = "";
             PositionComB_AP.SelectedIndex = -1;
             UserPicB.Image = Properties.Resources.addusericon;
-
+            EmployeePasswordChckB.Checked = false;
             adminPanelManager.ShowPanel(AccountManagementPanel);
         }
 
@@ -847,6 +855,7 @@ namespace CafeSystem
                 {
                     conn.Close();
                 }
+                adminMethods.RefreshTblForMenu();
             }
             
         }
@@ -2359,6 +2368,51 @@ namespace CafeSystem
             {
                 image.Save(ms, ImageFormat.Png);
                 return ms.ToArray();
+            }
+        }
+        public void ClearSalesTable()
+        {
+            /*DailyDGV.Rows.Clear();
+            MostSalesDailyTbl.Rows.Clear();
+            ComputedSalesDailyTbl.Rows.Clear();
+
+            WeeklyDGV.Rows.Clear();
+            MostSalesWeeklyTbl.Rows.Clear();
+            ComputedSalesWeeklyTbl.Rows.Clear();
+
+            MonthlyDGV.Rows.Clear();
+            MostSalesMonthlyTbl.Rows.Clear();
+            ComputedSalesMonthlyTbl.Rows.Clear();*/
+
+            // Assuming you have access to the DataTables that these DataGridViews are bound to
+            DataTable dtDaily = (DataTable)DailyDGV.DataSource;
+            DataTable dtWeekly = (DataTable)WeeklyDGV.DataSource;
+            DataTable dtMonthly = (DataTable)MonthlyDGV.DataSource;
+
+            if (dtDaily != null) dtDaily.Clear();
+            if (dtWeekly != null) dtWeekly.Clear();
+            if (dtMonthly != null) dtMonthly.Clear();
+
+            MostSalesDailyTbl.DataSource = null;
+            MostSalesWeeklyTbl.DataSource = null;
+            MostSalesMonthlyTbl.DataSource = null;
+
+            ComputedSalesDailyTbl.Rows.Clear();
+            ComputedSalesWeeklyTbl.Rows.Clear();
+            ComputedSalesMonthlyTbl.Rows.Clear();
+
+            StartDatePicker.Value = DateTime.Today;
+        }
+
+        private void EmployeePasswordChckB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (EmployeePasswordChckB.Checked)
+            {
+                PasswordTxtB_AP.PasswordChar = '\0';
+            }
+            else
+            {
+                PasswordTxtB_AP.PasswordChar = '*';
             }
         }
     }
