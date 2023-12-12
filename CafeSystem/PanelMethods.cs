@@ -43,8 +43,20 @@ namespace CafeSystem
             {
                 adapter.Fill(dt);
             }
-
             CafeDeLunaDashboard.cafeDeLunaInstance.AccDataTbl.DataSource = dt;
+        }
+
+        public void RefreshTblForMenu()
+        {
+            string query = "SELECT MealID, MealName, MealImage FROM meal";
+            DataTable dt = new DataTable();
+
+            using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn))
+            {
+                adapter.Fill(dt);
+            }
+            CafeDeLunaDashboard.cafeDeLunaInstance.MenuTbl.DataSource = dt;
+
         }
         public Image ResizeImages(Image image, int width, int height)
         {
@@ -59,77 +71,7 @@ namespace CafeSystem
             }
             return destImage;
         }
-        public byte[] GetImageDataFromDatabase(int employeeID)
-        {
-            string connectionString = "server=localhost;user=root;database=dashboarddb;password=";
-
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
-                {
-                    connection.Open();
-                    string query = "SELECT EmployeeIMG FROM employee_acc WHERE EmployeeID = @employeeID";
-
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@employeeID", employeeID);
-
-                        object result = command.ExecuteScalar();
-
-                        if (result != null && result != DBNull.Value)
-                        {
-                            return (byte[])result;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            return null;
-        }
-        public void LoadUserImage(int variationID)
-        {
-            byte[] imageData = GetImageDataFromDatabase(variationID); // Call a new method to get image data
-
-            try
-            {
-                if (imageData != null && imageData.Length > 0)
-                {
-                    using (MemoryStream ms = new MemoryStream(imageData))
-                    {
-                        Image image = Image.FromStream(ms);
-
-                        // Set the PictureBox image only if the conversion succeeds
-                        CafeDeLunaDashboard.cafeDeLunaInstance.UserPicB.Image = image;
-                    }
-                }
-                else
-                {
-                    // Set PictureBox image to a default image or null if there's no image data
-                    CafeDeLunaDashboard.cafeDeLunaInstance.UserPicB.Image = null;
-                }
-            }
-            catch (ArgumentException ex)
-            {
-                // Handle the exception if the byte array does not represent a valid image format
-                MessageBox.Show("Error loading image: Invalid image data format.");
-                MessageBox.Show("Exception Details: " + ex.Message);
-
-                // Set PictureBox image to a default image or show an error image
-                CafeDeLunaDashboard.cafeDeLunaInstance.UserPicB.Image = null; // Set pictureBox image to default or show an error image
-            }
-            catch (Exception ex)
-            {
-                // Handle other exceptions
-                MessageBox.Show("Error loading image: " + ex.Message);
-
-                // Set PictureBox image to a default image or show an error image
-                CafeDeLunaDashboard.cafeDeLunaInstance.UserPicB.Image = null; // Set pictureBox image to default or show an error image
-            }
-        }
+        
         public void PopulateMealComboBox()
         {
             CafeDeLunaDashboard.cafeDeLunaInstance.MenuSelectComB.Items.Clear();
@@ -243,19 +185,14 @@ namespace CafeSystem
                 }
             }
         }
-        public void FoodTable_DataError(object sender, DataGridViewDataErrorEventArgs e)
+    }
+    internal class DisplayMealPic
+    {
+        private readonly MySqlConnection conn;
+        public DisplayMealPic()
         {
-            if (e.ColumnIndex == 0) // Assuming column index for "AccountPfp" is 1
-            {
-                // Set the cell value to null to display an empty cell
-                e.ThrowException = false;
-                CafeDeLunaDashboard.cafeDeLunaInstance.FoodTbl[e.ColumnIndex, e.RowIndex].Value = null;
-            }
-        }
-
-        public void FoodTable_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            CafeDeLunaDashboard.cafeDeLunaInstance.FoodTbl.AutoResizeRow(e.RowIndex, DataGridViewAutoSizeRowMode.AllCells);
+            string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
+            conn = new MySqlConnection(mysqlcon);
         }
         public void LoadMenuItemImageFood(int variationID)
         {
@@ -297,19 +234,17 @@ namespace CafeSystem
                 CafeDeLunaDashboard.cafeDeLunaInstance.VariationPicB.Image = null; // Set pictureBox image to default or show an error image
             }
         }
-
         public byte[] GetFoodImageDataFromDatabase(int variationID)
         {
-            string connectionString = "server=localhost;user=root;database=dashboarddb;password=";
-
+           
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (conn)
                 {
-                    connection.Open();
+                    conn.Open();
                     string query = "SELECT MealImage FROM mealvariation WHERE VariationID = @variationID";
 
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
                     {
                         command.Parameters.AddWithValue("@variationID", variationID);
 
@@ -328,7 +263,210 @@ namespace CafeSystem
             }
             return null;
         }
+        public void FoodTable_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            if (e.ColumnIndex == 0) // Assuming column index for "AccountPfp" is 1
+            {
+                // Set the cell value to null to display an empty cell
+                e.ThrowException = false;
+                CafeDeLunaDashboard.cafeDeLunaInstance.FoodTbl[e.ColumnIndex, e.RowIndex].Value = null;
+            }
+        }
+
+        public void FoodTable_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            CafeDeLunaDashboard.cafeDeLunaInstance.FoodTbl.AutoResizeRow(e.RowIndex, DataGridViewAutoSizeRowMode.AllCells);
+        }
     }
+    internal class DisplayEmployeeIDPic
+    {
+        private readonly MySqlConnection conn;
+        public DisplayEmployeeIDPic()
+        {
+            string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
+            conn = new MySqlConnection(mysqlcon);
+        }
+
+        public byte[] GetImageDataFromDatabase(int employeeID)
+        {
+            try
+            {
+                using (conn)
+                {
+                    conn.Open();
+                    string query = "SELECT EmployeeIMG FROM employee_acc WHERE EmployeeID = @employeeID";
+
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    {
+                        command.Parameters.AddWithValue("@employeeID", employeeID);
+
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && result != DBNull.Value)
+                        {
+                            return (byte[])result;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return null;
+        }
+        public void LoadUserImage(int variationID)
+        {
+            byte[] imageData = GetImageDataFromDatabase(variationID); // Call a new method to get image data
+
+            try
+            {
+                if (imageData != null && imageData.Length > 0)
+                {
+                    using (MemoryStream ms = new MemoryStream(imageData))
+                    {
+                        Image image = Image.FromStream(ms);
+
+                        // Set the PictureBox image only if the conversion succeeds
+                        CafeDeLunaDashboard.cafeDeLunaInstance.UserPicB.Image = image;
+                    }
+                }
+                else
+                {
+                    // Set PictureBox image to a default image or null if there's no image data
+                    CafeDeLunaDashboard.cafeDeLunaInstance.UserPicB.Image = null;
+                }
+            }
+            catch (ArgumentException ex)
+            {
+                // Handle the exception if the byte array does not represent a valid image format
+                MessageBox.Show("Error loading image: Invalid image data format.");
+                MessageBox.Show("Exception Details: " + ex.Message);
+
+                // Set PictureBox image to a default image or show an error image
+                CafeDeLunaDashboard.cafeDeLunaInstance.UserPicB.Image = null; // Set pictureBox image to default or show an error image
+            }
+            catch (Exception ex)
+            {
+                // Handle other exceptions
+                MessageBox.Show("Error loading image: " + ex.Message);
+
+                // Set PictureBox image to a default image or show an error image
+                CafeDeLunaDashboard.cafeDeLunaInstance.UserPicB.Image = null; // Set pictureBox image to default or show an error image
+            }
+        }
+        public void EmployeeTable_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            if (e.ColumnIndex == 0) // Assuming column index for "AccountPfp" is 1
+            {
+                // Set the cell value to null to display an empty cell
+                e.ThrowException = false;
+                CafeDeLunaDashboard.cafeDeLunaInstance.AccDataTbl[e.ColumnIndex, e.RowIndex].Value = null;
+            }
+        }
+
+        public void  EmployeeTable_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            CafeDeLunaDashboard.cafeDeLunaInstance.AccDataTbl.AutoResizeRow(e.RowIndex, DataGridViewAutoSizeRowMode.AllCells);
+        }
+    }
+
+    internal class DisplayMenuInfoPic
+    {
+        private readonly MySqlConnection conn;
+        public DisplayMenuInfoPic()
+        {
+            string mysqlcon = "server=localhost;user=root;database=dashboarddb;password=";
+            conn = new MySqlConnection(mysqlcon);
+        }
+       
+        public void MenuTable_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            if (e.ColumnIndex == 0) // Assuming column index for "AccountPfp" is 1
+            {
+                // Set the cell value to null to display an empty cell
+                e.ThrowException = false;
+                CafeDeLunaDashboard.cafeDeLunaInstance.MenuTbl[e.ColumnIndex, e.RowIndex].Value = null;
+            }
+        }
+
+        public void MenuTable_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            CafeDeLunaDashboard.cafeDeLunaInstance.MenuTbl.AutoResizeRow(e.RowIndex, DataGridViewAutoSizeRowMode.AllCells);
+        }
+
+        public void LoadMenuItemImageFood(int variationID)
+        {
+            byte[] imageData = GetMenuImageDataFromDatabase(variationID); // Call a new method to get image data
+
+            try
+            {
+                if (imageData != null && imageData.Length > 0)
+                {
+                    using (MemoryStream ms = new MemoryStream(imageData))
+                    {
+                        Image image = Image.FromStream(ms);
+
+                        // Set the PictureBox image only if the conversion succeeds
+                        CafeDeLunaDashboard.cafeDeLunaInstance.MenuPicB.Image = image;
+                    }
+                }
+                else
+                {
+                    // Set PictureBox image to a default image or null if there's no image data
+                    CafeDeLunaDashboard.cafeDeLunaInstance.MenuPicB.Image = null;
+                }
+            }
+            catch (ArgumentException ex)
+            {
+                // Handle the exception if the byte array does not represent a valid image format
+                MessageBox.Show("Error loading image: Invalid image data format.");
+                MessageBox.Show("Exception Details: " + ex.Message);
+
+                // Set PictureBox image to a default image or show an error image
+                CafeDeLunaDashboard.cafeDeLunaInstance.VariationPicB.Image = null; // Set pictureBox image to default or show an error image
+            }
+            catch (Exception ex)
+            {
+                // Handle other exceptions
+                MessageBox.Show("Error loading image: " + ex.Message);
+
+                // Set PictureBox image to a default image or show an error image
+                CafeDeLunaDashboard.cafeDeLunaInstance.VariationPicB.Image = null; // Set pictureBox image to default or show an error image
+            }
+        }
+        public byte[] GetMenuImageDataFromDatabase(int mealID)
+        {
+
+            try
+            {
+                using (conn)
+                {
+                    conn.Open();
+                    string query = "SELECT MealImage FROM meal WHERE MealID = @mealID";
+
+                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    {
+                        command.Parameters.AddWithValue("@mealID", mealID);
+
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && result != DBNull.Value)
+                        {
+                            return (byte[])result;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ito?: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return null;
+        }
+    }
+
     internal class DailySalesReportMethod
     {
         private readonly MySqlConnection conn;
@@ -345,7 +483,7 @@ namespace CafeSystem
             conn.Open();
 
             // Get sales data for the selected date
-            string query = "SELECT * FROM Sales WHERE DATE(SaleDate) = @Date";
+            string query = "SELECT * FROM sales WHERE DATE(SaleDate) = @Date";
             using (MySqlCommand command = new MySqlCommand(query, conn))
             {
                 command.Parameters.Add(new MySqlParameter("@Date", MySqlDbType.Date) { Value = selectedDate.Date });
@@ -364,7 +502,7 @@ namespace CafeSystem
 
         public decimal CalculateSalesForDay(DateTime date)
         {
-            string query = "SELECT SUM(Amount) AS TotalSales FROM Sales WHERE DATE(SaleDate) = @Date";
+            string query = "SELECT SUM(Amount) AS TotalSales FROM sales WHERE DATE(SaleDate) = @Date";
 
             using (MySqlCommand command = new MySqlCommand(query, conn))
             {
@@ -407,7 +545,7 @@ namespace CafeSystem
         }
         public decimal CalculateSalesForWeek(DateTime startDate, DateTime endDate)
         {
-            string query = "SELECT SUM(Amount) AS TotalSales FROM Sales WHERE DATE(SaleDate) BETWEEN @StartDate AND @EndDate";
+            string query = "SELECT SUM(Amount) AS TotalSales FROM sales WHERE DATE(SaleDate) BETWEEN @StartDate AND @EndDate";
 
             using (MySqlCommand command = new MySqlCommand(query, conn))
             {
@@ -425,7 +563,7 @@ namespace CafeSystem
             conn.Open();
 
             // Get sales data for the selected week
-            string query = "SELECT * FROM Sales WHERE DATE(SaleDate) BETWEEN @StartDate AND @EndDate";
+            string query = "SELECT * FROM sales WHERE DATE(SaleDate) BETWEEN @StartDate AND @EndDate";
             using (MySqlCommand command = new MySqlCommand(query, conn))
             {
                 command.Parameters.Add(new MySqlParameter("@StartDate", MySqlDbType.Date) { Value = startDate });
@@ -479,7 +617,7 @@ namespace CafeSystem
         }
         public decimal CalculateSalesForMonth(DateTime startDate, DateTime endDate)
         {
-            string query = "SELECT SUM(Amount) AS TotalSales FROM Sales WHERE DATE(SaleDate) BETWEEN @StartDate AND @EndDate";
+            string query = "SELECT SUM(Amount) AS TotalSales FROM sales WHERE DATE(SaleDate) BETWEEN @StartDate AND @EndDate";
 
             using (MySqlCommand command = new MySqlCommand(query, conn))
             {
@@ -497,7 +635,7 @@ namespace CafeSystem
             conn.Open();
 
             // Get sales data for the selected month
-            string query = "SELECT * FROM Sales WHERE DATE(SaleDate) BETWEEN @StartDate AND @EndDate";
+            string query = "SELECT * FROM sales WHERE DATE(SaleDate) BETWEEN @StartDate AND @EndDate";
             using (MySqlCommand command = new MySqlCommand(query, conn))
             {
                 command.Parameters.Add(new MySqlParameter("@StartDate", MySqlDbType.Date) { Value = startDate });

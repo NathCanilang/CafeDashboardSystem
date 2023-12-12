@@ -55,11 +55,16 @@
             this.AdminHomePanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.AddMenuPanel = new System.Windows.Forms.Panel();
+            this.MenuID = new System.Windows.Forms.TextBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.CancelMenuEdit = new System.Windows.Forms.Button();
+            this.UpdateMenuBtn = new System.Windows.Forms.Button();
+            this.EditMenuBtn = new System.Windows.Forms.Button();
+            this.MenuTbl = new System.Windows.Forms.DataGridView();
             this.label13 = new System.Windows.Forms.Label();
             this.VariationIDTxtBox = new System.Windows.Forms.TextBox();
             this.AddVarietyBtn = new System.Windows.Forms.Button();
             this.CancelMealBtn = new System.Windows.Forms.Button();
-            this.DeleteFoodlBtn = new System.Windows.Forms.Button();
             this.UpdateMealBtn = new System.Windows.Forms.Button();
             this.VarietyAddImgBtn = new System.Windows.Forms.Button();
             this.EditMealBtn = new System.Windows.Forms.Button();
@@ -187,6 +192,8 @@
             this.AdminHomePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.AddMenuPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MenuTbl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FoodTbl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VariationPicB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MenuPicB)).BeginInit();
@@ -227,7 +234,7 @@
             // 
             this.MainPanelsCL.ContainerControl = this;
             this.MainPanelsCL.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.MainPanelsCL.SelectedCard = "Card2";
+            this.MainPanelsCL.SelectedCard = "Card6";
             // 
             // LoginPanelContainer
             // 
@@ -315,7 +322,6 @@
             this.LoginPasswordTxtB.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoginPasswordTxtB.Location = new System.Drawing.Point(246, 352);
             this.LoginPasswordTxtB.Name = "LoginPasswordTxtB";
-            this.LoginPasswordTxtB.PasswordChar = '*';
             this.LoginPasswordTxtB.Size = new System.Drawing.Size(254, 42);
             this.LoginPasswordTxtB.TabIndex = 1;
             this.LoginPasswordTxtB.TextChanged += new System.EventHandler(this.LoginPasswordTxtB_TextChanged);
@@ -426,11 +432,16 @@
             // 
             this.AddMenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(218)))), ((int)(((byte)(206)))));
             this.AdminControlsCL.SetCardName(this.AddMenuPanel, "Card2");
+            this.AddMenuPanel.Controls.Add(this.MenuID);
+            this.AddMenuPanel.Controls.Add(this.dataGridView2);
+            this.AddMenuPanel.Controls.Add(this.CancelMenuEdit);
+            this.AddMenuPanel.Controls.Add(this.UpdateMenuBtn);
+            this.AddMenuPanel.Controls.Add(this.EditMenuBtn);
+            this.AddMenuPanel.Controls.Add(this.MenuTbl);
             this.AddMenuPanel.Controls.Add(this.label13);
             this.AddMenuPanel.Controls.Add(this.VariationIDTxtBox);
             this.AddMenuPanel.Controls.Add(this.AddVarietyBtn);
             this.AddMenuPanel.Controls.Add(this.CancelMealBtn);
-            this.AddMenuPanel.Controls.Add(this.DeleteFoodlBtn);
             this.AddMenuPanel.Controls.Add(this.UpdateMealBtn);
             this.AddMenuPanel.Controls.Add(this.VarietyAddImgBtn);
             this.AddMenuPanel.Controls.Add(this.EditMealBtn);
@@ -452,11 +463,104 @@
             this.AddMenuPanel.Size = new System.Drawing.Size(1104, 661);
             this.AddMenuPanel.TabIndex = 1;
             // 
+            // MenuID
+            // 
+            this.MenuID.Enabled = false;
+            this.MenuID.Location = new System.Drawing.Point(1013, 78);
+            this.MenuID.Name = "MenuID";
+            this.MenuID.Size = new System.Drawing.Size(37, 20);
+            this.MenuID.TabIndex = 25;
+            this.MenuID.Visible = false;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(25, -264);
+            this.dataGridView2.MultiSelect = false;
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(687, 235);
+            this.dataGridView2.TabIndex = 24;
+            // 
+            // CancelMenuEdit
+            // 
+            this.CancelMenuEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
+            this.CancelMenuEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CancelMenuEdit.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.CancelMenuEdit.FlatAppearance.BorderSize = 2;
+            this.CancelMenuEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelMenuEdit.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelMenuEdit.ForeColor = System.Drawing.Color.White;
+            this.CancelMenuEdit.Location = new System.Drawing.Point(377, 284);
+            this.CancelMenuEdit.Name = "CancelMenuEdit";
+            this.CancelMenuEdit.Size = new System.Drawing.Size(335, 33);
+            this.CancelMenuEdit.TabIndex = 23;
+            this.CancelMenuEdit.Text = "Cancel Edit";
+            this.CancelMenuEdit.UseVisualStyleBackColor = false;
+            this.CancelMenuEdit.Visible = false;
+            this.CancelMenuEdit.Click += new System.EventHandler(this.CancelMenuEdit_Click);
+            // 
+            // UpdateMenuBtn
+            // 
+            this.UpdateMenuBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
+            this.UpdateMenuBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UpdateMenuBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.UpdateMenuBtn.FlatAppearance.BorderSize = 2;
+            this.UpdateMenuBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateMenuBtn.Font = new System.Drawing.Font("Handmade", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateMenuBtn.ForeColor = System.Drawing.Color.White;
+            this.UpdateMenuBtn.Location = new System.Drawing.Point(25, 284);
+            this.UpdateMenuBtn.Name = "UpdateMenuBtn";
+            this.UpdateMenuBtn.Size = new System.Drawing.Size(335, 33);
+            this.UpdateMenuBtn.TabIndex = 22;
+            this.UpdateMenuBtn.Text = "Update Menu Details";
+            this.UpdateMenuBtn.UseVisualStyleBackColor = false;
+            this.UpdateMenuBtn.Visible = false;
+            this.UpdateMenuBtn.Click += new System.EventHandler(this.UpdateMenuBtn_Click);
+            // 
+            // EditMenuBtn
+            // 
+            this.EditMenuBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
+            this.EditMenuBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EditMenuBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.EditMenuBtn.FlatAppearance.BorderSize = 2;
+            this.EditMenuBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditMenuBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditMenuBtn.ForeColor = System.Drawing.Color.White;
+            this.EditMenuBtn.Location = new System.Drawing.Point(25, 284);
+            this.EditMenuBtn.Name = "EditMenuBtn";
+            this.EditMenuBtn.Size = new System.Drawing.Size(687, 33);
+            this.EditMenuBtn.TabIndex = 21;
+            this.EditMenuBtn.Text = "Edit Menu Details";
+            this.EditMenuBtn.UseVisualStyleBackColor = false;
+            this.EditMenuBtn.Click += new System.EventHandler(this.EditMenuBtn_Click);
+            // 
+            // MenuTbl
+            // 
+            this.MenuTbl.AllowUserToAddRows = false;
+            this.MenuTbl.AllowUserToDeleteRows = false;
+            this.MenuTbl.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MenuTbl.BackgroundColor = System.Drawing.Color.White;
+            this.MenuTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MenuTbl.Location = new System.Drawing.Point(25, 43);
+            this.MenuTbl.MultiSelect = false;
+            this.MenuTbl.Name = "MenuTbl";
+            this.MenuTbl.ReadOnly = true;
+            this.MenuTbl.RowHeadersWidth = 51;
+            this.MenuTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MenuTbl.Size = new System.Drawing.Size(687, 235);
+            this.MenuTbl.TabIndex = 20;
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Handmade", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(892, 294);
+            this.label13.Location = new System.Drawing.Point(888, 337);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(90, 32);
             this.label13.TabIndex = 2;
@@ -465,7 +569,7 @@
             // VariationIDTxtBox
             // 
             this.VariationIDTxtBox.Enabled = false;
-            this.VariationIDTxtBox.Location = new System.Drawing.Point(1019, 437);
+            this.VariationIDTxtBox.Location = new System.Drawing.Point(1013, 480);
             this.VariationIDTxtBox.Name = "VariationIDTxtBox";
             this.VariationIDTxtBox.Size = new System.Drawing.Size(30, 20);
             this.VariationIDTxtBox.TabIndex = 19;
@@ -481,7 +585,7 @@
             this.AddVarietyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddVarietyBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddVarietyBtn.ForeColor = System.Drawing.Color.White;
-            this.AddVarietyBtn.Location = new System.Drawing.Point(929, 558);
+            this.AddVarietyBtn.Location = new System.Drawing.Point(923, 589);
             this.AddVarietyBtn.Name = "AddVarietyBtn";
             this.AddVarietyBtn.Size = new System.Drawing.Size(160, 35);
             this.AddVarietyBtn.TabIndex = 18;
@@ -498,30 +602,14 @@
             this.CancelMealBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelMealBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CancelMealBtn.ForeColor = System.Drawing.Color.White;
-            this.CancelMealBtn.Location = new System.Drawing.Point(383, 586);
+            this.CancelMealBtn.Location = new System.Drawing.Point(377, 591);
             this.CancelMealBtn.Name = "CancelMealBtn";
             this.CancelMealBtn.Size = new System.Drawing.Size(335, 33);
             this.CancelMealBtn.TabIndex = 17;
             this.CancelMealBtn.Text = "Cancel Edit";
             this.CancelMealBtn.UseVisualStyleBackColor = false;
+            this.CancelMealBtn.Visible = false;
             this.CancelMealBtn.Click += new System.EventHandler(this.CancelMealBtn_Click);
-            // 
-            // DeleteFoodlBtn
-            // 
-            this.DeleteFoodlBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
-            this.DeleteFoodlBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DeleteFoodlBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.DeleteFoodlBtn.FlatAppearance.BorderSize = 2;
-            this.DeleteFoodlBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteFoodlBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteFoodlBtn.ForeColor = System.Drawing.Color.White;
-            this.DeleteFoodlBtn.Location = new System.Drawing.Point(383, 547);
-            this.DeleteFoodlBtn.Name = "DeleteFoodlBtn";
-            this.DeleteFoodlBtn.Size = new System.Drawing.Size(335, 33);
-            this.DeleteFoodlBtn.TabIndex = 16;
-            this.DeleteFoodlBtn.Text = "Delete Food";
-            this.DeleteFoodlBtn.UseVisualStyleBackColor = false;
-            this.DeleteFoodlBtn.Click += new System.EventHandler(this.DeleteFoodlBtn_Click);
             // 
             // UpdateMealBtn
             // 
@@ -532,12 +620,13 @@
             this.UpdateMealBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UpdateMealBtn.Font = new System.Drawing.Font("Handmade", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpdateMealBtn.ForeColor = System.Drawing.Color.White;
-            this.UpdateMealBtn.Location = new System.Drawing.Point(31, 586);
+            this.UpdateMealBtn.Location = new System.Drawing.Point(25, 591);
             this.UpdateMealBtn.Name = "UpdateMealBtn";
             this.UpdateMealBtn.Size = new System.Drawing.Size(335, 33);
             this.UpdateMealBtn.TabIndex = 15;
             this.UpdateMealBtn.Text = "Update Food Details";
             this.UpdateMealBtn.UseVisualStyleBackColor = false;
+            this.UpdateMealBtn.Visible = false;
             this.UpdateMealBtn.Click += new System.EventHandler(this.UpdateMealBtn_Click);
             // 
             // VarietyAddImgBtn
@@ -549,7 +638,7 @@
             this.VarietyAddImgBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.VarietyAddImgBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VarietyAddImgBtn.ForeColor = System.Drawing.Color.White;
-            this.VarietyAddImgBtn.Location = new System.Drawing.Point(763, 556);
+            this.VarietyAddImgBtn.Location = new System.Drawing.Point(757, 587);
             this.VarietyAddImgBtn.Name = "VarietyAddImgBtn";
             this.VarietyAddImgBtn.Size = new System.Drawing.Size(160, 37);
             this.VarietyAddImgBtn.TabIndex = 14;
@@ -566,9 +655,9 @@
             this.EditMealBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EditMealBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditMealBtn.ForeColor = System.Drawing.Color.White;
-            this.EditMealBtn.Location = new System.Drawing.Point(31, 547);
+            this.EditMealBtn.Location = new System.Drawing.Point(25, 591);
             this.EditMealBtn.Name = "EditMealBtn";
-            this.EditMealBtn.Size = new System.Drawing.Size(335, 33);
+            this.EditMealBtn.Size = new System.Drawing.Size(687, 33);
             this.EditMealBtn.TabIndex = 13;
             this.EditMealBtn.Text = "Edit Food Details";
             this.EditMealBtn.UseVisualStyleBackColor = false;
@@ -577,7 +666,7 @@
             // MenuNTxtB
             // 
             this.MenuNTxtB.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MenuNTxtB.Location = new System.Drawing.Point(850, 176);
+            this.MenuNTxtB.Location = new System.Drawing.Point(844, 212);
             this.MenuNTxtB.Name = "MenuNTxtB";
             this.MenuNTxtB.Size = new System.Drawing.Size(163, 32);
             this.MenuNTxtB.TabIndex = 12;
@@ -591,7 +680,7 @@
             this.AddMenuBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddMenuBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddMenuBtn.ForeColor = System.Drawing.Color.White;
-            this.AddMenuBtn.Location = new System.Drawing.Point(929, 220);
+            this.AddMenuBtn.Location = new System.Drawing.Point(923, 251);
             this.AddMenuBtn.Name = "AddMenuBtn";
             this.AddMenuBtn.Size = new System.Drawing.Size(160, 37);
             this.AddMenuBtn.TabIndex = 11;
@@ -608,7 +697,7 @@
             this.MenuAddImgBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MenuAddImgBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MenuAddImgBtn.ForeColor = System.Drawing.Color.White;
-            this.MenuAddImgBtn.Location = new System.Drawing.Point(763, 220);
+            this.MenuAddImgBtn.Location = new System.Drawing.Point(757, 251);
             this.MenuAddImgBtn.Name = "MenuAddImgBtn";
             this.MenuAddImgBtn.Size = new System.Drawing.Size(160, 37);
             this.MenuAddImgBtn.TabIndex = 10;
@@ -620,7 +709,7 @@
             // 
             this.MenuSelectComB.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MenuSelectComB.FormattingEnabled = true;
-            this.MenuSelectComB.Location = new System.Drawing.Point(929, 519);
+            this.MenuSelectComB.Location = new System.Drawing.Point(923, 548);
             this.MenuSelectComB.Name = "MenuSelectComB";
             this.MenuSelectComB.Size = new System.Drawing.Size(160, 33);
             this.MenuSelectComB.TabIndex = 8;
@@ -628,7 +717,7 @@
             // VariationCostTxtB
             // 
             this.VariationCostTxtB.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VariationCostTxtB.Location = new System.Drawing.Point(763, 519);
+            this.VariationCostTxtB.Location = new System.Drawing.Point(757, 548);
             this.VariationCostTxtB.Name = "VariationCostTxtB";
             this.VariationCostTxtB.Size = new System.Drawing.Size(160, 32);
             this.VariationCostTxtB.TabIndex = 7;
@@ -636,7 +725,7 @@
             // VariationDescTxtB
             // 
             this.VariationDescTxtB.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VariationDescTxtB.Location = new System.Drawing.Point(929, 481);
+            this.VariationDescTxtB.Location = new System.Drawing.Point(923, 510);
             this.VariationDescTxtB.Name = "VariationDescTxtB";
             this.VariationDescTxtB.Size = new System.Drawing.Size(160, 32);
             this.VariationDescTxtB.TabIndex = 6;
@@ -644,7 +733,7 @@
             // VariationNmTxtB
             // 
             this.VariationNmTxtB.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VariationNmTxtB.Location = new System.Drawing.Point(763, 481);
+            this.VariationNmTxtB.Location = new System.Drawing.Point(757, 510);
             this.VariationNmTxtB.Name = "VariationNmTxtB";
             this.VariationNmTxtB.Size = new System.Drawing.Size(160, 32);
             this.VariationNmTxtB.TabIndex = 5;
@@ -653,7 +742,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Handmade", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(872, 12);
+            this.label12.Location = new System.Drawing.Point(860, 43);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(122, 32);
             this.label12.TabIndex = 1;
@@ -665,19 +754,19 @@
             this.FoodTbl.AllowUserToDeleteRows = false;
             this.FoodTbl.BackgroundColor = System.Drawing.Color.White;
             this.FoodTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.FoodTbl.Location = new System.Drawing.Point(31, 12);
+            this.FoodTbl.Location = new System.Drawing.Point(25, 350);
             this.FoodTbl.MultiSelect = false;
             this.FoodTbl.Name = "FoodTbl";
             this.FoodTbl.ReadOnly = true;
             this.FoodTbl.RowHeadersWidth = 51;
             this.FoodTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.FoodTbl.Size = new System.Drawing.Size(687, 529);
+            this.FoodTbl.Size = new System.Drawing.Size(687, 235);
             this.FoodTbl.TabIndex = 0;
             // 
             // VariationPicB
             // 
             this.VariationPicB.Image = global::CafeSystem.Properties.Resources.addfoodicon;
-            this.VariationPicB.Location = new System.Drawing.Point(850, 329);
+            this.VariationPicB.Location = new System.Drawing.Point(844, 372);
             this.VariationPicB.Name = "VariationPicB";
             this.VariationPicB.Size = new System.Drawing.Size(163, 128);
             this.VariationPicB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -689,7 +778,7 @@
             this.MenuPicB.BackColor = System.Drawing.Color.Transparent;
             this.MenuPicB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.MenuPicB.Image = global::CafeSystem.Properties.Resources.addmenuicon;
-            this.MenuPicB.Location = new System.Drawing.Point(850, 47);
+            this.MenuPicB.Location = new System.Drawing.Point(844, 78);
             this.MenuPicB.Name = "MenuPicB";
             this.MenuPicB.Size = new System.Drawing.Size(163, 128);
             this.MenuPicB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -739,7 +828,7 @@
             this.UserPicB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.UserPicB.Image = global::CafeSystem.Properties.Resources.addusericon;
             this.UserPicB.InitialImage = null;
-            this.UserPicB.Location = new System.Drawing.Point(173, 52);
+            this.UserPicB.Location = new System.Drawing.Point(175, 89);
             this.UserPicB.Name = "UserPicB";
             this.UserPicB.Size = new System.Drawing.Size(145, 115);
             this.UserPicB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -755,12 +844,13 @@
             this.CancelAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelAccBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CancelAccBtn.ForeColor = System.Drawing.Color.White;
-            this.CancelAccBtn.Location = new System.Drawing.Point(791, 579);
+            this.CancelAccBtn.Location = new System.Drawing.Point(787, 615);
             this.CancelAccBtn.Name = "CancelAccBtn";
-            this.CancelAccBtn.Size = new System.Drawing.Size(289, 38);
+            this.CancelAccBtn.Size = new System.Drawing.Size(305, 38);
             this.CancelAccBtn.TabIndex = 25;
             this.CancelAccBtn.Text = "Cancel Edit";
             this.CancelAccBtn.UseVisualStyleBackColor = false;
+            this.CancelAccBtn.Visible = false;
             this.CancelAccBtn.Click += new System.EventHandler(this.CancelAccBtn_Click);
             // 
             // UpdateAccBtn
@@ -772,12 +862,13 @@
             this.UpdateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UpdateAccBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpdateAccBtn.ForeColor = System.Drawing.Color.White;
-            this.UpdateAccBtn.Location = new System.Drawing.Point(491, 579);
+            this.UpdateAccBtn.Location = new System.Drawing.Point(471, 615);
             this.UpdateAccBtn.Name = "UpdateAccBtn";
-            this.UpdateAccBtn.Size = new System.Drawing.Size(289, 38);
+            this.UpdateAccBtn.Size = new System.Drawing.Size(305, 38);
             this.UpdateAccBtn.TabIndex = 24;
             this.UpdateAccBtn.Text = "Update Account";
             this.UpdateAccBtn.UseVisualStyleBackColor = false;
+            this.UpdateAccBtn.Visible = false;
             this.UpdateAccBtn.Click += new System.EventHandler(this.UpdateAccBtn_Click);
             // 
             // EditAccBtn
@@ -789,9 +880,9 @@
             this.EditAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EditAccBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditAccBtn.ForeColor = System.Drawing.Color.White;
-            this.EditAccBtn.Location = new System.Drawing.Point(791, 536);
+            this.EditAccBtn.Location = new System.Drawing.Point(787, 615);
             this.EditAccBtn.Name = "EditAccBtn";
-            this.EditAccBtn.Size = new System.Drawing.Size(289, 38);
+            this.EditAccBtn.Size = new System.Drawing.Size(305, 38);
             this.EditAccBtn.TabIndex = 23;
             this.EditAccBtn.Text = "Edit Account";
             this.EditAccBtn.UseVisualStyleBackColor = false;
@@ -806,9 +897,9 @@
             this.CreateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CreateAccBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CreateAccBtn.ForeColor = System.Drawing.Color.White;
-            this.CreateAccBtn.Location = new System.Drawing.Point(491, 536);
+            this.CreateAccBtn.Location = new System.Drawing.Point(471, 615);
             this.CreateAccBtn.Name = "CreateAccBtn";
-            this.CreateAccBtn.Size = new System.Drawing.Size(289, 38);
+            this.CreateAccBtn.Size = new System.Drawing.Size(305, 38);
             this.CreateAccBtn.TabIndex = 22;
             this.CreateAccBtn.Text = "Create Account";
             this.CreateAccBtn.UseVisualStyleBackColor = false;
@@ -817,7 +908,7 @@
             // label11
             // 
             this.label11.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(167, 14);
+            this.label11.Location = new System.Drawing.Point(169, 51);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(172, 33);
             this.label11.TabIndex = 21;
@@ -826,7 +917,7 @@
             // label10
             // 
             this.label10.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(222, 509);
+            this.label10.Location = new System.Drawing.Point(224, 546);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(132, 29);
             this.label10.TabIndex = 20;
@@ -835,7 +926,7 @@
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(74, 509);
+            this.label9.Location = new System.Drawing.Point(76, 546);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(100, 29);
             this.label9.TabIndex = 19;
@@ -844,7 +935,7 @@
             // label8
             // 
             this.label8.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(309, 411);
+            this.label8.Location = new System.Drawing.Point(311, 448);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(100, 29);
             this.label8.TabIndex = 18;
@@ -853,7 +944,7 @@
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(161, 411);
+            this.label7.Location = new System.Drawing.Point(163, 448);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(100, 29);
             this.label7.TabIndex = 17;
@@ -862,7 +953,7 @@
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(14, 411);
+            this.label6.Location = new System.Drawing.Point(16, 448);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(112, 29);
             this.label6.TabIndex = 16;
@@ -871,7 +962,7 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(13, 202);
+            this.label5.Location = new System.Drawing.Point(15, 239);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 33);
             this.label5.TabIndex = 15;
@@ -880,7 +971,7 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(311, 303);
+            this.label4.Location = new System.Drawing.Point(313, 340);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 37);
             this.label4.TabIndex = 14;
@@ -889,7 +980,7 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(16, 311);
+            this.label3.Location = new System.Drawing.Point(18, 348);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 29);
             this.label3.TabIndex = 13;
@@ -899,7 +990,7 @@
             // 
             this.EmployeeIDTxtB_AP.Enabled = false;
             this.EmployeeIDTxtB_AP.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmployeeIDTxtB_AP.Location = new System.Drawing.Point(226, 541);
+            this.EmployeeIDTxtB_AP.Location = new System.Drawing.Point(228, 578);
             this.EmployeeIDTxtB_AP.Name = "EmployeeIDTxtB_AP";
             this.EmployeeIDTxtB_AP.Size = new System.Drawing.Size(142, 32);
             this.EmployeeIDTxtB_AP.TabIndex = 12;
@@ -908,7 +999,7 @@
             // 
             this.PositionComB_AP.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PositionComB_AP.FormattingEnabled = true;
-            this.PositionComB_AP.Location = new System.Drawing.Point(78, 541);
+            this.PositionComB_AP.Location = new System.Drawing.Point(80, 578);
             this.PositionComB_AP.Name = "PositionComB_AP";
             this.PositionComB_AP.Size = new System.Drawing.Size(142, 33);
             this.PositionComB_AP.TabIndex = 11;
@@ -922,7 +1013,7 @@
             this.SelectImgBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SelectImgBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SelectImgBtn.ForeColor = System.Drawing.Color.White;
-            this.SelectImgBtn.Location = new System.Drawing.Point(173, 167);
+            this.SelectImgBtn.Location = new System.Drawing.Point(175, 204);
             this.SelectImgBtn.Name = "SelectImgBtn";
             this.SelectImgBtn.Size = new System.Drawing.Size(145, 38);
             this.SelectImgBtn.TabIndex = 10;
@@ -933,7 +1024,7 @@
             // EmailTxtB_AP
             // 
             this.EmailTxtB_AP.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmailTxtB_AP.Location = new System.Drawing.Point(313, 443);
+            this.EmailTxtB_AP.Location = new System.Drawing.Point(315, 480);
             this.EmailTxtB_AP.Name = "EmailTxtB_AP";
             this.EmailTxtB_AP.Size = new System.Drawing.Size(142, 32);
             this.EmailTxtB_AP.TabIndex = 8;
@@ -941,7 +1032,7 @@
             // PasswordTxtB_AP
             // 
             this.PasswordTxtB_AP.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordTxtB_AP.Location = new System.Drawing.Point(165, 443);
+            this.PasswordTxtB_AP.Location = new System.Drawing.Point(167, 480);
             this.PasswordTxtB_AP.Name = "PasswordTxtB_AP";
             this.PasswordTxtB_AP.Size = new System.Drawing.Size(142, 32);
             this.PasswordTxtB_AP.TabIndex = 7;
@@ -949,7 +1040,7 @@
             // UsernameTxtB_AP
             // 
             this.UsernameTxtB_AP.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameTxtB_AP.Location = new System.Drawing.Point(17, 443);
+            this.UsernameTxtB_AP.Location = new System.Drawing.Point(19, 480);
             this.UsernameTxtB_AP.Name = "UsernameTxtB_AP";
             this.UsernameTxtB_AP.Size = new System.Drawing.Size(142, 32);
             this.UsernameTxtB_AP.TabIndex = 6;
@@ -958,7 +1049,7 @@
             // 
             this.AgeTxtB_AP.Enabled = false;
             this.AgeTxtB_AP.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AgeTxtB_AP.Location = new System.Drawing.Point(315, 343);
+            this.AgeTxtB_AP.Location = new System.Drawing.Point(317, 380);
             this.AgeTxtB_AP.Name = "AgeTxtB_AP";
             this.AgeTxtB_AP.Size = new System.Drawing.Size(142, 32);
             this.AgeTxtB_AP.TabIndex = 5;
@@ -967,7 +1058,7 @@
             // 
             this.UserBirthdate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserBirthdate.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserBirthdate.Location = new System.Drawing.Point(19, 343);
+            this.UserBirthdate.Location = new System.Drawing.Point(21, 380);
             this.UserBirthdate.Name = "UserBirthdate";
             this.UserBirthdate.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.UserBirthdate.Size = new System.Drawing.Size(290, 32);
@@ -976,7 +1067,7 @@
             // MiddleNTxtB_AP
             // 
             this.MiddleNTxtB_AP.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MiddleNTxtB_AP.Location = new System.Drawing.Point(313, 240);
+            this.MiddleNTxtB_AP.Location = new System.Drawing.Point(315, 277);
             this.MiddleNTxtB_AP.Name = "MiddleNTxtB_AP";
             this.MiddleNTxtB_AP.Size = new System.Drawing.Size(142, 32);
             this.MiddleNTxtB_AP.TabIndex = 3;
@@ -984,7 +1075,7 @@
             // FirstNTxtB_AP
             // 
             this.FirstNTxtB_AP.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FirstNTxtB_AP.Location = new System.Drawing.Point(165, 240);
+            this.FirstNTxtB_AP.Location = new System.Drawing.Point(167, 277);
             this.FirstNTxtB_AP.Name = "FirstNTxtB_AP";
             this.FirstNTxtB_AP.Size = new System.Drawing.Size(142, 32);
             this.FirstNTxtB_AP.TabIndex = 2;
@@ -992,7 +1083,7 @@
             // LastNTxtB_AP
             // 
             this.LastNTxtB_AP.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LastNTxtB_AP.Location = new System.Drawing.Point(17, 240);
+            this.LastNTxtB_AP.Location = new System.Drawing.Point(19, 277);
             this.LastNTxtB_AP.Name = "LastNTxtB_AP";
             this.LastNTxtB_AP.Size = new System.Drawing.Size(142, 32);
             this.LastNTxtB_AP.TabIndex = 1;
@@ -1010,7 +1101,7 @@
             this.AccDataTbl.RowHeadersVisible = false;
             this.AccDataTbl.RowHeadersWidth = 51;
             this.AccDataTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.AccDataTbl.Size = new System.Drawing.Size(621, 517);
+            this.AccDataTbl.Size = new System.Drawing.Size(621, 597);
             this.AccDataTbl.TabIndex = 0;
             // 
             // NavigationPanel
@@ -1128,6 +1219,7 @@
             // 
             this.SalesReportBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
             this.SalesReportBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SalesReportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SalesReportBtn.Font = new System.Drawing.Font("Handmade", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SalesReportBtn.ForeColor = System.Drawing.Color.White;
             this.SalesReportBtn.Location = new System.Drawing.Point(1012, 612);
@@ -1379,6 +1471,7 @@
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 51;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1621,6 +1714,7 @@
             // MostSalesMonthlyTbl
             // 
             this.MostSalesMonthlyTbl.AllowUserToDeleteRows = false;
+            this.MostSalesMonthlyTbl.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MostSalesMonthlyTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MostSalesMonthlyTbl.Location = new System.Drawing.Point(557, 12);
             this.MostSalesMonthlyTbl.Name = "MostSalesMonthlyTbl";
@@ -1631,6 +1725,7 @@
             // MonthlyDGV
             // 
             this.MonthlyDGV.AllowUserToDeleteRows = false;
+            this.MonthlyDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MonthlyDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MonthlyDGV.Location = new System.Drawing.Point(21, 12);
             this.MonthlyDGV.Name = "MonthlyDGV";
@@ -1641,6 +1736,7 @@
             // GenerateMonthlyReportBtn
             // 
             this.GenerateMonthlyReportBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
+            this.GenerateMonthlyReportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GenerateMonthlyReportBtn.Font = new System.Drawing.Font("Handmade", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GenerateMonthlyReportBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(11)))));
             this.GenerateMonthlyReportBtn.Location = new System.Drawing.Point(232, 379);
@@ -1703,6 +1799,7 @@
             // 
             this.MostSalesWeeklyTbl.AllowUserToAddRows = false;
             this.MostSalesWeeklyTbl.AllowUserToDeleteRows = false;
+            this.MostSalesWeeklyTbl.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MostSalesWeeklyTbl.BackgroundColor = System.Drawing.Color.White;
             this.MostSalesWeeklyTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MostSalesWeeklyTbl.Location = new System.Drawing.Point(557, 12);
@@ -1716,6 +1813,7 @@
             // 
             this.WeeklyDGV.AllowUserToAddRows = false;
             this.WeeklyDGV.AllowUserToDeleteRows = false;
+            this.WeeklyDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.WeeklyDGV.BackgroundColor = System.Drawing.Color.White;
             this.WeeklyDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.WeeklyDGV.GridColor = System.Drawing.Color.Black;
@@ -1729,6 +1827,7 @@
             // GenerateWeeklyReportBtn
             // 
             this.GenerateWeeklyReportBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
+            this.GenerateWeeklyReportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GenerateWeeklyReportBtn.Font = new System.Drawing.Font("Handmade", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GenerateWeeklyReportBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(11)))));
             this.GenerateWeeklyReportBtn.Location = new System.Drawing.Point(232, 379);
@@ -1788,6 +1887,7 @@
             // MostSalesDailyTbl
             // 
             this.MostSalesDailyTbl.AllowUserToAddRows = false;
+            this.MostSalesDailyTbl.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.MostSalesDailyTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MostSalesDailyTbl.Location = new System.Drawing.Point(557, 12);
             this.MostSalesDailyTbl.Name = "MostSalesDailyTbl";
@@ -1798,6 +1898,7 @@
             // DailyDGV
             // 
             this.DailyDGV.AllowUserToAddRows = false;
+            this.DailyDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DailyDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DailyDGV.Location = new System.Drawing.Point(21, 12);
             this.DailyDGV.Name = "DailyDGV";
@@ -1809,6 +1910,7 @@
             // 
             this.GenerateDailyReportBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
             this.GenerateDailyReportBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GenerateDailyReportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GenerateDailyReportBtn.Font = new System.Drawing.Font("Handmade", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GenerateDailyReportBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(210)))), ((int)(((byte)(11)))));
             this.GenerateDailyReportBtn.Location = new System.Drawing.Point(232, 379);
@@ -1839,7 +1941,7 @@
             this.PositionTxtBox2.Enabled = false;
             this.PositionTxtBox2.Location = new System.Drawing.Point(10, 636);
             this.PositionTxtBox2.Name = "PositionTxtBox2";
-            this.PositionTxtBox2.Size = new System.Drawing.Size(151, 20);
+            this.PositionTxtBox2.Size = new System.Drawing.Size(23, 20);
             this.PositionTxtBox2.TabIndex = 6;
             this.PositionTxtBox2.Visible = false;
             // 
@@ -1918,13 +2020,13 @@
             // 
             this.AdminControlsCL.ContainerControl = this.AdminControlsPanel;
             this.AdminControlsCL.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.AdminControlsCL.SelectedCard = "Card2";
+            this.AdminControlsCL.SelectedCard = "Card1";
             // 
             // SalesControlCL
             // 
             this.SalesControlCL.ContainerControl = this.SalesPanel;
             this.SalesControlCL.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.SalesControlCL.SelectedCard = "Card2";
+            this.SalesControlCL.SelectedCard = "Card3";
             // 
             // CafeDeLunaDashboard
             // 
@@ -1936,6 +2038,7 @@
             this.Controls.Add(this.AdminPanelContainer);
             this.Controls.Add(this.LoginPanelContainer);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1300, 700);
             this.MinimumSize = new System.Drawing.Size(1300, 700);
@@ -1958,6 +2061,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.AddMenuPanel.ResumeLayout(false);
             this.AddMenuPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MenuTbl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FoodTbl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.VariationPicB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MenuPicB)).EndInit();
@@ -2050,7 +2155,7 @@
         private System.Windows.Forms.Button EditAccBtn;
         private System.Windows.Forms.Button CreateAccBtn;
         public System.Windows.Forms.DataGridView FoodTbl;
-        private System.Windows.Forms.PictureBox MenuPicB;
+        public System.Windows.Forms.PictureBox MenuPicB;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         public System.Windows.Forms.PictureBox VariationPicB;
@@ -2059,7 +2164,6 @@
         private System.Windows.Forms.TextBox VariationDescTxtB;
         private System.Windows.Forms.TextBox VariationNmTxtB;
         private System.Windows.Forms.Button CancelMealBtn;
-        private System.Windows.Forms.Button DeleteFoodlBtn;
         private System.Windows.Forms.Button UpdateMealBtn;
         private System.Windows.Forms.Button VarietyAddImgBtn;
         private System.Windows.Forms.Button EditMealBtn;
@@ -2140,6 +2244,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn WeeklSale;
         private System.Windows.Forms.DataGridViewTextBoxColumn DailyDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn DailyTotal;
+        public System.Windows.Forms.DataGridView MenuTbl;
+        public System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button CancelMenuEdit;
+        private System.Windows.Forms.Button UpdateMenuBtn;
+        private System.Windows.Forms.Button EditMenuBtn;
+        private System.Windows.Forms.TextBox MenuID;
     }
 }
 
