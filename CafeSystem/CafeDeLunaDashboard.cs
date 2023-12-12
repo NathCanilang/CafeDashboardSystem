@@ -71,6 +71,8 @@ namespace CafeSystem
             salesPanelManager = new SalesPanelManager(DailyReportPanel, WeeklyReportPanel, MonthlyReportPanel);
 
             //Placeholders
+            TextboxPlaceholders.SetPlaceholder(LoginUsernameTxtB, "Enter Username");
+            TextboxPlaceholders.SetPlaceholder(LoginPasswordTxtB, "Enter Password", true);
             TextboxPlaceholders.SetPlaceholder(LastNTxtB_AP, "Last Name");
             TextboxPlaceholders.SetPlaceholder(FirstNTxtB_AP, "First Name");
             TextboxPlaceholders.SetPlaceholder(MiddleNTxtB_AP, "Middle Name");
