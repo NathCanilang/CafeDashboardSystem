@@ -70,6 +70,7 @@ namespace CafeSystem
             {
                 adminMethods.GenerateAndSetRandomNumber();
                 adminMethods.RefreshTbl();
+                CafeDeLunaDashboard.cafeDeLunaInstance.AccDataTbl.Columns[5].Visible = false;
             }
             else if(panelToShow == AddMenuPanel)
             {

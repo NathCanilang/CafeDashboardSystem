@@ -554,7 +554,7 @@
             this.UpdateMenuBtn.Name = "UpdateMenuBtn";
             this.UpdateMenuBtn.Size = new System.Drawing.Size(335, 33);
             this.UpdateMenuBtn.TabIndex = 22;
-            this.UpdateMenuBtn.Text = "Update Menu Details";
+            this.UpdateMenuBtn.Text = "Update Category Details";
             this.UpdateMenuBtn.UseVisualStyleBackColor = false;
             this.UpdateMenuBtn.Visible = false;
             this.UpdateMenuBtn.Click += new System.EventHandler(this.UpdateMenuBtn_Click);
@@ -572,7 +572,7 @@
             this.EditMenuBtn.Name = "EditMenuBtn";
             this.EditMenuBtn.Size = new System.Drawing.Size(687, 33);
             this.EditMenuBtn.TabIndex = 21;
-            this.EditMenuBtn.Text = "Edit Menu Details";
+            this.EditMenuBtn.Text = "Edit Category Details";
             this.EditMenuBtn.UseVisualStyleBackColor = false;
             this.EditMenuBtn.Click += new System.EventHandler(this.EditMenuBtn_Click);
             // 
@@ -2356,7 +2356,7 @@
             // 
             this.AdminControlsCL.ContainerControl = this.AdminControlsPanel;
             this.AdminControlsCL.LayoutMode = Syncfusion.Windows.Forms.Tools.CardLayoutMode.Fill;
-            this.AdminControlsCL.SelectedCard = "Card1";
+            this.AdminControlsCL.SelectedCard = "Card2";
             // 
             // SalesControlCL
             // 
