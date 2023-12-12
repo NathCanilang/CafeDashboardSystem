@@ -1313,6 +1313,7 @@ namespace CafeSystem
         }
         private void GenerateWeeklyReportBtn_Click(object sender, EventArgs e)
         {
+            ComputedSalesWeeklyTbl.Rows.Clear();
             DateTime selectedDate = StartDatePicker.Value.Date;  // Only consider the date part
 
             // Calculate the start date (Sunday) of the week for the selected date
@@ -1330,6 +1331,7 @@ namespace CafeSystem
         }
         private void GenerateMonthlyReportBtn_Click(object sender, EventArgs e)
         {
+            ComputedSalesMonthlyTbl.Rows.Clear();
             DateTime selectedDate = StartDatePicker.Value;
             DateTime startDate = new DateTime(selectedDate.Year, selectedDate.Month, 1);  // Start date is the first day of the selected month
             DateTime endDate = startDate.AddMonths(1).AddDays(-1);  // End date is the last day of the selected month
