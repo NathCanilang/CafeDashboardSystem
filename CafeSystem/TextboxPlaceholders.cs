@@ -10,14 +10,15 @@ namespace CafeSystem
         {
             private readonly string placeholderText;
             private readonly bool isPassword; // New property to indicate if it's a password field
-
-            public readonly Color placeholderColor = Color.Gray;
             private readonly Color originalTextColor;
 
-            public PlaceholderHandler(string placeholderText, bool isPassword = false)
+            public readonly Color placeholderColor = Color.Gray;
+
+            public PlaceholderHandler(string placeholderText, TextBox textBox, bool isPassword = false)
             {
                 this.placeholderText = placeholderText;
                 this.isPassword = isPassword;
+                this.originalTextColor = textBox.ForeColor; // Initialize originalTextColor
             }
 
             public void Enter(object sender, EventArgs e)
@@ -56,7 +57,7 @@ namespace CafeSystem
 
         public static void SetPlaceholder(TextBox textBox, string placeholderText, bool isPassword = false)
         {
-            PlaceholderHandler handler = new PlaceholderHandler(placeholderText, isPassword);
+            PlaceholderHandler handler = new PlaceholderHandler(placeholderText, textBox, isPassword);
             textBox.Enter += handler.Enter;
             textBox.Leave += handler.Leave;
             textBox.ForeColor = handler.placeholderColor;

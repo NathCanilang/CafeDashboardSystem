@@ -548,6 +548,7 @@ namespace CafeSystem
                 {
                     string lastName = nameParts[0].Trim();
                     LastNTxtB_AP.Text = lastName;
+                    LastNTxtB_AP.ForeColor = Color.Black; // Set text color to black
                 }
 
                 if (nameParts.Length > 1)
@@ -558,12 +559,14 @@ namespace CafeSystem
                     {
                         string firstName = firstMiddleNameParts[0].Trim();
                         FirstNTxtB_AP.Text = firstName;
+                        FirstNTxtB_AP.ForeColor = Color.Black; // Set text color to black
                     }
 
                     if (firstMiddleNameParts.Length > 1)
                     {
                         string middleName = firstMiddleNameParts[1].Trim();
                         MiddleNTxtB_AP.Text = middleName;
+                        MiddleNTxtB_AP.ForeColor = Color.Black; // Set text color to black
                     }
                 }
 
@@ -976,8 +979,14 @@ namespace CafeSystem
                     int variationIDColumn = Convert.ToInt32(selectedRow.Cells["VariationID"].Value);
 
                     VariationNmTxtB.Text = variationName;
+                    VariationNmTxtB.ForeColor = Color.Black; // Set text color to black
+
                     VariationDescTxtB.Text = variationDesc;
+                    VariationDescTxtB.ForeColor = Color.Black; // Set text color to black
+
                     VariationCostTxtB.Text = variationCost;
+                    VariationCostTxtB.ForeColor = Color.Black; // Set text color to black
+
                     VariationIDTxtBox.Text = variationID;
                     displayMealPic.LoadMenuItemImageFood(variationIDColumn);
 
@@ -1157,6 +1166,8 @@ namespace CafeSystem
                     int mealIDColumn = Convert.ToInt32(selectedRow.Cells["MealID"].Value);
 
                     MenuNTxtB.Text = MenuName;
+                    MenuNTxtB.ForeColor = Color.Black; // Set text color to black
+
                     MenuID.Text = mealID;
                     displayMenuInfoPic.LoadMenuItemImageFood(mealIDColumn);
 
