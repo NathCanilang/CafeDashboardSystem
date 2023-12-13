@@ -330,6 +330,10 @@ namespace CafeSystem
                                     else if (userRole == "Disabled")
                                     {
                                         MessageBox.Show("Invalid Account", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        LoginPasswordTxtB.PasswordChar = '\0';
+                                        TextboxPlaceholders.SetPlaceholder(LoginUsernameTxtB, "Enter Username");
+                                        TextboxPlaceholders.SetPlaceholder(LoginPasswordTxtB, "Enter Password", true);
+
                                     }
                                     GetData();
                                 }
@@ -337,15 +341,19 @@ namespace CafeSystem
                             else
                             {
                                 MessageBox.Show("Invalid username and/or password.", "Try again", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                LoginPasswordTxtB.PasswordChar = '\0';
+                                TextboxPlaceholders.SetPlaceholder(LoginUsernameTxtB, "Enter Username");
+                                TextboxPlaceholders.SetPlaceholder(LoginPasswordTxtB, "Enter Password", true);
                             }
                         }
                     }
                 }
 
             }
+            showpasschckBx.Checked = false;
+            LoginPasswordTxtB.PasswordChar = '\0';
             TextboxPlaceholders.SetPlaceholder(LoginUsernameTxtB, "Enter Username");
             TextboxPlaceholders.SetPlaceholder(LoginPasswordTxtB, "Enter Password", true);
-            showpasschckBx.Checked = false;
         }
 
         private void LoginPasswordTxtB_KeyDown(object sender, KeyEventArgs e)
