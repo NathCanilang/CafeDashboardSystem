@@ -9,13 +9,16 @@ namespace CafeSystem
         public class PlaceholderHandler
         {
             private readonly string placeholderText;
-
-            public readonly Color placeholderColor = Color.Gray;
+            private readonly bool isPassword; // New property to indicate if it's a password field
             private readonly Color originalTextColor;
 
-            public PlaceholderHandler(string placeholderText)
+            public readonly Color placeholderColor = Color.Gray;
+
+            public PlaceholderHandler(string placeholderText, TextBox textBox, bool isPassword = false)
             {
                 this.placeholderText = placeholderText;
+                this.isPassword = isPassword;
+                this.originalTextColor = textBox.ForeColor; // Initialize originalTextColor
             }
 
             public void Enter(object sender, EventArgs e)
@@ -24,8 +27,14 @@ namespace CafeSystem
                 if (textBox.Text.Equals(this.placeholderText))
                 {
                     textBox.Text = string.Empty;
+                    textBox.ForeColor = originalTextColor;
+
+                    // Set password char property only if the current text is still the placeholder
+                    if (isPassword)
+                    {
+                        textBox.PasswordChar = '*'; // You can change '*' to any character you prefer
+                    }
                 }
-                textBox.ForeColor = originalTextColor;
             }
 
             public void Leave(object sender, EventArgs e)
@@ -36,12 +45,19 @@ namespace CafeSystem
                 {
                     textBox.Text = this.placeholderText;
                     textBox.ForeColor = placeholderColor;
+
+                    // Reset password char property
+                    if (isPassword)
+                    {
+                        textBox.PasswordChar = '\0'; // Set to '\0' to disable password char
+                    }
                 }
             }
         }
-        public static void SetPlaceholder(TextBox textBox, string placeholderText)
+
+        public static void SetPlaceholder(TextBox textBox, string placeholderText, bool isPassword = false)
         {
-            PlaceholderHandler handler = new PlaceholderHandler(placeholderText);
+            PlaceholderHandler handler = new PlaceholderHandler(placeholderText, textBox, isPassword);
             textBox.Enter += handler.Enter;
             textBox.Leave += handler.Leave;
             textBox.ForeColor = handler.placeholderColor;

@@ -25,13 +25,22 @@ namespace CafeSystem
         }
         public void ShowPanel(Panel panelToShow)
         {
-            // Main Panel
-            LoginPanelContainer.Hide();
-            AdminPanelContainer.Hide();
-            SalesPanelContainer.Hide();
-            ManagerStaffPanelContainer.Hide();
+            if (!panelToShow.Visible)
+            {
+                // Main Panel
+                LoginPanelContainer.Hide();
+                AdminPanelContainer.Hide();
+                SalesPanelContainer.Hide();
+                ManagerStaffPanelContainer.Hide();
 
-            panelToShow.Show();
+                panelToShow.Show();
+            }
+
+            if (panelToShow == ManagerStaffPanelContainer)
+            {
+                CafeDeLunaDashboard.cafeDeLunaInstance.GetData();
+                CafeDeLunaDashboard.cafeDeLunaInstance.GetData2();
+            }
         }
     }
 
@@ -61,10 +70,13 @@ namespace CafeSystem
             {
                 adminMethods.GenerateAndSetRandomNumber();
                 adminMethods.RefreshTbl();
+                CafeDeLunaDashboard.cafeDeLunaInstance.AccDataTbl.Columns[5].Visible = false;
             }
             else if(panelToShow == AddMenuPanel)
             {
                 adminMethods.LoadMenuItems();
+                adminMethods.RefreshTblForMenu();
+                adminMethods.PopulateMealComboBox();
             }
         }
     }
