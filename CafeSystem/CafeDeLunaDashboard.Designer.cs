@@ -116,6 +116,7 @@
             this.VariationPicB = new System.Windows.Forms.PictureBox();
             this.MenuPicB = new System.Windows.Forms.PictureBox();
             this.AccountManagementPanel = new System.Windows.Forms.Panel();
+            this.EmployeePasswordChckB = new System.Windows.Forms.CheckBox();
             this.UserPicB = new System.Windows.Forms.PictureBox();
             this.CancelAccBtn = new System.Windows.Forms.Button();
             this.UpdateAccBtn = new System.Windows.Forms.Button();
@@ -554,7 +555,7 @@
             this.UpdateMenuBtn.Name = "UpdateMenuBtn";
             this.UpdateMenuBtn.Size = new System.Drawing.Size(335, 33);
             this.UpdateMenuBtn.TabIndex = 22;
-            this.UpdateMenuBtn.Text = "Update Menu Details";
+            this.UpdateMenuBtn.Text = "Update Category Details";
             this.UpdateMenuBtn.UseVisualStyleBackColor = false;
             this.UpdateMenuBtn.Visible = false;
             this.UpdateMenuBtn.Click += new System.EventHandler(this.UpdateMenuBtn_Click);
@@ -572,7 +573,7 @@
             this.EditMenuBtn.Name = "EditMenuBtn";
             this.EditMenuBtn.Size = new System.Drawing.Size(687, 33);
             this.EditMenuBtn.TabIndex = 21;
-            this.EditMenuBtn.Text = "Edit Menu Details";
+            this.EditMenuBtn.Text = "Edit Category Details";
             this.EditMenuBtn.UseVisualStyleBackColor = false;
             this.EditMenuBtn.Click += new System.EventHandler(this.EditMenuBtn_Click);
             // 
@@ -860,6 +861,7 @@
             // 
             this.AccountManagementPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(218)))), ((int)(((byte)(206)))));
             this.AdminControlsCL.SetCardName(this.AccountManagementPanel, "Card1");
+            this.AccountManagementPanel.Controls.Add(this.EmployeePasswordChckB);
             this.AccountManagementPanel.Controls.Add(this.UserPicB);
             this.AccountManagementPanel.Controls.Add(this.CancelAccBtn);
             this.AccountManagementPanel.Controls.Add(this.UpdateAccBtn);
@@ -893,6 +895,17 @@
             this.AccountManagementPanel.Size = new System.Drawing.Size(1104, 661);
             this.AccountManagementPanel.TabIndex = 0;
             // 
+            // EmployeePasswordChckB
+            // 
+            this.EmployeePasswordChckB.AutoSize = true;
+            this.EmployeePasswordChckB.Location = new System.Drawing.Point(290, 488);
+            this.EmployeePasswordChckB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EmployeePasswordChckB.Name = "EmployeePasswordChckB";
+            this.EmployeePasswordChckB.Size = new System.Drawing.Size(15, 14);
+            this.EmployeePasswordChckB.TabIndex = 26;
+            this.EmployeePasswordChckB.UseVisualStyleBackColor = true;
+            this.EmployeePasswordChckB.CheckedChanged += new System.EventHandler(this.EmployeePasswordChckB_CheckedChanged);
+            // 
             // UserPicB
             // 
             this.UserPicB.BackColor = System.Drawing.Color.Transparent;
@@ -915,7 +928,7 @@
             this.CancelAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelAccBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CancelAccBtn.ForeColor = System.Drawing.Color.White;
-            this.CancelAccBtn.Location = new System.Drawing.Point(787, 615);
+            this.CancelAccBtn.Location = new System.Drawing.Point(787, 616);
             this.CancelAccBtn.Name = "CancelAccBtn";
             this.CancelAccBtn.Size = new System.Drawing.Size(305, 38);
             this.CancelAccBtn.TabIndex = 25;
@@ -933,7 +946,7 @@
             this.UpdateAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UpdateAccBtn.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpdateAccBtn.ForeColor = System.Drawing.Color.White;
-            this.UpdateAccBtn.Location = new System.Drawing.Point(471, 615);
+            this.UpdateAccBtn.Location = new System.Drawing.Point(471, 616);
             this.UpdateAccBtn.Name = "UpdateAccBtn";
             this.UpdateAccBtn.Size = new System.Drawing.Size(305, 38);
             this.UpdateAccBtn.TabIndex = 24;
@@ -1105,6 +1118,7 @@
             this.PasswordTxtB_AP.Font = new System.Drawing.Font("Handmade", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasswordTxtB_AP.Location = new System.Drawing.Point(167, 480);
             this.PasswordTxtB_AP.Name = "PasswordTxtB_AP";
+            this.PasswordTxtB_AP.PasswordChar = '*';
             this.PasswordTxtB_AP.Size = new System.Drawing.Size(142, 32);
             this.PasswordTxtB_AP.TabIndex = 7;
             // 
@@ -2586,6 +2600,7 @@
         private System.Windows.Forms.Button UpdateMenuBtn;
         private System.Windows.Forms.Button EditMenuBtn;
         private System.Windows.Forms.TextBox MenuID;
+        private System.Windows.Forms.CheckBox EmployeePasswordChckB;
     }
 }
 
